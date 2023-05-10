@@ -1,19 +1,19 @@
-# *Cahier des Charges - SAÉ 2.01/2.05*
+= *Cahier des Charges - SAÉ 2.01/2.05*
 
-## Daily Bank
+== Daily Bank
 
 Version 1.0, 10 Mai 2023, Groupe 3B1
 
 Emilien FIEU, Vincent BARETTE, Tanguy PICUIRA
 
-### Présentation du sujet
+=== Présentation du sujet
 
 Le sujet répond à la gestion des comptes bancaires, et des employés.
 Une partie est déjà existante, le reste va devoir être développé.
 
 
 
-## Analyse de l'existant
+== Analyse de l'existant
 
 Aujourd'hui, la Version 0 de DailyBank permet :
 
@@ -26,7 +26,7 @@ Aujourd'hui, la Version 0 de DailyBank permet :
 
 image::img/usecasev0.svg[]
 
-## Analyse des besoins
+== Analyse des besoins
 
 [plantuml]
 ....
@@ -44,14 +44,14 @@ Le guichetier peut clôturer un compte bancire.
 Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
 
 
-## Contraintes
+== Contraintes
 
-### Contraintes techniques
+=== Contraintes techniques
 
 Le projet doit être réalisé en Java, avec une base de données Oracle.
 La documentation doit être réalisé en AsciiDoc.
 Le Gantt doit être fournis au format PDF.
 
-### Contraintes organisationnelles
+=== Contraintes organisationnelles
 
 Le projet doit être réalisé avant le *mardi 16 mai 17h*, par une équipe de 3 personnes.
