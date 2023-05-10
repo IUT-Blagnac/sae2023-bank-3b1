@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+:Guichetier:
+:Chef d’agence:
+
+(Créditer/débiter un compte)
+(Créér un compte)
+(Effectuer un virement du compte à compte)
+(Cloturer un compte)
+(Gérérer les employés)
+
+
+Guichetier --> (Créditer/débiter un compte)
+Guichetier --> (Créér un compte)
+Guichetier --> (Effectuer un virement du compte à compte)
+Guichetier --> (Cloturer un compte)
+ (Gérérer les employés)  -> :Chef d’agence:
+
+:Chef d’agence: -|> Guichetier
+
+
+@enduml
