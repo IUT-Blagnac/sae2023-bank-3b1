@@ -68,20 +68,20 @@ Le projet doit être réalisé avant le *mardi 16 mai 17h*, par une équipe de 3
 * Deuxième version du cahier des charges en asciidoc
 * Deuxième version du GANTT en PDF
 * Vérification du GANTT de la première semaine
+* Première version du document *technique* et du document *utilisateur*
+* Première version du cahier des tests
+* Première version du JAR
 
 .*Semaine 21*
-* Première version du document *technique*`* et du document *utilisateur*
 * Vérification du GANTT de la deuxième semaine
+* Deuxième version du document *technique* et du document *utilisateur*
+* Chiffrage du projet
+* Deuxième version du JAR
+* Deuxième version du cahier des tests & recette finale
 
 .*Semaine 22*
-* Deuxieme version du document `technique` et du document `utilisateur`
-* Mise à jour du GANTT en PDF
-* Troisième version du cahier des tests
+* Soutenance orale
+* Evaluation individuelle
 
 .*Semaine 23*
-* Livraison finale des documents
-* Chiffrage du projet
-
-.*Semaine 24*
-* Evaluation
-
+* Evaluation individuelle
