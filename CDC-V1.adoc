@@ -21,6 +21,11 @@ Il est possible de créditer ou de débiter un compte notamment.
 
 ## Analyse des besoins
 
+[plantuml]
+....
+include::plantUML/useCaseV1.puml[]
+....
+
 Le guichetier peut créditer ou débiter un compte à travers une base de données.
 
 Le guichetier peut créer un compte bancaire.
