@@ -21,17 +21,12 @@ Il est possible de créditer ou de débiter un compte notamment.
 
 ## Analyse des besoins
 
+Le guichetier peut créditer ou débiter un compte à travers une base de données.
 
-Guichetier :
+Le guichetier peut créer un compte bancaire.
 
-- Créditer/débiter un compte (java et BD avec procédure stockée)
+Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
 
-- Créer un compte
+Le guichetier peut clôturer un compte bancire.
 
-- Effectuer un virement de compte à compte
-
-- Clôturer un compte
-
-Chef d’Agence :
-
-- Gérer (faire le « CRUD ») les employés (guichetier et chef d’agence)
+Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
