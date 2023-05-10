@@ -20,8 +20,8 @@ import model.orm.exception.DatabaseConnexionException;
 public class LogToDatabase {
 
 	// Gloabl : accès à la base de donnée : à ajuster selon le compte
-	private static final String user = "";
-	private static final String passwd = "";
+	private static final String user = "G3BS2";
+	private static final String passwd = "IUT23S2";
 
 	private static final String hoteOracle = "oracle.iut-blagnac.fr";
 	private static final String portOracle = "1521";
