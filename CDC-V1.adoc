@@ -15,9 +15,16 @@ Une partie est déjà existante, le reste va devoir être développé.
 
 ## Analyse de l'existant
 
-Aujourd'hui, la Version 0 de DailyBank permet, depuis un compte administrateur, de gérer les comptes bancaires des clients de l'agence.
+Aujourd'hui, la Version 0 de DailyBank permet :
 
-Il est possible de créditer ou de débiter un compte notamment.
+* De modifier les informations d’un client
+* De créer un nouveau client
+* De consulter un compte
+* De débiter un compte
+* De rendre un compte inactif
+
+
+image::img/usecasev0.svg[]
 
 ## Analyse des besoins
 
@@ -35,3 +42,16 @@ Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
 Le guichetier peut clôturer un compte bancire.
 
 Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
+
+
+## Contraintes
+
+### Contraintes techniques
+
+Le projet doit être réalisé en Java, avec une base de données Oracle.
+La documentation doit être réalisé en AsciiDoc.
+Le Gantt doit être fournis au format PDF.
+
+### Contraintes organisationnelles
+
+Le projet doit être réalisé avant le *mardi 16 mai 17h*, par une équipe de 3 personnes.
