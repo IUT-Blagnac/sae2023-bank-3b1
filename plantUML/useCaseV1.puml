@@ -1,23 +1,25 @@
 @startuml
 left to right direction
 
-:Guichetier:
-:Chef d’agence:
+:Guichetier: as guichetier
+:Chef d’agence: as chef
 
-(Créditer/débiter un compte)
-(Créér un compte)
-(Effectuer un virement du compte à compte)
-(Cloturer un compte)
-(Gérérer les employés)
+(Créditer un compte) as crediter
+(Débiter un compte) as debiter
+(Créér un compte) as creer
+(Effectuer un virement du compte à compte) as virement
+(Cloturer un compte) as cloturer
+(Gérérer les employés) as gerer
 
 
-Guichetier --> (Créditer/débiter un compte)
-Guichetier --> (Créér un compte)
-Guichetier --> (Effectuer un virement du compte à compte)
-Guichetier --> (Cloturer un compte)
- (Gérérer les employés)  -> :Chef d’agence:
+guichetier --> crediter
+guichetier --> debiter
+guichetier --> creer
+guichetier --> virement
+guichetier --> cloturer
+chef --> gerer
 
-:Chef d’agence: -|> Guichetier
+chef -|> guichetier
 
 
 @enduml
