@@ -1,0 +1,37 @@
+# *Cahier des Charges - SAÉ 2.01/2.05*
+
+## Daily Bank
+
+Version 1.0, 10 Mai 2023, Groupe 3B1
+
+Emilien FIEU, Vincent BARETTE, Tanguy PICUIRA
+
+### Présentation du sujet
+
+Le sujet répond à la gestion des comptes bancaires, et des employés.
+Une partie est déjà existante, le reste va devoir être développé.
+
+
+
+## Analyse de l'existant
+
+Aujourd'hui, la Version 0 de DailyBank permet, depuis un compte administrateur, de gérer les comptes bancaires des clients de l'agence.
+
+Il est possible de créditer ou de débiter un compte notamment.
+
+## Analyse des besoins
+
+
+Guichetier :
+
+- Créditer/débiter un compte (java et BD avec procédure stockée)
+
+- Créer un compte
+
+- Effectuer un virement de compte à compte
+
+- Clôturer un compte
+
+Chef d’Agence :
+
+- Gérer (faire le « CRUD ») les employés (guichetier et chef d’agence)
