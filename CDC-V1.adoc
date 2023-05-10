@@ -48,10 +48,40 @@ Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela sig
 
 === Contraintes techniques
 
-Le projet doit être réalisé en Java, avec une base de données Oracle.
+Le projet doit être réalisé avec les languages de programmation Java et SQL. Une base de données Oracle est utilisée.
+
+JavaFX est utilisé pour la création d'interfaces graphiques.
+
 La documentation doit être réalisé en AsciiDoc.
+
 Le Gantt doit être fournis au format PDF.
 
 === Contraintes organisationnelles
 
 Le projet doit être réalisé avant le *mardi 16 mai 17h*, par une équipe de 3 personnes.
+
+.*Semaine 19*
+* Première version du cahier des charges en asciidoc
+* Première version du GANTT en PDF
+
+.*Semaine 20*
+* Deuxième version du cahier des charges en asciidoc
+* Deuxième version du GANTT en PDF
+* Vérification du GANTT de la première semaine
+
+.*Semaine 21*
+* Première version du document *technique*`* et du document *utilisateur*
+* Vérification du GANTT de la deuxième semaine
+
+.*Semaine 22*
+* Deuxieme version du document `technique` et du document `utilisateur`
+* Mise à jour du GANTT en PDF
+* Troisième version du cahier des tests
+
+.*Semaine 23*
+* Livraison finale des documents
+* Chiffrage du projet
+
+.*Semaine 24*
+* Evaluation
+
