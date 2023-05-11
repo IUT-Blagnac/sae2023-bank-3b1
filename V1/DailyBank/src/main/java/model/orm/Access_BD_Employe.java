@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.data.Employe;
 import model.orm.exception.DataAccessException;
@@ -78,6 +79,44 @@ public class Access_BD_Employe {
 			return employeTrouve;
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
+		}
+	}
+
+	public ArrayList<Employe> getEmployeList() throws DataAccessException {
+		ArrayList<Employe> employeList = new ArrayList<Employe>();
+
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			String query = "SELECT * FROM Employe";
+
+			PreparedStatement pst = con.prepareStatement(query);
+
+			ResultSet rs = pst.executeQuery();
+
+			System.err.println(query);
+
+			while (rs.next()) {
+				int idEmployeTrouve = rs.getInt("idEmploye");
+				String nom = rs.getString("nom");
+				String prenom = rs.getString("prenom");
+				String droitsAccess = rs.getString("droitsAccess");
+				String loginTROUVE = rs.getString("login");
+				String motPasseTROUVE = rs.getString("motPasse");
+				int idAgEmploye = rs.getInt("idAg");
+
+				System.out.println("idEmployeTrouve : " + idEmployeTrouve);
+
+				employeList.add(new Employe(idEmployeTrouve, nom, prenom, droitsAccess, loginTROUVE, motPasseTROUVE,
+						idAgEmploye));
+			}
+			rs.close();
+			pst.close();
+
+			return employeList;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
+		} catch (DatabaseConnexionException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }
