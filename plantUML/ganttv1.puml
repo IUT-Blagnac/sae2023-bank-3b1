@@ -3,11 +3,17 @@
 
 projectscale weekly zoom 2
 
+[ Émilien : Vert | Vincent : Bleu | Tanguy : Rouge] lasts 0 day
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''',
 'Taches
 [Création du git t(1h30)] as [CreaGit] lasts 7 day
+[CreaGit] is colored in green
 [Écriture du cahier des charges t(2h)] as [CDCU] lasts 10 day
+[CDCU] is colored in blue
 [Création du Gantt t(2h)] as [GANTT] lasts 10 day
+[GANTT] is colored in green
+
+[Rédaction de la documentation de la V0 t(45min)] as [DocV0] lasts 5 day
 
 [Implémentation de la gestion des employé t(2h)] as [ImpleGest] lasts 10 day
 [Rédaction des test de la gestion des employé t(45min)] as [TestGest] lasts 4 day
@@ -34,23 +40,25 @@ projectscale weekly zoom 2
 [CDCU] starts at [CreaGit]'s end
 [GANTT] starts at [CreaGit]'s end
 
-[ImpleGest] starts at [CDCU]'s end
+[DocV0] starts at [CDCU]'s end
+
+[ImpleGest] starts at [DocV0]'s end
 [TestGest] starts at [ImpleGest]'s end
 [DocGest] starts at [ImpleGest]'s end
 
-[ImpleCred] starts at [CDCU]'s end
+[ImpleCred] starts at [DocV0]'s end
 [TestCred] starts at [ImpleCred]'s end
 [DocCred] starts at [ImpleCred]'s end
 
-[ImpleCrea] starts at [CDCU]'s end
+[ImpleCrea] starts at [DocV0]'s end
 [TestCrea] starts at [ImpleCrea]'s end
 [DocCrea] starts at [ImpleCrea]'s end
 
-[ImpleVir] starts at [CDCU]'s end
+[ImpleVir] starts at [DocV0]'s end
 [TestVir] starts at [ImpleVir]'s end
 [DocVir] starts at [ImpleVir]'s end
 
-[ImpleClot] starts at [CDCU]'s end
+[ImpleClot] starts at [DocV0]'s end
 [TestClot] starts at [ImpleClot]'s end
 [DocClot] starts at [ImpleClot]'s end
 @endgantt
