@@ -15,6 +15,7 @@ projectscale weekly zoom 2
 
 [Rédaction de la documentation de la V0 t(45min)] as [DocV0] lasts 5 day
 
+
 [Implémentation de la gestion des employé t(2h)] as [ImpleGest] lasts 10 day
 [Rédaction des test de la gestion des employé t(45min)] as [TestGest] lasts 4 day
 [Rédaction de la documentation technique de la gestion des employé t(45min)] as [DocGest] lasts 4 day
