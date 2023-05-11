@@ -16,24 +16,24 @@ projectscale weekly zoom 2
 [Rédaction de la documentation de la V0 t(45min)] as [DocV0] lasts 5 day
 
 
-[Implémentation de la gestion des employé t(2h)] as [ImpleGest] lasts 10 day
-[Rédaction des test de la gestion des employé t(45min)] as [TestGest] lasts 4 day
-[Rédaction de la documentation technique de la gestion des employé t(45min)] as [DocGest] lasts 4 day
+[Implémentation de la gestion des employés t(2h)] as [ImpleGest] lasts 10 day
+[Rédaction des test de la gestion des employés t(45min)] as [TestGest] lasts 4 day
+[Rédaction de la documentation technique de la gestion des employés t(45min)] as [DocGest] lasts 4 day
 
 [Implémentation du crédit t(2h)] as [ImpleCred] lasts 10 day
-[Rédaction des test du crédit t(45min)] as [TestCred] lasts 4 day
+[Rédaction des tests du crédit t(45min)] as [TestCred] lasts 4 day
 [Rédaction de la documentation technique du crédit t(45min)] as [DocCred] lasts 4 day
 
-[Implémentation de la création de compte t(2h)] as [ImpleCrea] lasts 10 day
-[Rédaction des test de la création de compte t(45min)] as [TestCrea] lasts 4 day
-[Rédaction de la documentation technique de la création de compte t(45min)] as [DocCrea] lasts 4 day
+[Implémentation de la création de comptes t(2h)] as [ImpleCrea] lasts 10 day
+[Rédaction des tests de la création de comptes t(45min)] as [TestCrea] lasts 4 day
+[Rédaction de la documentation technique de la création de comptes t(45min)] as [DocCrea] lasts 4 day
 
 [Implémentation des virements t(2h)] as [ImpleVir] lasts 10 day
-[Rédaction des test des virements t(45min)] as [TestVir] lasts 4 day
+[Rédaction des tests des virements t(45min)] as [TestVir] lasts 4 day
 [Rédaction de la documentation technique des virements t(45min)] as [DocVir] lasts 4 day
 
 [Implémentation de la cloture des comptes t(2h)] as [ImpleClot] lasts 10 day
-[Rédaction des test de la cloture des comptes t(45min)] as [TestClot] lasts 4 day
+[Rédaction des tests de la cloture des comptes t(45min)] as [TestClot] lasts 4 day
 [Rédaction de la documentation technique de la cloture des comptes t(45min)] as [DocClot] lasts 4 day
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
