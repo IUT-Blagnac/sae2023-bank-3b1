@@ -37,23 +37,23 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 
 == Livrables
 
-[cols="1,2,2,5",options=header]
+[cols="1,3,5",options=header]
 |===
-| Date      | Nom               |  Lien     | Retour
-| Sem.19    a| image::https://img.shields.io/badge/CDC-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc]            | https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc          |
-|           |Gantt V1 Prévu     | https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv1.png          |
-| 16/05     | CdC V2final       |           |
-|           | Gantt V1 Réalisé  |           |
-|           | Gantt V2 Prevu    |           |
-|           | Doc. Tec. V1      |           |
-|           | Doc User V1       |           |
-|           | Recette V1        |           |
-|           | Suivi projet V1   |           |
-| 26/05     | Gantt V2  réalisé |           |
-|           | Doc. Util. V2     |           |
-|           | Doc. Tec. V2      |           |
-|           | Code V2           |           |
-|           | Recette V2        |           |
-|           | `jar` projet      |           |
+| Date      | Ressource         | Retour        
+| Sem.19    a| image::https://img.shields.io/badge/CDC-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc] |
+|           a| image::https://img.shields.io/badge/Gant Prévu-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc]    |
+| 16/05     | CdC V2final       |
+|           | Gantt V1 Réalisé  |
+|           | Gantt V2 Prevu    |
+|           | Doc. Tec. V1      |
+|           | Doc User V1       |
+|           | Recette V1        |
+|           | Suivi projet V1   |
+| 26/05     | Gantt V2  réalisé |
+|           | Doc. Util. V2     |
+|           | Doc. Tec. V2      |
+|           | Code V2           |
+|           | Recette V2        |
+|           | `jar` projet     
 
 |===
