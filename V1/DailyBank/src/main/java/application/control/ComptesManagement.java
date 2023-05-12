@@ -72,13 +72,11 @@ public class ComptesManagement {
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
 			try {
-				// Temporaire jusqu'à implémentation
-				compte = null;
-				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
-						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
+				cep.doCompteEditorDialog(this.clientDesComptes, compte, EditionMode.CREATION);
+				AlertUtilities.showAlert(this.primaryStage, "Création d'un compte",
+						"Succès création compte", "Le nouveau compte a été créé avec succès", AlertType.INFORMATION);
+				Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+				compte = acc.ajouterCompte(compte, this.clientDesComptes.idNumCli);
 
 				// if JAMAIS vrai
 				// existe pour compiler les catchs dessous

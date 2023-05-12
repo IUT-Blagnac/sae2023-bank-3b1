@@ -1,9 +1,6 @@
 package model.orm;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import model.data.CompteCourant;
@@ -168,5 +165,9 @@ public class Access_BD_CompteCourant {
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 		}
+	}
+
+	public CompteCourant ajouterCompte(CompteCourant compte, int idNumCli) throws DataAccessException {
+		return null;
 	}
 }

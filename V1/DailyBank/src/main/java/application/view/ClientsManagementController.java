@@ -148,6 +148,7 @@ public class ClientsManagementController {
 
 	@FXML
 	private void doDesactiverClient() {
+		// TODO : Non implémenté => désactivé
 	}
 
 	@FXML
