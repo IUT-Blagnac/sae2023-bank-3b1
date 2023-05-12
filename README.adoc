@@ -40,7 +40,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 [cols="1,2,2,5",options=header]
 |===
 | Date      | Nom               |  Lien     | Retour
-| Sem.19    | CDC V1            |           |
+| Sem.19    a| image::https://img.shields.io/badge/CDC-V1-333333.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc]            |           |
 |           |Gantt V1 Prévu     |           |
 | 16/05     | CdC V2final       |           |
 |           | Gantt V1 Réalisé  |           |
