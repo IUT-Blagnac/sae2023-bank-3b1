@@ -2,6 +2,7 @@ package application.control;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.EmployeManagementController;
 import javafx.fxml.FXMLLoader;
@@ -9,10 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.Client;
 import model.data.Employe;
+import model.orm.Access_BD_Client;
 import model.orm.Access_BD_Employe;
 import model.orm.exception.ApplicationException;
+import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 import java.util.ArrayList;
 
@@ -61,8 +66,27 @@ public class EmployeManagement {
     }
 
     public Employe creerEmploye(){
-        System.out.println("Je doit créer l’employé");
-        return null;
+        Employe employe;
+        EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
+        employe = eep.doEmployeEditorDialog(null, EditionMode.CREATION);
+
+        if (employe != null) {
+            try {
+                Access_BD_Employe ac = new Access_BD_Employe();
+
+                ac.insertEmploye(employe);
+            } catch (DatabaseConnexionException e) {
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.primaryStage.close();
+                employe = null;
+            } catch (ApplicationException ae) {
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+                employe = null;
+            }
+        }
+        return employe;
     }
 
     public void doEmployeManagementDialog() {

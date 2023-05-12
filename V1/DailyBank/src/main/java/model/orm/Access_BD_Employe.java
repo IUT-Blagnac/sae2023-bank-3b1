@@ -139,4 +139,50 @@ public class Access_BD_Employe {
 		}
 		return employeList;
 	}
+
+	public void insertEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
+		try {
+			System.out.println(employe);
+
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "INSERT INTO EMPLOYE VALUES (" + "seq_id_client.NEXTVAL" + ", " + "?" + ", " + "?" + ", "
+					+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idAg);
+
+
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.INSERT,
+						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
+			}
+
+			query = "SELECT seq_id_client.CURRVAL from DUAL";
+
+			System.err.println(query);
+			PreparedStatement pst2 = con.prepareStatement(query);
+
+			ResultSet rs = pst2.executeQuery();
+			rs.next();
+			int numCliBase = rs.getInt(1);
+
+			con.commit();
+			rs.close();
+			pst2.close();
+
+			employe.idEmploye = numCliBase;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Client, Order.INSERT, "Erreur accès", e);
+		}
+	}
 }

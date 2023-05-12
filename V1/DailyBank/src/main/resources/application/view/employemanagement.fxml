@@ -44,7 +44,7 @@
                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Button fx:id="btnModifClient" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierEmploye" text="Modifier employé" GridPane.rowIndex="2">
+                                <Button fx:id="btnModifierEmploye" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierEmploye" text="Modifier employé" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" top="10.0" />
                                     </GridPane.margin>

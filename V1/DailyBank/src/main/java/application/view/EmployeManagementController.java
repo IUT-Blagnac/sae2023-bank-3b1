@@ -2,11 +2,16 @@ package application.view;
 
 import application.DailyBankState;
 import application.control.EmployeManagement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.Client;
 import model.data.Employe;
 
 import java.util.ArrayList;
@@ -14,6 +19,7 @@ import java.util.ArrayList;
 public class EmployeManagementController {
     private Stage primaryStage;
     private EmployeManagement cmDialogController;
+    private ObservableList<Employe> olvEmployes;
 
     public void initContext(Stage _containingStage, EmployeManagement _cm, DailyBankState _dbstate) {
         this.cmDialogController = _cm;
@@ -23,7 +29,16 @@ public class EmployeManagementController {
 
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
+        this.olvEmployes = FXCollections.observableArrayList();
+        this.lvEmployes.setItems(this.olvEmployes);
+        this.lvEmployes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        this.lvEmployes.getFocusModel().focus(-1);
+        this.lvEmployes.getSelectionModel().selectedItemProperty().addListener(e -> validateComponentState());
+        this.validateComponentState();
+    }
 
+    public void displayDialog() {
+        this.primaryStage.showAndWait();
     }
 
     private void closeWindow(WindowEvent e) {
@@ -39,6 +54,8 @@ public class EmployeManagementController {
     private TextField txtPrenom;
     @FXML
     private TextField txtNum;
+    @FXML
+    private Button btnModifierEmploye;
 
     @FXML
     private void doCancel() {
@@ -86,7 +103,11 @@ public class EmployeManagementController {
 
     @FXML
     private void doCreerEmploye() {
-        this.cmDialogController.creerEmploye();
+        Employe employe;
+        employe = this.cmDialogController.creerEmploye();
+        if (employe != null) {
+            this.olvEmployes.add(employe);
+        }
     }
 
     @FXML
@@ -99,10 +120,15 @@ public class EmployeManagementController {
         this.cmDialogController.supprimerEmploye();
     }
 
-    public void displayDialog() {
-        this.primaryStage.showAndWait();
+
+    private void validateComponentState() {
+
+        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+        if (selectedIndice >= 0) {
+            this.btnModifierEmploye.setDisable(false);
+        } else {
+            this.btnModifierEmploye.setDisable(true);
+        }
     }
-
-
 
 }
