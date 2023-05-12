@@ -1,10 +1,26 @@
 = *Cahier des Charges - SAÉ 2.01/2.05*
 
-== Daily Bank
+:toc-title: Table des matières
+:toc:
+:title-page:
+:sectnums:
+:title-logo-image: image:img/Logo_IUT_Blagnac.png[]
+:stem: asciimath
 
-Version 1.0, 10 Mai 2023, Groupe 3B1
+image::img/Logo_IUT_Blagnac.png[]
+
+.Equipe :  
+
+. Tanguy Picuira
+. Emilien Fieu
+. Vincent Barette
+
+Version 1.0, 12 Mai 2023, Groupe 3B1
 
 Emilien FIEU, Vincent BARETTE, Tanguy PICUIRA
+
+
+== Daily Bank
 
 === Présentation du sujet
 
