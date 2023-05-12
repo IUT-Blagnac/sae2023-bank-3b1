@@ -58,7 +58,7 @@ image::img/usecasev0.svg[]
 
 [plantuml]
 ....
-include::plantUML/useCaseV1.puml[]
+include::../plantUML/useCaseV1.puml[]
 ....
 
 Le guichetier peut créditer ou débiter un compte à travers une base de données.
