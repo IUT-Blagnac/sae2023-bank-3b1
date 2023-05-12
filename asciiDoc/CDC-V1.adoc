@@ -1,7 +1,7 @@
 = *Cahier des Charges - SAÉ 2.01/2.05*
-
-:toc-title: Table des matières
 :toc:
+:toc-title: Sommaire
+
 :title-page:
 :sectnums:
 :title-logo-image: image:img/Logo_IUT_Blagnac.png[]
