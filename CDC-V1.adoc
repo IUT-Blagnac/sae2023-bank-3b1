@@ -11,7 +11,19 @@ Emilien FIEU, Vincent BARETTE, Tanguy PICUIRA
 Le sujet répond à la gestion des comptes bancaires, et des employés.
 Une partie est déjà existante, le reste va devoir être développé.
 
+___
 
+==== Contexte
+
+Le secteur bancaire doit s'adapter aux avancées technologiques en augmentant ses investissements dans la numérisation pour reconstruire ses services. En effet, la plupart de ces services devraient être accessibles à distance via des sites Web ou des applications, afin d'améliorer l'accessibilité et l'intérêt de ses clients. 
+
+Les banques doivent innover pour établir un avantage concurrentiel sur le marché, et la pandémie de Covid-19 a renforcé cette nécessité en habituant les clients à tout faire à distance, ce qui a entraîné l'entrée de nouveaux concurrents tels que les Néobanques. Ainsi, pour rester compétitives, les banques doivent fournir des services numériques efficaces pour répondre aux besoins des clients.
+
+___
+
+==== Point de vue Client
+
+Dans cette optique, le réseau bancaire français DailyBank, qui compte plus de 100 agences bancaire, souhaite développer une application JAVA-Oracle pour gérer les comptes clients et remplacer plusieurs outils obsolètes. La restructuration du réseau est nécessaire pour s'adapter à cette stratégie de différenciation sur un marché en constante expansion. Les besoins bancaires et des clients évoluent, ce qui nécessite le développement de multiples fonctionnalités pour répondre à ces besoins.
 
 == Analyse de l'existant
 

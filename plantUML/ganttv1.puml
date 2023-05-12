@@ -22,7 +22,7 @@ projectscale weekly zoom 2
 
 [Implémentation de la gestion des employés t(4h)] as [ImpleGest] lasts 20 day
 [ImpleGest] is colored in green
-[Rédaction des test de la gestion des employés t(1h30)] as [TestGest] lasts 7 day
+[Rédaction des tests de la gestion des employés t(1h30)] as [TestGest] lasts 7 day
 [TestGest] is colored in green
 [Rédaction de la documentation technique de la gestion des employés t(1h30)] as [DocGest] lasts 7 day
 [DocGest] is colored in green
