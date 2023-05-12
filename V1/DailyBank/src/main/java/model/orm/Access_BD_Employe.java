@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.data.Client;
 import model.data.Employe;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -82,41 +83,60 @@ public class Access_BD_Employe {
 		}
 	}
 
-	public ArrayList<Employe> getEmployeList() throws DataAccessException {
+	public ArrayList<Employe> getEmployeList(int idAg, int num, String debutNom, String debutPrenom)
+			throws DataAccessException, DatabaseConnexionException {
+
 		ArrayList<Employe> employeList = new ArrayList<Employe>();
 
 		try {
 			Connection con = LogToDatabase.getConnexion();
-			String query = "SELECT * FROM Employe";
 
-			PreparedStatement pst = con.prepareStatement(query);
+			PreparedStatement pst;
+
+			String query;
+			if (num != -1) {
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " AND IDEMPLOYE  = ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+				pst.setInt(2, num);
+
+			} else if (!debutNom.equals("")) {
+				debutNom = debutNom.toUpperCase() + "%";
+				debutPrenom = debutPrenom.toUpperCase() + "%";
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " AND UPPER(NOM) like ?" + " AND UPPER(PRENOM) like ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+				pst.setString(2, debutNom);
+				pst.setString(3, debutPrenom);
+			} else {
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+			}
+
 
 			ResultSet rs = pst.executeQuery();
-
-			System.err.println(query);
-
 			while (rs.next()) {
-				int idEmployeTrouve = rs.getInt("idEmploye");
-				String nom = rs.getString("nom");
-				String prenom = rs.getString("prenom");
-				String droitsAccess = rs.getString("droitsAccess");
-				String loginTROUVE = rs.getString("login");
-				String motPasseTROUVE = rs.getString("motPasse");
-				int idAgEmploye = rs.getInt("idAg");
+				int idEmploye = rs.getInt("IDEMPLOYE");
+				String nom = rs.getString("NOM");
+				String prenom = rs.getString("PRENOM");
+				String droitsAccess = rs.getString("DROITSACCESS");
+				String login = rs.getString("LOGIN");
+				String motPasse = rs.getString("MOTPASSE");
+				int idAgCli = rs.getInt("IDAG");
 
-				System.out.println("idEmployeTrouve : " + idEmployeTrouve);
-
-				employeList.add(new Employe(idEmployeTrouve, nom, prenom, droitsAccess, loginTROUVE, motPasseTROUVE,
-						idAgEmploye));
+				employeList.add(new Employe(idEmploye, nom, prenom, droitsAccess, login, motPasse, idAgCli));
 			}
 			rs.close();
 			pst.close();
-
-			return employeList;
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
-		} catch (DatabaseConnexionException e) {
-			throw new RuntimeException(e);
+			throw new DataAccessException(Table.Client, Order.SELECT, "Erreur accès", e);
 		}
+		return employeList;
 	}
 }

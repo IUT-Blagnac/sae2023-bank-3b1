@@ -11,6 +11,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Employe;
 import model.orm.Access_BD_Employe;
+import model.orm.exception.ApplicationException;
+import model.orm.exception.DatabaseConnexionException;
 
 import java.util.ArrayList;
 
@@ -67,20 +69,20 @@ public class EmployeManagement {
         this.emcViewController.displayDialog();
     }
 
-    public ArrayList<Employe> getlisteEmploye(){
+    public ArrayList<Employe> getlisteEmploye(int num, String nom, String prenom){
         ArrayList<Employe> listeEmploye = new ArrayList<Employe>();
         try {
             Access_BD_Employe ac = new Access_BD_Employe();
-            listeEmploye = ac.getEmployeList();
-            ArrayList<Employe> listeEmploye2 = new ArrayList<Employe>();
-            for (int i = 0; i < listeEmploye.size(); i++) {
-                if (listeEmploye.get(i).idAg == dailyBankState.getEmployeActuel().idAg) {
-                    listeEmploye2.add(listeEmploye.get(i));
-                }
-            }
-            listeEmploye = listeEmploye2;
-        } catch (Exception e) {
-            e.printStackTrace();
+            listeEmploye = ac.getEmployeList(this.dailyBankState.getEmployeActuel().idAg, num, nom, prenom);
+        } catch (DatabaseConnexionException e) {
+            ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+            ed.doExceptionDialog();
+            this.primaryStage.close();
+            listeEmploye = new ArrayList<>();
+        } catch (ApplicationException e){
+            ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+            ed.doExceptionDialog();
+            listeEmploye = new ArrayList<>();
         }
 
 
