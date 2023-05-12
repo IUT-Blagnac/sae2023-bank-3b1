@@ -17,7 +17,7 @@ projectscale weekly zoom 2
 
 
 [Implémentation de la gestion des employés t(2h)] as [ImpleGest] lasts 10 day
-[Rédaction des test de la gestion des employés t(45min)] as [TestGest] lasts 4 day
+[Rédaction des tests de la gestion des employés t(45min)] as [TestGest] lasts 4 day
 [Rédaction de la documentation technique de la gestion des employés t(45min)] as [DocGest] lasts 4 day
 
 [Implémentation du crédit t(2h)] as [ImpleCred] lasts 10 day
