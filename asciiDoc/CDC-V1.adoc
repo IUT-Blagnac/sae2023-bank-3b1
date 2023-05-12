@@ -1,7 +1,6 @@
 = *Cahier des Charges - SAÉ 2.01/2.05*
 :toc:
 :toc-title: Sommaire
-
 :title-page:
 :sectnums:
 :title-logo-image: image:img/Logo_IUT_Blagnac.png[]
@@ -16,8 +15,6 @@ image::../img/Logo_IUT_Blagnac.png[]
 . Vincent Barette
 
 Version 1.0, 12 Mai 2023, Groupe 3B1
-
-Emilien FIEU, Vincent BARETTE, Tanguy PICUIRA
 
 
 == Daily Bank
@@ -51,15 +48,13 @@ Aujourd'hui, la Version 0 de DailyBank permet :
 * De débiter un compte
 * De rendre un compte inactif
 
-
-image::img/usecasev0.svg[]
+.UseCase de la Version 0 de l’application DailyBank
+image::../img/usecasev0.svg[]
 
 == Analyse des besoins
 
-[plantuml]
-....
-include::../plantUML/useCaseV1.puml[]
-....
+.UseCase de la Version 1 de l’application DailyBank
+image::../plantUML/useCaseV1.png[]
 
 Le guichetier peut créditer ou débiter un compte à travers une base de données.
 
