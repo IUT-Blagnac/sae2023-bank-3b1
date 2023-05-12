@@ -1,0 +1,24 @@
+@startuml UseCase
+left to right direction
+
+:Guichetier: as guichetier
+:Chef d’agence: as chef
+
+(Créditer un compte) as crediter
+(Débiter un compte) as debiter
+(Créér un compte) as creer
+(Effectuer un virement du compte à compte) as virement
+(Cloturer un compte) as cloturer
+(Gérer les employés) as gerer
+
+guichetier --> crediter
+guichetier --> debiter
+guichetier --> creer
+guichetier --> virement
+guichetier --> cloturer
+chef --> gerer
+
+chef -|> guichetier
+
+
+@enduml

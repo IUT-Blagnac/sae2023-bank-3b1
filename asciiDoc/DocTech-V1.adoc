@@ -1,0 +1,56 @@
+= *Document Technique - SAÉ 2.01/2.05*
+:toc:
+:toc-title: Sommaire
+:title-page:
+:sectnums:
+:title-logo-image: image:img/Logo_IUT_Blagnac.png[]
+:stem: asciimath
+
+Présentation rapide de l’application
+
+== Présentation rapide de l'application
+
+=== Use Case global
+
+.UseCase de la Version 1 de l’application DailyBank
+
+image::../img/usecasev0.svg[]
+
+Le guichetier peut créditer ou débiter un compte à travers une base de données.
+
+Le guichetier peut créer un compte bancaire.
+
+Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
+
+Le guichetier peut clôturer un compte bancire.
+
+Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
+
+
+
+Expliquer le diagramme de classe des données global (base de données), surtout les éléments particuliers (par exemple chef Agence, client inactif, …) qui servent et concernent le code développé.
+
+Architecture
+
+Architecture générale en terme de sous-systèmes (poste client, serveurs, …) et rôle de chaque élément
+
+Ressources externes utilisées et rôles (dépendances, .jar nécessaires, …)
+
+Structuration en packages de l’application documentée. Principes retenus pour cette structuration
+
+Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence. Par exemple, une structure récurrente de classes peut être décrite ici (contrôleurs de dialogues, contrôleurs de vue, …).
+
+Pour chaque fonctionnalité : en les expliquant
+
+Partie de use case réalisé - scénarios éventuels
+
+Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+Classes impliquées dans chaque package
+
+Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence.
+
+Eventuellement : extraits de code significatifs commentés si nécessaire pour des points particuliers et importants.
+
+Eventuellement : copies des écrans principaux de la fonctionnalité (ou renvoi vers doc utilisateur) + maquettes états imprimés (si concerné).
+

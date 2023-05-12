@@ -56,16 +56,39 @@ image::../img/usecasev0.svg[]
 .UseCase de la Version 1 de l’application DailyBank
 image::../plantUML/useCaseV1.png[]
 
-Le guichetier peut créditer ou débiter un compte à travers une base de données.
+.*Version 0*
+****
+.*Guichetier :*
+** Le guichetier peut modifier les informations d'un client.
+** Le guichetier peut créer un nouveau client.
+** Le guichetier peut consulter un compte bancaire.
+** Le guichetier peut débiter un compte bancaire.
 
-Le guichetier peut créer un compte bancaire.
+.*Chef d'agence :*
 
-Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
+** Le Chef d'Agence peut rendre inactif un compte bancaire.
+** Le Chef d'Agence *est* un guichetier.
+****
 
-Le guichetier peut clôturer un compte bancire.
+.*Version 1*
+****
+Les besoins de la version précédente, et :
 
-Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
+.*Guichetier :*
 
+** Le guichetier peut débiter un compte à travers une base de données.
+** Le guichetier peut créer un compte bancaire.
+** Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
+** Le guichetier peut clôturer un compte bancaire.
+
+.*Chef d'agence :*
+
+** Le Chef d'Agence peut gérer les guichetiers. _Cela signifie qu'il peut effectuer les actions suivantes :_
+*** Créer
+*** Consulter
+*** Modifier
+*** Supprimer
+****
 
 == Contraintes
 
