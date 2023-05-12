@@ -7,7 +7,7 @@
 :title-logo-image: image:img/Logo_IUT_Blagnac.png[]
 :stem: asciimath
 
-image::img/Logo_IUT_Blagnac.png[]
+image::../img/Logo_IUT_Blagnac.png[]
 
 .Equipe :  
 
