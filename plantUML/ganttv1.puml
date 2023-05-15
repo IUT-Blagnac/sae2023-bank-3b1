@@ -1,61 +1,84 @@
 @startgantt
 !define t(x) <b>(x)
 
-projectscale weekly zoom 2
-
-[ Émilien : Vert | Vincent : Bleu | Tanguy : Rouge] lasts 0 day
+projectscale weekly zoom 3.6
+title
+SAÉ 2.01 / 2.05
+|= Tache |= Description |= Durrée |= Ressource |= Prédécésseurs |
+| A | Création du Git |  1h30| Émilien | |
+| B | Création du CDCU |  3h| Vincent | A |
+| C | Création du GANTT |  3h| Émilien | A|
+| D | Rendu Gantt/CDCU V1 | |  | B,C|
+| E | Rédaction de la documentation V0 |  1h| Vincent | D|
+| F | Implémentation de la gestion des employés |  3h| Émilien | E|
+| G | Rédaction des tests de la gestion des employés |  1h30| Émilien | F|
+| H | Rédaction de la documentation technique de la gestion des employés |  1h30| Émilien | F|
+| I | Implémentation du crédit |  3h| Vincent | E|
+| J | Rédaction des tests du crédit |  45min| Vincent | I|
+| K | Rédaction de la documentation technique du crédit |  45min| Vincent | I|
+| L | Implémentation de la création de comptes |  3h| Tanguy | E|
+| M | Rédaction des tests de la création de comptes |  45min| Tanguy | L|
+| N | Rédaction de la documentation technique de la création de comptes |  45min| Tanguy | L|
+| O | Implémentation des virements |  3h| Vincent | E |
+| P | Rédaction des tests des virements |  45min| Vincent | O |
+| Q | Rédaction de la documentation technique des virements |  45min| Vincent | O|
+| R | Implémentation de la cloture des comptes |  3h| Tanguy | E|
+| S | Rédaction des tests de la cloture des comptes |  1h| Tanguy | R|
+| T | Rédaction de la documentation technique de la cloture des comptes |  1h| Tanguy | R|
+| U | Rendu V1 | |  | G,H,J,K,M,N,P,Q,S,T|
+end title
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''',
 'Taches
-[Création du git t(1h30)] as [CreaGit] lasts 7 day
+[ ] as [CreaGit] lasts 7 day
 [CreaGit] is colored in green
-[Écriture du cahier des charges t(3h)] as [CDCU] lasts 14 day
+[  ] as [CDCU] lasts 14 day
 [CDCU] is colored in blue
-[Création du Gantt t(3h)] as [GANTT] lasts 14 day
+[   ] as [GANTT] lasts 14 day
 [GANTT] is colored in green
 
-[Rendu Gantt/CDCU V1] as [RenduGCV1] happens 42 day after [CreaGit]'s start
+[      ] as [RenduGCV1] happens 42 day after [CreaGit]'s start
 
 
-[Rédaction de la documentation de la V0 t(45min)] as [DocV0] lasts 5 day
+[    ] as [DocV0] lasts 5 day
 [DocV0] is colored in blue
 
 
-[Implémentation de la gestion des employés t(4h)] as [ImpleGest] lasts 20 day
+[     ] as [ImpleGest] lasts 20 day
 [ImpleGest] is colored in green
-[Rédaction des tests de la gestion des employés t(1h30)] as [TestGest] lasts 7 day
+[        ] as [TestGest] lasts 7 day
 [TestGest] is colored in green
-[Rédaction de la documentation technique de la gestion des employés t(1h30)] as [DocGest] lasts 7 day
+[       ] as [DocGest] lasts 7 day
 [DocGest] is colored in green
 
-[Implémentation du crédit t(3h)] as [ImpleCred] lasts 14 day
+[         ] as [ImpleCred] lasts 14 day
 [ImpleCred] is colored in blue
-[Rédaction des tests du crédit t(45min)] as [TestCred] lasts 4 day
+[           ] as [TestCred] lasts 4 day
 [TestCred] is colored in blue
-[Rédaction de la documentation technique du crédit t(45min)] as [DocCred] lasts 4 day
+[            ] as [DocCred] lasts 4 day
 [DocCred] is colored in blue
 
-[Implémentation de la création de comptes t(3h)] as [ImpleCrea] lasts 14 day
+[             ] as [ImpleCrea] lasts 14 day
 [ImpleCrea] is colored in red
-[Rédaction des tests de la création de comptes t(45min)] as [TestCrea] lasts 4 day
+[              ] as [TestCrea] lasts 4 day
 [TestCrea] is colored in red
-[Rédaction de la documentation technique de la création de comptes t(45min)] as [DocCrea] lasts 4 day
+[               ] as [DocCrea] lasts 4 day
 [DocCrea] is colored in red
 
-[Implémentation des virements t(3h)] as [ImpleVir] lasts 14 day
+[                ] as [ImpleVir] lasts 14 day
 [ImpleVir] is colored in blue
-[Rédaction des tests des virements t(45min)] as [TestVir] lasts 4 day
+[                 ] as [TestVir] lasts 4 day
 [TestVir] is colored in blue
-[Rédaction de la documentation technique des virements t(45min)] as [DocVir] lasts 4 day
+[                  ] as [DocVir] lasts 4 day
 [DocVir] is colored in blue
 
-[Implémentation de la cloture des comptes t(3h)] as [ImpleClot] lasts 14 day
+[                   ] as [ImpleClot] lasts 14 day
 [ImpleClot] is colored in red
-[Rédaction des tests de la cloture des comptes t(1h)] as [TestClot] lasts 4 day
+[                    ] as [TestClot] lasts 4 day
 [TestClot] is colored in red
-[Rédaction de la documentation technique de la cloture des comptes t(1h)] as [DocClot] lasts 4 day
+[                     ] as [DocClot] lasts 4 day
 [DocClot] is colored in red
 
-[Rendu V1] happens 63 day after [CreaGit]'s start
+[                      ] as [Rendu V1] happens 63 day after [CreaGit]'s start
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 'Mise en ordre
@@ -90,4 +113,10 @@ projectscale weekly zoom 2
 [TestClot] -> [Rendu V1]
 [DocVir] -> [Rendu V1]
 [TestVir] -> [Rendu V1]
+[DocCrea] -> [Rendu V1]
+[TestCrea] -> [Rendu V1]
+[DocCred] -> [Rendu V1]
+[TestCred] -> [Rendu V1]
+[DocGest] -> [Rendu V1]
+[TestGest] -> [Rendu V1]
 @endgantt
