@@ -185,4 +185,60 @@ public class Access_BD_Employe {
 			throw new DataAccessException(Table.Client, Order.INSERT, "Erreur accès", e);
 		}
 	}
+
+	public void updateEmploye(Employe employe) throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "UPDATE EMPLOYE SET NOM = ?, PRENOM = ?, DROITSACCESS = ?, LOGIN = ?, MOTPASSE = ?, IDAG = ? WHERE IDEMPLOYE = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idAg);
+			pst.setInt(7, employe.idEmploye);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.UPDATE,
+						"Update anormal (update de moins ou plus d'une ligne)", null, result);
+			}
+
+			con.commit();
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.UPDATE, "Erreur accès", e);
+		}
+	}
+
+	public void supprimerEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "DELETE FROM EMPLOYE WHERE IDEMPLOYE = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, employe.idEmploye);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE,
+						"Delete anormal (delete de moins ou plus d'une ligne)", null, result);
+			}
+
+			con.commit();
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.DELETE, "Erreur accès", e);
+		}
+	}
 }

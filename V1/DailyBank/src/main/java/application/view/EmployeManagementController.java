@@ -112,12 +112,24 @@ public class EmployeManagementController {
 
     @FXML
     public void doModifierEmploye() {
-        this.cmDialogController.modifierEmploye();
+        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+        if (selectedIndice >= 0){
+            Employe employeMod= this.olvEmployes.get(selectedIndice);
+            Employe resultat = this.cmDialogController.modifierEmploye(employeMod);
+            if (resultat != null) {
+                this.olvEmployes.set(selectedIndice, resultat);
+            }
+        }
     }
 
     @FXML
     public void doSupprimerEmplyé() {
-        this.cmDialogController.supprimerEmploye();
+        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+        if (selectedIndice >= 0){
+            Employe employeSup= this.olvEmployes.get(selectedIndice);
+            this.cmDialogController.supprimerEmploye(employeSup);
+            this.olvEmployes.remove(selectedIndice);
+        }
     }
 
 

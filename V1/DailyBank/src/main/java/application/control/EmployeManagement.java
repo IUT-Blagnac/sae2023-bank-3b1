@@ -2,11 +2,13 @@ package application.control;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.AlertUtilities;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.EmployeManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -55,14 +57,44 @@ public class EmployeManagement {
 
     }
 
-    public Employe modifierEmploye(){
-        System.out.println("Je doit modifier l’employé");
-        return null;
+    public Employe modifierEmploye(Employe employe){
+        EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
+        Employe result = eep.doEmployeEditorDialog(employe, EditionMode.MODIFICATION);
+        if (result != null){
+            try {
+                Access_BD_Employe ac = new Access_BD_Employe();
+                ac.updateEmploye(result);
+            } catch (DatabaseConnexionException e){
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.primaryStage.close();
+                result = null;
+            } catch (ApplicationException ae){
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+                result = null;
+            }
+        }
+        return result;
     }
 
-    public Employe supprimerEmploye(){
-        System.out.println("Je doit supprimer l’employé");
-        return null;
+    public void supprimerEmploye(Employe employe){
+        boolean confirmation = AlertUtilities.confirmYesCancel(this.primaryStage, "Suppression d'un employé", "Voulez-vous vraiment supprimer l'employé ", employe.toString(), Alert.AlertType.CONFIRMATION);
+
+        if (confirmation){
+            try {
+                Access_BD_Employe ac = new Access_BD_Employe();
+                ac.supprimerEmploye(employe);
+            } catch (DatabaseConnexionException e){
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+                ed.doExceptionDialog();
+                this.primaryStage.close();
+            } catch (ApplicationException ae){
+                ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+                ed.doExceptionDialog();
+            }
+        }
+
     }
 
     public Employe creerEmploye(){
