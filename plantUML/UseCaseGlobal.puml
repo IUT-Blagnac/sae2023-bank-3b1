@@ -1,7 +1,7 @@
 @startuml UseCase
 left to right direction
 
-:Guichetier: as guichetier
+:Guichetiercaca: as guichetier
 :Chef d’agence: as chef
 
 (Créditer un compte) as crediter

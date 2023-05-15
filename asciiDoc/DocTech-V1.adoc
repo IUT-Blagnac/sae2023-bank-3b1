@@ -16,19 +16,90 @@ Présentation rapide de l’application
 
 image::../img/usecasev0.svg[]
 
-Le guichetier peut créditer ou débiter un compte à travers une base de données.
+.*Explication du Use Case Global :*
+****
+.*Guichetier :*
+** Le guichetier peut modifier les informations d'un client.
+** Le guichetier peut créer un nouveau client.
+** Le guichetier peut consulter un compte bancaire.
+** Le guichetier peut débiter un compte bancaire.
 
-Le guichetier peut créer un compte bancaire.
+.*Chef d'agence :*
 
-Le guichetier peut effectuer un virement d'un compte bancaire à l'autre.
-
-Le guichetier peut clôturer un compte bancire.
-
-Le Chef d'Agence peut "gérer" les guichetiers, et le Chef d’Agence. _Cela signifie qu'il peut créer, lire, supprimer et mettre à jour les comptes des guichetiers et du Chef d'Agence._
-
-
+** Le Chef d'Agence peut rendre inactif un compte bancaire.
+** Le Chef d'Agence *est* un guichetier.
+****
 
 Expliquer le diagramme de classe des données global (base de données), surtout les éléments particuliers (par exemple chef Agence, client inactif, …) qui servent et concernent le code développé.
+
+image::../img/bdSAEDevApp.png[]
+
+La base de données de l'application utilise différentes tables que nous allons détailler.
+
+.*Détails de la base de données*
+****
+.*Agence Bancaire*
+** Une Agence Bancaire dispose de différentes informations, dont un Identifiant d'agence, nommé IDAG. Il s'agit d'ailleurs de la clef primaire.
+** Une Agence Bancaire a un nom et une adresse.
+** Une Agence Bancaire a un chef, qui est un employé. Le Chef d'Agence Bancaire est connu grâce à son identifiant d'employé.
+
+.*Employé*
+** Un employé a différentes informations personnelles, telles qu'un nom et un prénom.
+** Un employé a également un login et un mot de passe, pour se connecter à son compte d'employé.
+** Un employé a un identifiant unique à 3 chiffres, qui est la clef primaire.
+** Un employé est assigné à une Agence Bancaire grâce à la clef étrangère IDAG qui est conservé comme un attribut.
+
+.*Client*
+** Un client a différentes informations personnelles, telles qu'un nom, un prénom, une adresse postale, un numéro de téléphone et une adresse email.
+** Un client est assigné à une Agence Bancaire grâce à la clef étrangère IDAG qui est conservé comme un attribut.
+** Un client a un identifiant unique à 5 chiffres, qui est la clef primaire.
+** Un client peut-être actif ou inactif avec l'attribut ESTINACTIF. S'il est actif, l'attribut est initialisé sur 'N', sinon sur 'O'. Attention, l'attribut ne peut pas être NULL.
+
+.*Compte Courant*
+** Un compte courant a un identifiant unique à 5 chiffres, qui est la clef primaire.
+** Un compte courant appartient à un client avec une clef étrangère.
+** Un compte courant peut être autorisé à être "dans le rouge" (débiteur) d'un certain montant. Celui de DEBITAUTORISE.
+** Un compte courant dispose d'un certain solde comprit entre 0,00 et 99999999,99.
+** Un compte courant peut-être actif ou inactif avec l'attribut ESTINACTIF. S'il est actif, l'attribut est initialisé sur 'N', sinon sur 'O'. Attention, l'attribut ne peut pas être NULL.
+
+.*Prélèvement Automatique*
+_Un compte courant peut être en place un prélèvement automatique mensuel, qui sera déclenché chaque mois à un jour précis._
+
+** Un prélèvement automatiquement dispose d'un identifiant unique IdPrelev de 8 chiffres.
+** Un prélèvement automatiquement est associé à un compte bancaire.
+** Un prélèvement automatique dispose d'un bénéficiaire.
+** Un prélèvement automatique est déclenché lors d'un jour du mois.
+** Un prélèvement automatique est effectué à hauteur d'un certain montant comprit entre 0,00 et 999999,99.
+
+.*Opération*
+_Un compte courant peut effectuer différentes opérations._
+
+** Une opération dispose d'un identifiant unique à 12 chiffres.
+** Une opération est effectuée à une certaine date.
+** Une opération est effectué à hauteur d'un certain montant comprit entre 0,00 et 999999,99.
+** Une opération est effectuée par un compte bancaire.
+
+.*Type Opération*
+_Les opérations sont différenciées selon différentes catégories._
+
+.*Emprunt*
+_Un compte courant peut effectuer différentes opérations._
+
+** Un emprunt dispose d'un identifiant unique à 5 chiffres.
+** Un emprunt est effectué par un client, trouvé par son identifiant unique de client.
+** Un emprunt est effectué lors d'une date spécifique.
+** Un emprunt s'élève à un certain capital comprit entre 0 et 99999999.
+** Un emprunt est soumis à certain taux d'intêret.
+** Un emprunt doit être remboursé en un certain temps.
+
+.*Assurance Emprunt*
+_Un emprunt peut-être assuré par une assurance (selon la base de données, ce n'est pas obligatoire)._
+
+** Une assurance dispose d'un identifiant à 5 chiffres.
+** Une assurance propose un certain taux d'assurance.
+** Une assurance couvre un certain emprunt, identifié.
+****
+
 
 Architecture
 
