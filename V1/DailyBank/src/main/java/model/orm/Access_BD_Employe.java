@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import model.data.Client;
 import model.data.Employe;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -78,6 +80,165 @@ public class Access_BD_Employe {
 			return employeTrouve;
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
+		}
+	}
+
+	public ArrayList<Employe> getEmployeList(int idAg, int num, String debutNom, String debutPrenom)
+			throws DataAccessException, DatabaseConnexionException {
+
+		ArrayList<Employe> employeList = new ArrayList<Employe>();
+
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			PreparedStatement pst;
+
+			String query;
+			if (num != -1) {
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " AND IDEMPLOYE  = ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+				pst.setInt(2, num);
+
+			} else if (!debutNom.equals("")) {
+				debutNom = debutNom.toUpperCase() + "%";
+				debutPrenom = debutPrenom.toUpperCase() + "%";
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " AND UPPER(NOM) like ?" + " AND UPPER(PRENOM) like ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+				pst.setString(2, debutNom);
+				pst.setString(3, debutPrenom);
+			} else {
+				query = "SELECT * FROM EMPLOYE where IDAG = ?";
+				query += " ORDER BY NOM";
+				pst = con.prepareStatement(query);
+				pst.setInt(1, idAg);
+			}
+
+
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int idEmploye = rs.getInt("IDEMPLOYE");
+				String nom = rs.getString("NOM");
+				String prenom = rs.getString("PRENOM");
+				String droitsAccess = rs.getString("DROITSACCESS");
+				String login = rs.getString("LOGIN");
+				String motPasse = rs.getString("MOTPASSE");
+				int idAgCli = rs.getInt("IDAG");
+
+				employeList.add(new Employe(idEmploye, nom, prenom, droitsAccess, login, motPasse, idAgCli));
+			}
+			rs.close();
+			pst.close();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Client, Order.SELECT, "Erreur accès", e);
+		}
+		return employeList;
+	}
+
+	public void insertEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
+		try {
+			System.out.println(employe);
+
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "INSERT INTO EMPLOYE VALUES (" + "seq_id_client.NEXTVAL" + ", " + "?" + ", " + "?" + ", "
+					+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idAg);
+
+
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.INSERT,
+						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
+			}
+
+			query = "SELECT seq_id_client.CURRVAL from DUAL";
+
+			System.err.println(query);
+			PreparedStatement pst2 = con.prepareStatement(query);
+
+			ResultSet rs = pst2.executeQuery();
+			rs.next();
+			int numCliBase = rs.getInt(1);
+
+			con.commit();
+			rs.close();
+			pst2.close();
+
+			employe.idEmploye = numCliBase;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Client, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
+	public void updateEmploye(Employe employe) throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "UPDATE EMPLOYE SET NOM = ?, PRENOM = ?, DROITSACCESS = ?, LOGIN = ?, MOTPASSE = ?, IDAG = ? WHERE IDEMPLOYE = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, employe.nom);
+			pst.setString(2, employe.prenom);
+			pst.setString(3, employe.droitsAccess);
+			pst.setString(4, employe.login);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idAg);
+			pst.setInt(7, employe.idEmploye);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.UPDATE,
+						"Update anormal (update de moins ou plus d'une ligne)", null, result);
+			}
+
+			con.commit();
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.UPDATE, "Erreur accès", e);
+		}
+	}
+
+	public void supprimerEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "DELETE FROM EMPLOYE WHERE IDEMPLOYE = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, employe.idEmploye);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE,
+						"Delete anormal (delete de moins ou plus d'une ligne)", null, result);
+			}
+
+			con.commit();
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.DELETE, "Erreur accès", e);
 		}
 	}
 }
