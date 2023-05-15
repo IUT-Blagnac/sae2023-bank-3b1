@@ -29,56 +29,37 @@ SAÉ 2.01 / 2.05
 end title
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''',
 'Taches
-[ ] as [CreaGit] lasts 7 day
-[CreaGit] is colored in green
-[  ] as [CDCU] lasts 14 day
-[CDCU] is colored in blue
-[   ] as [GANTT] lasts 14 day
-[GANTT] is colored in green
+[Émilien] as [CreaGit] lasts 7 day
+[Vincent] as [CDCU] lasts 14 day
+[Émilien ] as [GANTT] lasts 14 day
 
-[      ] as [RenduGCV1] happens 42 day after [CreaGit]'s start
+[ ] as [RenduGCV1] happens 42 day after [CreaGit]'s start
 
 
-[    ] as [DocV0] lasts 5 day
-[DocV0] is colored in blue
+[Vincent ] as [DocV0] lasts 5 day
 
 
-[     ] as [ImpleGest] lasts 20 day
-[ImpleGest] is colored in green
-[        ] as [TestGest] lasts 7 day
-[TestGest] is colored in green
-[       ] as [DocGest] lasts 7 day
-[DocGest] is colored in green
+[Émilien  ] as [ImpleGest] lasts 20 day
+[Émilien   ] as [TestGest] lasts 7 day
+[Émilien    ] as [DocGest] lasts 7 day
 
-[         ] as [ImpleCred] lasts 14 day
-[ImpleCred] is colored in blue
-[           ] as [TestCred] lasts 4 day
-[TestCred] is colored in blue
-[            ] as [DocCred] lasts 4 day
-[DocCred] is colored in blue
+[Vincent  ] as [ImpleCred] lasts 14 day
+[Vincent   ] as [TestCred] lasts 4 day
+[Vincent    ] as [DocCred] lasts 4 day
 
-[             ] as [ImpleCrea] lasts 14 day
-[ImpleCrea] is colored in red
-[              ] as [TestCrea] lasts 4 day
-[TestCrea] is colored in red
-[               ] as [DocCrea] lasts 4 day
-[DocCrea] is colored in red
+[Tanguy] as [ImpleCrea] lasts 14 day
+[Tanguy ] as [TestCrea] lasts 4 day
+[Tanguy  ] as [DocCrea] lasts 4 day
 
-[                ] as [ImpleVir] lasts 14 day
-[ImpleVir] is colored in blue
-[                 ] as [TestVir] lasts 4 day
-[TestVir] is colored in blue
-[                  ] as [DocVir] lasts 4 day
-[DocVir] is colored in blue
+[Vincent     ] as [ImpleVir] lasts 14 day
+[Vincent      ] as [TestVir] lasts 4 day
+[Vincent       ] as [DocVir] lasts 4 day
 
-[                   ] as [ImpleClot] lasts 14 day
-[ImpleClot] is colored in red
-[                    ] as [TestClot] lasts 4 day
-[TestClot] is colored in red
-[                     ] as [DocClot] lasts 4 day
-[DocClot] is colored in red
+[Tanguy   ] as [ImpleClot] lasts 14 day
+[Tanguy    ] as [TestClot] lasts 4 day
+[Tanguy     ] as [DocClot] lasts 4 day
 
-[                      ] as [Rendu V1] happens 63 day after [CreaGit]'s start
+[  ] as [Rendu V1] happens 63 day after [CreaGit]'s start
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 'Mise en ordre
