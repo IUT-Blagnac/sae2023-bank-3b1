@@ -101,27 +101,36 @@ _Un emprunt peut-être assuré par une assurance (selon la base de données, ce 
 ****
 
 
-Architecture
+== Architecture
 
 Architecture générale en terme de sous-systèmes (poste client, serveurs, …) et rôle de chaque élément
 
-Ressources externes utilisées et rôles (dépendances, .jar nécessaires, …)
+Ressources externes utilisées et rôles (dépendances, .jar nécessaires, …)f
 
 Structuration en packages de l’application documentée. Principes retenus pour cette structuration
 
 Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence. Par exemple, une structure récurrente de classes peut être décrite ici (contrôleurs de dialogues, contrôleurs de vue, …).
 
-Pour chaque fonctionnalité : en les expliquant
+== Fonctionnalités
 
-Partie de use case réalisé - scénarios éventuels
+.Template pour chaque fontionalité développée
+[source, asciidoc]
+----
+=== Fonctionalité 1
 
-Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+==== Partie de use case réalisé - scénarios éventuels
 
-Classes impliquées dans chaque package
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
 
-Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence.
+==== Classes impliquées dans chaque package
+
+* Classe 1
+* Classe 2
+* Classe 3
+
+==== Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence.
 
 Eventuellement : extraits de code significatifs commentés si nécessaire pour des points particuliers et importants.
 
 Eventuellement : copies des écrans principaux de la fonctionnalité (ou renvoi vers doc utilisateur) + maquettes états imprimés (si concerné).
-
+----
