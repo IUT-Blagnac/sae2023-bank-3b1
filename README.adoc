@@ -50,11 +50,11 @@ manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez
 |           a| image::https://img.shields.io/badge/DocUtil-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V1.adoc]  |
 |           a| image::https://img.shields.io/badge/Cahier Recettes-V1-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V1.adoc]        |
 |           | Suivi projet V1   |
-| 26/05     a| image::https://img.shields.io/badge/GANTT Réalisé-Pas Fait-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2R%C3%A9alis%C3%A9.pdf] |
-|           a| image::https://img.shields.io/badge/DocUtil-Pas Fait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
-|           a| image::https://img.shields.io/badge/DocTech-Pas Fait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
+| 26/05     a| image::https://img.shields.io/badge/GANTT Réalisé-PasFait-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2R%C3%A9alis%C3%A9.pdf] |
+|           a| image::https://img.shields.io/badge/DocUtil-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
+|           a| image::https://img.shields.io/badge/DocTech-Pas *Fait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
 |           | Code V2           |
-|           a| image::https://img.shields.io/badge/Cahier Recettes-Pas Fait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
+|           a| image::https://img.shields.io/badge/Cahier Recettes-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
 |           | `jar` projet     
 
 |===
