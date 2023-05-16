@@ -170,4 +170,87 @@ public class Access_BD_CompteCourant {
 	public CompteCourant ajouterCompte(CompteCourant compte, int idNumCli) throws DataAccessException {
 		return null;
 	}
+
+	public void ajouterCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "INSERT INTO COMPTECOURANT VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, compte.debitAutorise);
+			pst.setDouble(2, compte.solde);
+			pst.setInt(3, compte.idNumCli);
+			pst.setString(4, compte.estCloture);
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.INSERT,
+						"Insertion anormale (insertion de moins ou plus d'une ligne)", null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
+	public void supprimerCompteCourant(CompteCourant compte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "DELETE FROM COMPTECOURANT WHERE idNumCompte = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, compte.idNumCompte);
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE,
+						"Suppression anormale (suppression de moins ou plus d'une ligne)", null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.DELETE, "Erreur accès", e);
+		}
+	}
+
+	public void supprimerCompteCourant(int idNumCompte, int idNumCli) {
+
+	}
+
+	public void supprimerCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "DELETE FROM COMPTECOURANT WHERE idNumCompte = ? AND idNumCli = ?";
+
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, compte.idNumCompte);
+			pst.setInt(2, idNumCli);
+
+			System.out.println(compte.idNumCompte);
+			System.out.println(idNumCli);
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE,
+						"Suppression anormale (suppression de moins ou plus d'une ligne)", null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.DELETE, "Erreur accès", e);
+		}
+	}
 }

@@ -17,10 +17,7 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.Access_BD_CompteCourant;
-import model.orm.exception.ApplicationException;
-import model.orm.exception.DatabaseConnexionException;
-import model.orm.exception.Order;
-import model.orm.exception.Table;
+import model.orm.exception.*;
 
 public class ComptesManagement {
 
@@ -72,11 +69,12 @@ public class ComptesManagement {
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
 			try {
-				cep.doCompteEditorDialog(this.clientDesComptes, compte, EditionMode.CREATION);
+				Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+				acc.ajouterCompteCourant(compte, this.clientDesComptes.idNumCli);
 				AlertUtilities.showAlert(this.primaryStage, "Création d'un compte",
 						"Succès création compte", "Le nouveau compte a été créé avec succès", AlertType.INFORMATION);
-				Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
-				compte = acc.ajouterCompte(compte, this.clientDesComptes.idNumCli);
+
+
 
 				// if JAMAIS vrai
 				// existe pour compiler les catchs dessous
@@ -112,5 +110,12 @@ public class ComptesManagement {
 			listeCpt = new ArrayList<>();
 		}
 		return listeCpt;
+	}
+
+	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
+		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+		acc.supprimerCompteCourant(cpt);
+		AlertUtilities.showAlert(this.primaryStage, "Suppression d'un compte",
+				"Succès suppression compte", "Le compte a été supprimé avec succès", AlertType.INFORMATION);
 	}
 }
