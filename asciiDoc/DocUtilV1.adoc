@@ -14,7 +14,7 @@ image::../img/Logo_IUT_Blagnac.png[]
 . Emilien Fieu
 . Vincent Barette
 
-Version 1.0, 12 Mai 2023, Groupe 3B1
+Version 1.0, 16 Mai 2023, Groupe 3B1
 
 
 == Daily Bank
