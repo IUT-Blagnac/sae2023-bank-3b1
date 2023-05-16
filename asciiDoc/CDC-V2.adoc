@@ -6,8 +6,6 @@
 :title-logo-image: image:img/Logo_IUT_Blagnac.png[]
 :stem: asciimath
 
-image::../img/Logo_IUT_Blagnac.png[]
-
 .Equipe :  
 
 . Tanguy Picuira
@@ -21,7 +19,8 @@ Version 1.0, 12 Mai 2023, Groupe 3B1
 
 === Présentation du sujet
 
-Le sujet répond à la gestion des comptes bancaires, et des employés.
+Le sujet répond à la gestion des comptes bancaires, et des employés, après une nécessité croissante de "faire à distance" son travail (cf. *Contexte*).
+
 Une partie est déjà existante, le reste va devoir être développé.
 
 ___
@@ -40,21 +39,14 @@ Dans cette optique, le réseau bancaire français DailyBank, qui compte plus de 
 
 == Analyse de l'existant
 
-Aujourd'hui, la Version 0 de DailyBank permet :
-
-* De modifier les informations d’un client
-* De créer un nouveau client
-* De consulter un compte
-* De débiter un compte
-* De rendre un compte inactif
+La version 0 de l'application DailyBank est une application écrite en Java, utilisant JavaFX et JDBC.
 
 .UseCase de la Version 0 de l’application DailyBank
 image::../img/usecasev0.svg[]
 
-== Analyse des besoins
-
 .UseCase de la Version 1 de l’application DailyBank
 image::../plantUML/useCaseV1.png[]
+
 
 .*Version 0*
 ****
@@ -88,6 +80,25 @@ Les besoins de la version précédente, et :
 *** Consulter
 *** Modifier
 *** Supprimer
+****
+
+== Analyse des besoins
+
+.*Version 2*
+****
+.*Guichetier :*
+** Le guichetier peut générer un relevé PDF d'un compte.
+** Le guichetier peut gérer les prélèvements. _Cela signifie qu'il peut effectuer les actions suivantes :_
+*** Créer
+*** Consulter
+*** Modifier
+*** Supprimer
+
+.*Chef d'agence :*
+
+** Le Chef d'Agence peut effectuer un débit exceptionnel sur un compte.
+** Le Chef d'Agence peut simuler un emprunt bancaire pour un compte.
+** Le Chef d'Agence peut simuler un emprunt d'assurance pour un compte.
 ****
 
 == Contraintes
