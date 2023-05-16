@@ -202,42 +202,10 @@ public class Access_BD_CompteCourant {
 		try {
 			Connection con = LogToDatabase.getConnexion();
 
-			String query = "DELETE FROM COMPTECOURANT WHERE idNumCompte = ?";
+			String query = "UPDATE COMPTECOURANT SET estCloture = 'O' WHERE idNumCompte = ?";
 
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, compte.idNumCompte);
-
-			System.err.println(query);
-
-			int result = pst.executeUpdate();
-			pst.close();
-			if (result != 1) {
-				con.rollback();
-				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE,
-						"Suppression anormale (suppression de moins ou plus d'une ligne)", null, result);
-			}
-			con.commit();
-		} catch (SQLException e) {
-			throw new DataAccessException(Table.CompteCourant, Order.DELETE, "Erreur accès", e);
-		}
-	}
-
-	public void supprimerCompteCourant(int idNumCompte, int idNumCli) {
-
-	}
-
-	public void supprimerCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
-		try {
-			Connection con = LogToDatabase.getConnexion();
-
-			String query = "DELETE FROM COMPTECOURANT WHERE idNumCompte = ? AND idNumCli = ?";
-
-			PreparedStatement pst = con.prepareStatement(query);
-			pst.setInt(1, compte.idNumCompte);
-			pst.setInt(2, idNumCli);
-
-			System.out.println(compte.idNumCompte);
-			System.out.println(idNumCli);
 
 			System.err.println(query);
 

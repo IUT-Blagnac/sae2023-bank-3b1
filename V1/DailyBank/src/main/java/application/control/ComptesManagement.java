@@ -113,6 +113,12 @@ public class ComptesManagement {
 	}
 
 	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
+		// Le compte peut seulement être supprimé si son solde est à 0
+		if (cpt.solde != 0 ) {
+			AlertUtilities.showAlert(this.primaryStage, "Suppression d'un compte",
+					"Erreur suppression compte", "Le compte ne peut pas être supprimé car le solde n'est pas à 0", AlertType.ERROR);
+			return;
+		}
 		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
 		acc.supprimerCompteCourant(cpt);
 		AlertUtilities.showAlert(this.primaryStage, "Suppression d'un compte",
