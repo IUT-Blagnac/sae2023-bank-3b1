@@ -1,5 +1,6 @@
 = *Cahier des Charges - SAÉ 2.01/2.05*
 :toc:
+:toc-position: preamble
 :toc-title: Sommaire
 :title-page:
 :sectnums:
