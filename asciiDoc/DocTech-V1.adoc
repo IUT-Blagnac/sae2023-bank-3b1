@@ -4,7 +4,6 @@
 :toc-title: Sommaire
 :title-page:
 :sectnums:
-:title-logo-image: image:../img/Logo_IUT_Blagnac.png[]
 :stem: asciimath
 
 * Tanguy Picuira
