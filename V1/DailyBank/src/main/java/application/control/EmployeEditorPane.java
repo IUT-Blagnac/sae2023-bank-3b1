@@ -14,11 +14,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Employe;
 
+/**
+ * Classe de gestion du menu d’édition d’employé
+ * @author Émilien FIEU
+ */
 public class EmployeEditorPane {
     private  Stage primaryStage;
     private EmployeEditorPaneController eepcViewController;
     private DailyBankState dailyBankState;
 
+    /**
+     * Constructeur de la classe
+     * @param primaryStage la fenetre dans laquelle est le menu
+     * @param dailyBankState l’état de l’application
+     * @author Émilien FIEU
+     */
     public EmployeEditorPane(Stage primaryStage, DailyBankState dailyBankState) {
         this.dailyBankState = dailyBankState;
         try {
@@ -44,6 +54,13 @@ public class EmployeEditorPane {
         }
     }
 
+    /**
+     * Affiche le menu
+     * @param e l’employé à modifier (null si création)
+     * @param editionMode mode de fonctionnement du menu (création ou modification)
+     * @return L’employé modifié/créé
+     * @author Émilien FIEU
+     */
     public Employe doEmployeEditorDialog(Employe e, EditionMode editionMode) {
         return this.eepcViewController.displayDialog(e, editionMode);
     }

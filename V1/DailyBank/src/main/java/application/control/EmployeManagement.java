@@ -23,14 +23,22 @@ import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 import java.util.ArrayList;
 
+/**
+ * Classe de gestion du menu d’édition d’employé
+ * @author Émilien FIEU
+ */
 public class EmployeManagement {
 
     private Stage primaryStage;
-
     private DailyBankState dailyBankState;
-
     private EmployeManagementController emcViewController;
 
+    /**
+     * Constructeur de la classe
+     * @param _parentStage la fenetre dans lequel est le menu
+     * @param _dbstate l’état de l’application
+     * @author Émilien FIEU
+     */
     public EmployeManagement(Stage _parentStage, DailyBankState _dbstate) {
         this.dailyBankState = _dbstate;
         try{
@@ -57,6 +65,12 @@ public class EmployeManagement {
 
     }
 
+    /**
+     * Lance la modification de l’employé
+     * @param employe l’employé à modifier
+     * @return l’employé modifié
+     * @author Émilien FIEU
+     */
     public Employe modifierEmploye(Employe employe){
         EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
         Employe result = eep.doEmployeEditorDialog(employe, EditionMode.MODIFICATION);
@@ -78,6 +92,11 @@ public class EmployeManagement {
         return result;
     }
 
+    /**
+     * Lance la suppression de l’employé
+     * @param employe l’employé à modifier
+     * @author Émilien FIEU
+     */
     public void supprimerEmploye(Employe employe){
         boolean confirmation = AlertUtilities.confirmYesCancel(this.primaryStage, "Suppression d'un employé", "Voulez-vous vraiment supprimer l'employé ", employe.toString(), Alert.AlertType.CONFIRMATION);
 
@@ -97,6 +116,10 @@ public class EmployeManagement {
 
     }
 
+    /**
+     * Lance la création d’un employé
+     * @return l’employé crée
+     */
     public Employe creerEmploye(){
         Employe employe;
         EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
@@ -121,10 +144,22 @@ public class EmployeManagement {
         return employe;
     }
 
+    /**
+     * Lance le menu de gestion des employés
+     * @author Émilien FIEU
+     */
     public void doEmployeManagementDialog() {
         this.emcViewController.displayDialog();
     }
 
+    /**
+     * Cherche les employés selon le numéro, le nom, le prénom
+     * @param num le numéro de l’employé recherché
+     * @param nom le nom ou le début de nom de l’employé recherché
+     * @param prenom le prénom ou le début de prénom de l’employé recherché
+     * @return una liste des employés trouvés
+     * @author Émilien FIEU
+     */
     public ArrayList<Employe> getlisteEmploye(int num, String nom, String prenom){
         ArrayList<Employe> listeEmploye = new ArrayList<Employe>();
         try {
@@ -144,7 +179,4 @@ public class EmployeManagement {
 
         return listeEmploye;
     }
-
-
-
 }

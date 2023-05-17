@@ -83,6 +83,19 @@ public class Access_BD_Employe {
 		}
 	}
 
+	/**
+	 * Recherche des employés par leur numéro ou nom prénom
+	 *
+	 * @param idAg le numéro de l’agence
+	 * @param num le numéro de l’employé recherché
+	 * @param debutNom le début du nom de l’employé recherché
+	 * @param debutPrenom le début du prénom de l’employé recherché
+	 * @return Une liste avec les employés correspondante à la recherche
+	 * @throws DataAccessException Problème d’accès a la base de donnée (requête mal formée…)
+	 * @throws DatabaseConnexionException Problème de connexion à la base de donnée (mauvais identifiant, problème
+	 * 									d’internet…)
+	 * @author Émilien FIEU
+	 */
 	public ArrayList<Employe> getEmployeList(int idAg, int num, String debutNom, String debutPrenom)
 			throws DataAccessException, DatabaseConnexionException {
 
@@ -140,6 +153,15 @@ public class Access_BD_Employe {
 		return employeList;
 	}
 
+	/**
+	 * Ajoute un employé dans la base de donnée
+	 * @param employe l’employé à ajouter
+	 * @throws DatabaseConnexionException Problème de connexion à la base de donnée (mauvais identifiant, problème
+	 * 									d’internet…)
+	 * @throws RowNotFoundOrTooManyRowsException Trop ou pas de ligne·s ajoutée·s
+	 * @throws DataAccessException Problème d’accès a la base de donnée (requête mal formée…)
+	 * @author Émilien FIEU
+	 */
 	public void insertEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
 		try {
 			System.out.println(employe);
@@ -186,6 +208,15 @@ public class Access_BD_Employe {
 		}
 	}
 
+	/**
+	 * Modifie un employé existant
+	 * @param employe l’employé modifié
+	 * @throws DataAccessException Problème d’accès a la base de donnée (requête mal formée…)
+	 * @throws DatabaseConnexionException Problème de connexion à la base de donnée (mauvais identifiant, problème
+	 * 	  								d’internet…)
+	 * @throws RowNotFoundOrTooManyRowsException Trop ou pas de ligne·s modifiée·s
+	 * @author Émilien FIEU
+	 */
 	public void updateEmploye(Employe employe) throws DataAccessException, DatabaseConnexionException, RowNotFoundOrTooManyRowsException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
@@ -217,6 +248,15 @@ public class Access_BD_Employe {
 		}
 	}
 
+	/**
+	 * Supprime un employé de la base de donnée
+	 * @param employe l’employé à supprimer
+	 * @throws DatabaseConnexionException Problème de connexion à la base de donnée (mauvais identifiant, problème
+	 * 									d’internet…)
+	 * @throws RowNotFoundOrTooManyRowsException Trop ou pas de ligne·s supprimée·s
+	 * @throws DataAccessException Problème d’accès a la base de donnée (requête mal formée…)
+	 * @author Émilien FIEU
+	 */
 	public void supprimerEmploye(Employe employe) throws DatabaseConnexionException, RowNotFoundOrTooManyRowsException, DataAccessException {
 		try {
 			Connection con = LogToDatabase.getConnexion();

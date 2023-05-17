@@ -11,7 +11,10 @@ import javafx.stage.WindowEvent;
 import model.data.Employe;
 
 
-
+/**
+ * Controlleur du menu de modification/création d’employé
+ * @author Émilien FIEU
+ */
 public class EmployeEditorPaneController {
     private DailyBankState dailyBankState;
     private Stage primaryStage;
@@ -20,16 +23,32 @@ public class EmployeEditorPaneController {
     private EditionMode editionMode;
     private Employe employeResultat;
 
+    /**
+     * Initialise le contexte de l’objet
+     * @param primaryStage la fenetre dans laquelle est le menue
+     * @param dailyBankState l’état de l’application
+     * @author Émilien FIEU
+     */
     public void initContext(Stage primaryStage, DailyBankState dailyBankState) {
         this.primaryStage = primaryStage;
         this.dailyBankState = dailyBankState;
         this.configure();
     }
 
+    /**
+     * Configure le menu
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
+    /**
+     * Affiche le menu
+     * @param employe l’employé à modifier (null si création d’un employé)
+     * @param mode mode du menu : création ou modificatio
+     * @return l’employé modifié / créé
+     * @author Émilien FIEU
+     */
     public Employe displayDialog(Employe employe, EditionMode mode) {
         this.editionMode = mode;
         if (employe == null) {
@@ -85,12 +104,17 @@ public class EmployeEditorPaneController {
         return this.employeResultat;
     }
 
-    private Object closeWindow(WindowEvent e) {
+    /**
+     * Ferme la fenetre
+     * @param e l’évenement qui a déclenché la fermeture de la fenetre
+     * @author Émilien FIEU
+     */
+    private void closeWindow(WindowEvent e) {
         this.doCancel();
         e.consume();
-        return null;
     }
 
+    // Les différentes parties de l’interface dont nous avons besoin
     @FXML
     private Label lblMessage;
     @FXML
@@ -112,12 +136,20 @@ public class EmployeEditorPaneController {
     @FXML
     private Button butCancel;
 
+    /**
+     * Annulation de l’opération
+     * @author Émilien FIEU
+     */
     @FXML
     private void doCancel() {
         this.employeResultat = null;
         this.primaryStage.close();
     }
 
+    /**
+     * Valide l’opération et ferme la fenetre
+     * @author Émilien FIEU
+     */
     @FXML
     private void doAjouter(){
 
@@ -129,6 +161,11 @@ public class EmployeEditorPaneController {
 
     }
 
+    /**
+     * Vérifie si la saisie est valide
+     * @return true si la saisie est valide, false sinon
+     * @author Émilien FIEU
+     */
     private boolean isSaisieValide() {
         this.employeEdite.nom = this.txtNom.getText().trim();
         this.employeEdite.prenom = this.txtPrenom.getText().trim();
