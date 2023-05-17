@@ -1,3 +1,6 @@
+/**
+ * @author Tanguy Picuira
+ */
 package application.control;
 
 import java.util.ArrayList;
@@ -26,6 +29,12 @@ public class ComptesManagement {
 	private DailyBankState dailyBankState;
 	private Client clientDesComptes;
 
+	/**
+	 * Constructeur de la classe ComptesManagement
+	 * @param _parentStage
+	 * @param _dbstate
+	 * @param client
+	 */
 	public ComptesManagement(Stage _parentStage, DailyBankState _dbstate, Client client) {
 
 		this.clientDesComptes = client;
@@ -53,6 +62,9 @@ public class ComptesManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des comptes
+	 */
 	public void doComptesManagementDialog() {
 		this.cmcViewController.displayDialog();
 	}
@@ -63,6 +75,10 @@ public class ComptesManagement {
 		om.doOperationsManagementDialog();
 	}
 
+	/**
+	 * Créer un nouveau compte
+	 * @return Le compte créé
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
@@ -91,6 +107,10 @@ public class ComptesManagement {
 		return compte;
 	}
 
+	/**
+	 * Accède à la base de données pour récupérer les comptes d'un client
+	 * @return La liste des comptes du client
+	 */
 	public ArrayList<CompteCourant> getComptesDunClient() {
 		ArrayList<CompteCourant> listeCpt = new ArrayList<>();
 
@@ -110,6 +130,13 @@ public class ComptesManagement {
 		return listeCpt;
 	}
 
+	/**
+	 * Supprime un compte
+	 * @param cpt
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DatabaseConnexionException
+	 * @throws DataAccessException
+	 */
 	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
 		// Le compte peut seulement être supprimé si son solde est à 0
 		if (cpt.solde != 0 ) {

@@ -1,3 +1,7 @@
+/**
+ * @author Tanguy Picuira
+ */
+
 package application.view;
 
 import java.util.ArrayList;
@@ -133,6 +137,12 @@ public class ComptesManagementController {
 		this.oListCompteCourant.addAll(listeCpt);
 	}
 
+
+	/**
+	 * @author Tanguy Picuira
+	 *
+	 * 	   Valide l'état des composants de la fenêtre en fonction de l'état de la fenêtre et des données de la fenêtre
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);

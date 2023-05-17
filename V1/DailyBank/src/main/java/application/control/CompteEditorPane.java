@@ -1,3 +1,7 @@
+/**
+ * @author Tanguy Picuira
+ */
+
 package application.control;
 
 import application.DailyBankApp;
@@ -18,6 +22,14 @@ public class CompteEditorPane {
 	private Stage primaryStage;
 	private CompteEditorPaneController cepcViewController;
 
+	/**
+	 * Constructeur de la classe CompteEditorPane
+	 *
+	 * @param _parentStage
+	 *            Stage parent
+	 * @param _dbstate
+	 *            Etat de l'application
+	 */
 	public CompteEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
@@ -43,6 +55,13 @@ public class CompteEditorPane {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion d'un compte
+	 * @param client
+	 * @param cpte
+	 * @param em
+	 * @return
+	 */
 	public CompteCourant doCompteEditorDialog(Client client, CompteCourant cpte, EditionMode em) {
 		return this.cepcViewController.displayDialog(client, cpte, em);
 	}

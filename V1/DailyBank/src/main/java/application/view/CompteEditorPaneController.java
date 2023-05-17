@@ -1,3 +1,7 @@
+/**
+ * @author Tanguy Picuira
+ */
+
 package application.view;
 
 import java.util.Locale;
@@ -38,6 +42,7 @@ public class CompteEditorPaneController {
 		this.configure();
 	}
 
+
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -45,6 +50,13 @@ public class CompteEditorPaneController {
 		this.txtSolde.focusedProperty().addListener((t, o, n) -> this.focusSolde(t, o, n));
 	}
 
+	/**
+	 * Méthode appelée par le contrôleur de dialogue pour récupérer le résultat de la fenêtre de dialogue
+	 * @param client
+	 * @param cpte
+	 * @param mode
+	 * @return
+	 */
 	public CompteCourant displayDialog(Client client, CompteCourant cpte, EditionMode mode) {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
@@ -104,6 +116,13 @@ public class CompteEditorPaneController {
 		return null;
 	}
 
+	/**
+	 * Méthode appelée par le bouton Annuler
+	 * @param txtField
+	 * @param oldPropertyValue
+	 * @param newPropertyValue
+	 * @return
+	 */
 	private Object focusDecouvert(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -121,6 +140,13 @@ public class CompteEditorPaneController {
 		return null;
 	}
 
+	/**
+	 * Méthode appelée par le bouton Annuler
+	 * @param txtField
+	 * @param oldPropertyValue
+	 * @param newPropertyValue
+	 * @return
+	 */
 	private Object focusSolde(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {

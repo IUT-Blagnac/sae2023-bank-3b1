@@ -1,3 +1,6 @@
+/**
+ * @author Tanguy Picuira
+ */
 package model.orm;
 
 import java.sql.*;
@@ -167,9 +170,14 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
-	public CompteCourant ajouterCompte(CompteCourant compte, int idNumCli) throws DataAccessException {
-		return null;
-	}
+	/**
+	 * Ajout d'un CompteCourant.
+	 * @param compte
+	 * @param idNumCli
+	 * @throws DataAccessException
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DatabaseConnexionException
+	 */
 
 	public void ajouterCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {
@@ -198,6 +206,13 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
+	/**
+	 * Suppression d'un CompteCourant.
+	 * @param compte
+	 * @throws DataAccessException
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DatabaseConnexionException
+	 */
 	public void supprimerCompteCourant(CompteCourant compte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
