@@ -50,8 +50,8 @@ manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez
 |           a| image::https://img.shields.io/badge/DocUtil-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V1.adoc]  |
 |           a| image::https://img.shields.io/badge/Cahier Recettes-V1-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V1.adoc]        |
 |           a| image::https://img.shields.io/badge/Code-V1-red.svg[]        |https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V1
-|           a| image::https://img.shields.io/badge/JAR-V1-red.svg[]        |
-|           a| image::https://img.shields.io/badge/JavaDoc-V1-red.svg[]        |
+|           a| image::https://img.shields.io/badge/JAR-V1-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V1]        |
+|           a| image::https://img.shields.io/badge/JavaDoc-V1-red.svg[]        |je n'ai pas pu génerer la javadoc, cela fait planter intellij, je retenterai demain 
 |           | Suivi projet V1   |
 | 26/05     a| image::https://img.shields.io/badge/GANTT Réalisé-PasFait-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2R%C3%A9alis%C3%A9.pdf] |
 |           a| image::https://img.shields.io/badge/DocUtil-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
