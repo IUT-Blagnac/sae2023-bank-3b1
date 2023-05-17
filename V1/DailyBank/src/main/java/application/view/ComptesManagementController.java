@@ -112,7 +112,6 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.supprimerCompte(cpt);
-			//this.oListCompteCourant.remove(selectedIndice);
 			this.loadList();
 		}
 		this.validateComponentState();
