@@ -152,7 +152,7 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			if (cpt.solde != 0) {
+			if (cpt.solde != 0 || cpt.estCloture.equals("O")) {
 				this.btnSupprCompte.setDisable(true);
 			} else {
 				this.btnSupprCompte.setDisable(false);
