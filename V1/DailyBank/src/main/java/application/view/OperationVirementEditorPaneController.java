@@ -20,6 +20,9 @@ import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
 import model.orm.Access_BD_CompteCourant;
+import model.orm.Access_BD_Operation;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class OperationVirementEditorPaneController {
@@ -54,7 +57,7 @@ public class OperationVirementEditorPaneController {
 
 		info = "Cpt. [" + this.compteEdite.idNumCompte + "] ("+
 		this.compteEdite.solde +") -> [?] ("+
-				this.compteCible.solde + ")";
+				(this.compteCible == null ? "" : this.compteCible.solde) + ")";
 		
 		this.lblMessage.setText(info);
 
@@ -68,14 +71,13 @@ public class OperationVirementEditorPaneController {
 		}
 
 		this.operationResultat = null;
-		this.cbTypeOpe.requestFocus();
 
 		this.primaryStage.showAndWait();
 		
 		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
 		
 		try {
-			int a = Integer.parseInt(this.lblCible.getText());
+			int a = Integer.parseInt(this.txtCible.getText());
 		
 			cpteCible = acc.getCompteCourant(a);
 			
@@ -103,9 +105,8 @@ public class OperationVirementEditorPaneController {
 	@FXML
 	private Label lblMontant;
 	@FXML
-	private Label lblCible;
-	@FXML
-	private ComboBox<String> cbTypeOpe;
+	private TextField txtCible;
+
 	@FXML
 	private TextField txtMontant;
 	@FXML
@@ -156,6 +157,18 @@ public class OperationVirementEditorPaneController {
 			this.txtMontant.requestFocus();
 			return;
 		}
+
+		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+		try {
+			compteCible = ac.getCompteCourant(Integer.parseInt(txtCible.getText()));
+		} catch (RowNotFoundOrTooManyRowsException e) {
+			throw new RuntimeException(e);
+		} catch (DataAccessException e) {
+			throw new RuntimeException(e);
+		} catch (DatabaseConnexionException e) {
+			throw new RuntimeException(e);
+		}
+
 		this.operationResultat = new ArrayList<Operation>();
 		this.operationResultat.add(new Operation(-1, montant, null, null, this.compteEdite.idNumCli, "Débit Virement"));
 		this.operationResultat.add(new Operation(-1, montant, null, null, this.compteCible.idNumCli, "Crédit Virement"));

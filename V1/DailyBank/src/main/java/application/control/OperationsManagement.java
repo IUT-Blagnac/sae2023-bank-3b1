@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.CategorieOperation;
+import application.tools.ConstantesIHM;
 import application.tools.PairsOfValue;
 import application.tools.StageManagement;
 import application.view.OperationsManagementController;
@@ -16,10 +17,13 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.data.TypeOperation;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
+import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class OperationsManagement {
 
@@ -117,15 +121,27 @@ public class OperationsManagement {
 
 		this.compteCible = null;
 		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible);
+
 		
 		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
-		
+
+		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+		try {
+			ac.getCompteCourant(op.get(1).idNumCompte);
+		} catch (RowNotFoundOrTooManyRowsException e) {
+			throw new RuntimeException(e);
+		} catch (DataAccessException e) {
+			throw new RuntimeException(e);
+		} catch (DatabaseConnexionException e) {
+			throw new RuntimeException(e);
+		}
+
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.get(0).montant, op.get(0).idTypeOp);
-				ao.insertCredit(this.compteCible.idNumCompte, op.get(1).montant, op.get(1).idTypeOp);
+				ao.insertDebit(this.compteConcerne.idNumCompte, op.get(0).montant, ConstantesIHM.TYPE_OP_5);
+				ao.insertCredit(this.compteCible.idNumCompte, op.get(1).montant, ConstantesIHM.TYPE_OP_3);
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);

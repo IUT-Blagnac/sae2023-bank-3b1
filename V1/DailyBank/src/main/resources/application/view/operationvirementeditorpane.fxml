@@ -49,7 +49,7 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtMontant" layoutX="171.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="lblCible" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCible" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </center>

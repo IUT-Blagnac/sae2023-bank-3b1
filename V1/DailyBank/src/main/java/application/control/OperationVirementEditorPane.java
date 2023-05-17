@@ -22,7 +22,7 @@ public class OperationVirementEditorPane {
 	private OperationVirementEditorPaneController oepcViewController;
 
 	public OperationVirementEditorPane(Stage _parentStage, DailyBankState _dbstate) {
-
+	System.out.println("hello");
 	try {
 		FXMLLoader loader = new FXMLLoader(
 				OperationVirementEditorPaneController.class.getResource("operationvirementeditorpane.fxml"));
