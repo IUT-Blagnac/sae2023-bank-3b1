@@ -7,7 +7,6 @@
 :title-logo-image: image:../img/Logo_IUT_Blagnac.png[]
 :stem: asciimath
 
-image::../img/Logo_IUT_Blagnac.png[400,400]
 * Tanguy Picuira
 * Emilien Fieu
 * Vincent Barette
