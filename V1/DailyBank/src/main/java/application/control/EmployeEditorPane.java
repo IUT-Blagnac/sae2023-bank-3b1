@@ -4,9 +4,8 @@ import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
-import application.view.ClientEditorPaneController;
-import application.view.ClientsManagementController;
 import application.view.EmployeEditorPaneController;
+import application.view.EmployeManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -32,7 +31,7 @@ public class EmployeEditorPane {
     public EmployeEditorPane(Stage primaryStage, DailyBankState dailyBankState) {
         this.dailyBankState = dailyBankState;
         try {
-            FXMLLoader loader = new FXMLLoader(ClientsManagementController.class.getResource("employeeditorpane.fxml"));
+            FXMLLoader loader = new FXMLLoader(EmployeManagementController.class.getResource("employeeditorpane.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

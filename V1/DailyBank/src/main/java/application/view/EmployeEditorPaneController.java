@@ -2,7 +2,6 @@ package application.view;
 
 import application.DailyBankState;
 import application.tools.AlertUtilities;
-import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

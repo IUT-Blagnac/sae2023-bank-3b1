@@ -108,7 +108,7 @@ _Un emprunt peut-être assuré par une assurance (selon la base de données, ce 
 
 === Architecture générale
 
-image::a1_schema_site_web.png[]
+image::../img/a1_schema_site_web.png[]
 
 === Ressources externes utiliséesiffnj
 * JavaFX (Version 17)
@@ -151,3 +151,44 @@ Eventuellement : extraits de code significatifs commentés si nécessaire pour d
 
 Eventuellement : copies des écrans principaux de la fonctionnalité (ou renvoi vers doc utilisateur) + maquettes états imprimés (si concerné).
 ----
+
+=== CRUD Employé
+_Émilien FIEU_
+
+==== Partie de use case réalisé
+
+image::../img/DocTecV1/ucCRUDEmploye.png[]
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.mise à jour en vert, lecture en rouge
+image::../img/DocTecV1/dcCRUDEmploye.png[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankApp
+** DailyBankState
+** control
+*** EmployeEditorPane
+*** EmployeManagement
+** tool
+*** AlertUtilities
+*** EditionMode
+** view
+*** EmployeManagementController
+* model
+** data
+*** Employe
+** orm
+*** Access_BD_Employe
+*** exception
+**** DatabaseConnexionException
+**** ApplicationException
+
+
+==== Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence.
+
+Eventuellement : extraits de code significatifs commentés si nécessaire pour des points particuliers et importants.
+
+Eventuellement : copies des écrans principaux de la fonctionnalité (ou renvoi vers doc utilisateur) + maquettes états imprimés (si concerné).

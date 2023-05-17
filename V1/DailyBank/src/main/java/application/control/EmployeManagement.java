@@ -12,14 +12,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.data.Client;
 import model.data.Employe;
-import model.orm.Access_BD_Client;
 import model.orm.Access_BD_Employe;
 import model.orm.exception.ApplicationException;
-import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
-import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 import java.util.ArrayList;
 
