@@ -148,6 +148,57 @@ public class Access_BD_Operation {
 			call.setInt(1, idNumCompte);
 			// 1 -> valeur du premier paramètre, cf. déf procédure
 			call.setDouble(2, montant);
+			System.out.println("Debit");
+			System.out.println(montant);
+			call.setString(3, typeOp);
+			// Paramètres out
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
+
+			call.execute();
+
+			int res = call.getInt(4);
+
+			if (res != 0) { // Erreur applicative
+				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
+						"Erreur de règle de gestion : découvert autorisé dépassé", null);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
+	/**
+	 * Enregistrement d'un crédit.
+	 *
+	 * Se fait par procédure stockée : - Vérifie que le débitAutorisé n'est pas
+	 * dépassé <BR />
+	 * - Enregistre l'opération <BR />
+	 * - Met à jour le solde du compte. <BR />
+	 *
+	 * @param idNumCompte compte débité
+	 * @param montant     montant débité
+	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé
+	 */
+	public void insertCredit(int idNumCompte, double montant, String typeOp)
+			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call Credit (?, ?, ?, ?)}";
+			// les ? correspondent aux paramètres : cf. déf procédure (4 paramètres)
+			call = con.prepareCall(q);
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			// 1 -> valeur du premier paramètre, cf. déf procédure
+			call.setDouble(2, montant);
+			System.out.println("Credit");
+			System.out.println(montant);
 			call.setString(3, typeOp);
 			// Paramètres out
 			call.registerOutParameter(4, java.sql.Types.INTEGER);
