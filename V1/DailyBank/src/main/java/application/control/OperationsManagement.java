@@ -28,6 +28,7 @@ public class OperationsManagement {
 	private OperationsManagementController omcViewController;
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
+	private CompteCourant compteCible;
 
 	public OperationsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 
@@ -88,8 +89,8 @@ public class OperationsManagement {
 
 	public Operation enregistrerCredit() {
 		
-		OperationVirementEditorPane ovep = new OperationVirementEditorPane(this.primaryStage, this.dailyBankState);
-		Operation op = ovep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
+		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
@@ -111,14 +112,20 @@ public class OperationsManagement {
 	}
 	
 	public void enregistrerVirement() {
-		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
-		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
+		
+		OperationVirementEditorPane ovep = new OperationVirementEditorPane(this.primaryStage, this.dailyBankState);
+
+		this.compteCible = null;
+		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible);
+		
+		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+		
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
-				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				ao.insertDebit(this.compteConcerne.idNumCompte, op.get(0).montant, op.get(0).idTypeOp);
+				ao.insertCredit(this.compteCible.idNumCompte, op.get(1).montant, op.get(1).idTypeOp);
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
