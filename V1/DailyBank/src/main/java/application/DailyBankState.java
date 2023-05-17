@@ -94,4 +94,10 @@ public class DailyBankState {
 		}
 		return ca;
 	}
+
+    public Object getUtilisateur() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+
+    }
 }

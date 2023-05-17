@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class ComptesManagementController {
 
@@ -104,7 +107,14 @@ public class ComptesManagementController {
 	}
 
 	@FXML
-	private void doSupprimerCompte() {
+	private void doSupprimerCompte() throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			this.cmDialogController.supprimerCompte(cpt);
+			this.loadList();
+		}
+		this.validateComponentState();
 	}
 
 	@FXML
