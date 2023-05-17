@@ -49,7 +49,7 @@ manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez
 |           a| image::https://img.shields.io/badge/DocTech-V1 EnCours-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V1.adoc]      |
 |           a| image::https://img.shields.io/badge/DocUtil-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V1.adoc]  |
 |           a| image::https://img.shields.io/badge/Cahier Recettes-V1-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V1.adoc]        |
-|           a| image::https://img.shields.io/badge/Code-V1-red.svg[]        |
+|           a| image::https://img.shields.io/badge/Code-V1-red.svg[]        |https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V1
 |           a| image::https://img.shields.io/badge/JAR-V1-red.svg[]        |
 |           a| image::https://img.shields.io/badge/JavaDoc-V1-red.svg[]        |
 |           | Suivi projet V1   |
