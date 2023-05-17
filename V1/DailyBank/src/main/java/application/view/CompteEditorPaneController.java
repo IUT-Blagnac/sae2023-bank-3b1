@@ -49,10 +49,11 @@ public class CompteEditorPaneController {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
 		if (cpte == null) {
-			this.compteEdite = new CompteCourant(0, 200, 0, "N", this.clientDuCompte.idNumCli);
+			this.compteEdite = new CompteCourant(0, -200, 0, "N", this.clientDuCompte.idNumCli);
 		} else {
 			this.compteEdite = new CompteCourant(cpte);
 		}
+
 		this.compteResultat = null;
 		this.txtIdclient.setDisable(true);
 		this.txtIdAgence.setDisable(true);
@@ -166,6 +167,11 @@ public class CompteEditorPaneController {
 
 	@FXML
 	private void doAjouter() {
+		if (Integer.parseInt(txtDecAutorise.getText()) > 0) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur", "Le découvert autorisé doit être négatif", null,
+					AlertType.ERROR);
+			return;
+		}
 		switch (this.editionMode) {
 		case CREATION:
 			if (this.isSaisieValide()) {

@@ -136,10 +136,17 @@ public class ComptesManagementController {
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);
+		this.btnSupprCompte.setDisable(true);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			if (cpt.solde != 0) {
+				this.btnSupprCompte.setDisable(true);
+			} else {
+				this.btnSupprCompte.setDisable(false);
+			}
 		} else {
 			this.btnVoirOpes.setDisable(true);
 		}

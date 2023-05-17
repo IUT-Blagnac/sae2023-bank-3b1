@@ -74,8 +74,6 @@ public class ComptesManagement {
 				AlertUtilities.showAlert(this.primaryStage, "Création d'un compte",
 						"Succès création compte", "Le nouveau compte a été créé avec succès", AlertType.INFORMATION);
 
-
-
 				// if JAMAIS vrai
 				// existe pour compiler les catchs dessous
 				if (Math.random() < -1) {
