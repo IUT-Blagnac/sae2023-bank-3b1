@@ -49,7 +49,7 @@
                                         <Insets bottom="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Button>
-                                <Button fx:id="btnDesactClient" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerEmplyé" text="Supprimer employé" GridPane.rowIndex="3">
+                                <Button fx:id="btnSupprimerEmploye" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerEmplyé" text="Supprimer employé" GridPane.rowIndex="3">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" top="10.0" />
                                     </GridPane.margin>

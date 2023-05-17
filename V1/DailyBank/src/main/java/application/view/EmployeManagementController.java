@@ -56,6 +56,8 @@ public class EmployeManagementController {
     private TextField txtNum;
     @FXML
     private Button btnModifierEmploye;
+    @FXML
+    private Button btnSupprimerEmploye;
 
     @FXML
     private void doCancel() {
@@ -138,8 +140,10 @@ public class EmployeManagementController {
         int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
         if (selectedIndice >= 0) {
             this.btnModifierEmploye.setDisable(false);
+            this.btnSupprimerEmploye.setDisable(false);
         } else {
             this.btnModifierEmploye.setDisable(true);
+            this.btnSupprimerEmploye.setDisable(true);
         }
     }
 
