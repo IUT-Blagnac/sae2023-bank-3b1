@@ -1,20 +1,15 @@
 = *Document Technique - SAÉ 2.01/2.05*
-:toc:
+Tanguy Picuira;Emilien Fieu;Vincent Barette;Version 1.0, 16 Mai 2023, Groupe 3B1
+:toc: premable
 :toc-title: Sommaire
 :title-page:
 :sectnums:
-:title-logo-image: image:img/Logo_IUT_Blagnac.png[]
+:title-logo-image: image:../img/Logo_IUT_Blagnac.png[]
 :stem: asciimath
 
-image::../img/Logo_IUT_Blagnac.png[]
 
-.Equipe :
 
-. Tanguy Picuira
-. Emilien Fieu
-. Vincent Barette
 
-Version 1.0, 16 Mai 2023, Groupe 3B1
 
 == Présentation rapide de l'application
 
