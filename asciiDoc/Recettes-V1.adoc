@@ -92,7 +92,8 @@ Ordinateur sous Windows ou OS équivalent.
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné. ^|OK
 ^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné. ^|OK
-...
+^|All_G_CB.3 ^|Sélectionner le bouton "Clôturer compte". ^|Une alerte nous indiquant que le compte est cloturé s'affiche et le compte et en cloturé ^|Un compte actif est sélectionné. ^|OK
+^|All_G_CB.4 ^|Sélectionner le bouton "Nouveau compte". ^|Une page s'ouvre qui nous permet de renseigner les informations du nouveau compte qui doit être créé ^|Le découvert autorisé doit être inférieur à 0. ^|OK
 
 |====
 
