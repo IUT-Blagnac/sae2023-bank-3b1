@@ -97,7 +97,7 @@ public class OperationsManagementController {
 
 	@FXML
 	private void doCredit() {
-		
+
 		Operation op = this.omDialogController.enregistrerCredit();
 		if (op != null) {
 			this.updateInfoCompteClient();
@@ -114,9 +114,12 @@ public class OperationsManagementController {
 	private void validateComponentState() {
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);
-		
+
 	}
 
+	/**
+	 * Met à jour les informations affichées sur le compte client.
+	 */
 	private void updateInfoCompteClient() {
 
 		PairsOfValue<CompteCourant, ArrayList<Operation>> opesEtCompte;

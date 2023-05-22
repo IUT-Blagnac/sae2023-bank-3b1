@@ -51,21 +51,30 @@ public class OperationVirementEditorPaneController {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * Affiche la fenêtre d'édition d'opération virement.
+	 * 
+	 * @param cpte      Le compte courant qui effectue le virement.
+	 * @param cpteCible Le compte qui reçoit le virement.
+	 * @param om        Référence à l'objet responsable de l'opération.
+	 * @return Arraylist des 2 opérations effectuées.
+	 * 
+	 * @author Vincent
+	 */
 	public ArrayList<Operation> displayDialog(CompteCourant cpte, CompteCourant cpteCible, OperationsManagement om) {
 		this.compteEdite = cpte;
-		
+
 		String info;
 
-		info = "Cpt. [" + this.compteEdite.idNumCompte + "] ("+
-		this.compteEdite.solde +") -> [?] ("+
+		info = "Cpt. [" + this.compteEdite.idNumCompte + "] (" +
+				this.compteEdite.solde + ") -> [?] (" +
 				(this.compteCible == null ? "" : this.compteCible.solde) + ")";
-		
+
 		this.lblMessage.setText(info);
 
 		this.btnOk.setText("Effectuer Virement");
 		this.btnCancel.setText("Annuler Virement");
 
-		
 		// Paramétrages spécifiques pour les chefs d'agences
 		if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
 			// rien pour l'instant
@@ -160,8 +169,9 @@ public class OperationVirementEditorPaneController {
 
 		this.operationResultat = new ArrayList<Operation>();
 		this.operationResultat.add(new Operation(-1, montant, null, null, this.compteEdite.idNumCli, "Débit Virement"));
-		this.operationResultat.add(new Operation(-1, montant, null, null, this.compteCible.idNumCli, "Crédit Virement"));
+		this.operationResultat
+				.add(new Operation(-1, montant, null, null, this.compteCible.idNumCli, "Crédit Virement"));
 		this.primaryStage.close();
-	
+
 	}
 }

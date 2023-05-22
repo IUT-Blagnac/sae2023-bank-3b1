@@ -34,6 +34,14 @@ public class OperationsManagement {
 	private CompteCourant compteConcerne;
 	private CompteCourant compteCible;
 
+	/**
+	 * Crée une nouvelle classe de gestion des opérations
+	 * 
+	 * @param _parentStage Scène mère
+	 * @param _dbstate     Référence à l'état courant de l'application
+	 * @param client       Le client selectionné
+	 * @param compte       Le compte sélectionné du client en question
+	 */
 	public OperationsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 
 		this.clientDuCompte = client;
@@ -67,6 +75,11 @@ public class OperationsManagement {
 		this.omcViewController.displayDialog();
 	}
 
+	/**
+	 * Enregister un nouveau débit à partir d'une fenêtre qui s'ouvre en dialogue.
+	 * 
+	 * @return L'objet Operation de débit.
+	 */
 	public Operation enregistrerDebit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
@@ -91,8 +104,15 @@ public class OperationsManagement {
 		return op;
 	}
 
+	/**
+	 * Enregister un nouveau crédit à partir d'une fenêtre qui s'ouvre en dialogue.
+	 * 
+	 * @return L'objet Operation de crédit.
+	 * 
+	 * @author Vincent
+	 */
 	public Operation enregistrerCredit() {
-		
+
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
 		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
 		if (op != null) {
@@ -114,15 +134,21 @@ public class OperationsManagement {
 		}
 		return op;
 	}
-	
+
+	/**
+	 * Enregister un nouveau virement à partir d'une fenêtre qui s'ouvre en
+	 * dialogue.
+	 * 
+	 * 
+	 * @author Vincent
+	 */
 	public void enregistrerVirement() {
-		
+
 		OperationVirementEditorPane ovep = new OperationVirementEditorPane(this.primaryStage, this.dailyBankState);
 
 		this.compteCible = null;
 		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible, this);
 
-		
 		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
 
 		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
@@ -157,7 +183,6 @@ public class OperationsManagement {
 		return;
 	}
 
-
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {
 		ArrayList<Operation> listeOP = new ArrayList<>();
 
@@ -184,6 +209,9 @@ public class OperationsManagement {
 		return new PairsOfValue<>(this.compteConcerne, listeOP);
 	}
 
+	/**
+	 * Setter du compte cible.
+	 */
 	public void setCompteCible(CompteCourant _compteCible) {
 		this.compteCible = _compteCible;
 	}
