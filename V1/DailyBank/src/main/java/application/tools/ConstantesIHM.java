@@ -45,6 +45,7 @@ public class ConstantesIHM {
 	public static final String TYPE_OP_7 = "Virement Compte à Compte";
 	public static final String TYPE_OP_8 = "Prélèvement automatique";
 	public static final String TYPE_OP_9 = "Prélèvement agios";
+	public static final String TYPE_OP_10 = "Virement Compte à Compte";
 
 	// Listes d'opérations
 

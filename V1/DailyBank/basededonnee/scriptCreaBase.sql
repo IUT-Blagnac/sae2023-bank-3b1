@@ -310,6 +310,33 @@ END;
 -- Pour que la procédure fonctionne avec le montant en décimal, il faut écrire le montant comme un varchar (ex : '15,2')
 -- et le convertir en number avec la fonction TO_NUMBER()
 
+CREATE OR REPLACE PROCEDURE Credit (
+	vidNumCompte CompteCourant.idNumCompte%TYPE,
+	vMontantCredit Operation.montant%TYPE,
+	vTypeOp TypeOperation.idTypeOp%TYPE,
+	retour OUT NUMBER)
+IS
+
+	vSolde CompteCourant.solde%TYPE;
+	vNouveauSolde CompteCourant.solde%TYPE;
+	
+BEGIN
+    SELECT solde into vSolde FROM CompteCourant WHERE idNumCompte = vidNumCompte;
+	vNouveauSolde := vSolde + vMontantCredit;
+    INSERT INTO Operation (idOperation, montant, dateValeur, idNumCompte, idTypeOp)
+    VALUES (seq_id_operation.NEXTVAL, vMontantCredit, sysdate +2, vidNumCompte, vTypeOp);
+
+    -- on met à jour le solde du compte correspondant à l'opération
+    UPDATE CompteCourant
+    SET solde = vNouveauSolde
+    WHERE idNumCompte = vidNumCompte;
+    
+    COMMIT;
+    retour := 0;
+END;
+
+
+
 -- Avant le débit réussi...
 SELECT * FROM CompteCourant WHERE idNumCompte = 1;
 SELECT * FROM Operation WHERE idNumCompte = 1; 
