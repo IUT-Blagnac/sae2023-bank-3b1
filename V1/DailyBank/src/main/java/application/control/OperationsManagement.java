@@ -120,7 +120,7 @@ public class OperationsManagement {
 		OperationVirementEditorPane ovep = new OperationVirementEditorPane(this.primaryStage, this.dailyBankState);
 
 		this.compteCible = null;
-		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible);
+		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible, this);
 
 		
 		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
@@ -140,8 +140,8 @@ public class OperationsManagement {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.get(0).montant, ConstantesIHM.TYPE_OP_5);
-				ao.insertCredit(this.compteCible.idNumCompte, op.get(1).montant, ConstantesIHM.TYPE_OP_3);
+				ao.insertDebit(this.compteConcerne.idNumCompte, op.get(0).montant, ConstantesIHM.TYPE_OP_10);
+				ao.insertCredit(this.compteCible.idNumCompte, op.get(1).montant, ConstantesIHM.TYPE_OP_10);
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
@@ -182,5 +182,9 @@ public class OperationsManagement {
 		}
 		System.out.println(this.compteConcerne.solde);
 		return new PairsOfValue<>(this.compteConcerne, listeOP);
+	}
+
+	public void setCompteCible(CompteCourant _compteCible) {
+		this.compteCible = _compteCible;
 	}
 }

@@ -47,8 +47,8 @@ public class OperationVirementEditorPane {
 		}
 	}
 
-	public ArrayList<Operation> doOperationEditorDialog(CompteCourant cpte, CompteCourant cpteCible) {
-		ArrayList<Operation> o = this.oepcViewController.displayDialog(cpte, cpteCible);
+	public ArrayList<Operation> doOperationEditorDialog(CompteCourant cpte, CompteCourant cpteCible, OperationsManagement om) {
+		ArrayList<Operation> o = this.oepcViewController.displayDialog(cpte, cpteCible, om);
 		return o;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.DailyBankState;
+import application.control.OperationsManagement;
 import application.tools.AlertUtilities;
 import application.tools.CategorieOperation;
 import application.tools.ConstantesIHM;
@@ -50,7 +51,7 @@ public class OperationVirementEditorPaneController {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
-	public ArrayList<Operation> displayDialog(CompteCourant cpte, CompteCourant cpteCible) {
+	public ArrayList<Operation> displayDialog(CompteCourant cpte, CompteCourant cpteCible, OperationsManagement om) {
 		this.compteEdite = cpte;
 		
 		String info;
@@ -73,21 +74,9 @@ public class OperationVirementEditorPaneController {
 		this.operationResultat = null;
 
 		this.primaryStage.showAndWait();
-		
-		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
-		
-		try {
-			int a = Integer.parseInt(this.txtCible.getText());
-		
-			cpteCible = acc.getCompteCourant(a);
-			
-		} catch (RowNotFoundOrTooManyRowsException e) {
-			System.out.println("Compte inexistant");
-		} catch (Exception e) {
-			System.out.println("Nombre probablement rejetté");
-		}
-		
-		
+
+		om.setCompteCible(this.compteCible);
+
 		return this.operationResultat;
 	}
 
@@ -160,7 +149,7 @@ public class OperationVirementEditorPaneController {
 
 		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 		try {
-			compteCible = ac.getCompteCourant(Integer.parseInt(txtCible.getText()));
+			this.compteCible = ac.getCompteCourant(Integer.parseInt(txtCible.getText()));
 		} catch (RowNotFoundOrTooManyRowsException e) {
 			throw new RuntimeException(e);
 		} catch (DataAccessException e) {
