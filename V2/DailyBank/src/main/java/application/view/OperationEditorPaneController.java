@@ -137,6 +137,12 @@ public class OperationEditorPaneController {
 	}
 
 
+	/**
+	 * Effectue l'opération de crédit ou de débit.
+	 *
+	 * Débit exeptionnel : Émilien FIEU
+	 * @author Émilien FIEU
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {

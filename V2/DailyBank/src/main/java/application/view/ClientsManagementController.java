@@ -46,6 +46,7 @@ public class ClientsManagementController {
 		this.lvClients.getFocusModel().focus(-1);
 		this.lvClients.getSelectionModel().selectedItemProperty().addListener(e -> this.validateComponentState());
 		this.validateComponentState();
+		doRechercher();
 	}
 
 	public void displayDialog() {

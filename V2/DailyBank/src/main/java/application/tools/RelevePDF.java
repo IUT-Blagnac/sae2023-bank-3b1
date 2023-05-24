@@ -56,7 +56,7 @@ public class RelevePDF {
             if (!Files.exists(Paths.get("releves"))) {
                 Files.createDirectory(Paths.get("releves"));
             }
-            String pdfFilename = "releves/Releve du compte no" + cpt.idNumCompte +" "+ mois.getValue()+":"+annee.toString()+".pdf";
+            String pdfFilename = "releves/Releve du compte no" + cpt.idNumCompte +" "+ mois.getValue()+".:"+annee.toString()+".pdf";
             PdfWriter writer = PdfWriter.getInstance(d, new FileOutputStream(pdfFilename));
         } catch (DocumentException e) {
             throw new RuntimeException(e);

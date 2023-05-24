@@ -1,5 +1,6 @@
 package application.view;
 
+import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.util.ArrayList;
@@ -11,8 +12,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Pair;
@@ -146,24 +145,37 @@ public class ComptesManagementController {
 
 			if (result.getKey().isEmpty() || result.getValue().isEmpty()) {
 				AlertUtilities.showAlert(primaryStage,"Erreur", "Les champs ne peuvent pas être vides", "Veuillez remplir les champs", Alert.AlertType.ERROR);
+				doReleve();
 				return;
 			}
 			if (!result.getValue().matches("[0-9]{4}")) {
 				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ année doit être un nombre à 4 chiffres", "Veuillez remplir le champ année avec un nombre à 4 chiffres", Alert.AlertType.ERROR);
+				doReleve();
 				return;
 			}
 			if (!result.getKey().matches("[0-9]{2}")) {
 				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ mois doit être un nombre à 2 chiffres", "Veuillez remplir le champ mois avec un nombre à 2 chiffres", Alert.AlertType.ERROR);
+				doReleve();
 				return;
 			}
 			if (Integer.parseInt(result.getKey())>12 || Integer.parseInt(result.getKey())<1){
 				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ mois doit être compris entre 1 et 12", "Veuillez remplir le champ mois avec un nombre compris entre 1 et 12", Alert.AlertType.ERROR);
+				doReleve();
 				return;
 			}
+
+			LocalDate dateActuelle = LocalDate.now();
+			LocalDate dateReleve = LocalDate.of(Integer.parseInt(result.getValue()), Integer.parseInt(result.getKey()), 1);
+
+			if (dateReleve.isAfter(dateActuelle)) {
+				AlertUtilities.showAlert(primaryStage,"Erreur", "La date du relevé ne peut pas être dans le futur", "Veuillez remplir les champs avec une date qui ne dépasse pas la date actuelle", Alert.AlertType.ERROR);
+				return;
+			}
+
 			Month month = Month.of(Integer.parseInt(result.getKey()));
 			Year year = Year.parse(result.getValue());
 
-			this.cmDialogController.gererReleve(cpt, month, year);
+			this.cmDialogController.genererReleve(cpt, month, year);
 
 		}
 	}

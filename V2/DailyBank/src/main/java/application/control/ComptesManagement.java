@@ -1,16 +1,8 @@
 package application.control;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 
 import application.DailyBankApp;
 import application.DailyBankState;
@@ -19,9 +11,6 @@ import application.tools.EditionMode;
 import application.tools.RelevePDF;
 import application.tools.StageManagement;
 import application.view.ComptesManagementController;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.*;
-import com.itextpdf.text.pdf.fonts.otf.TableHeader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
@@ -30,9 +19,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
-import model.data.Operation;
 import model.orm.Access_BD_CompteCourant;
-import model.orm.Access_BD_Operation;
 import model.orm.exception.*;
 
 public class ComptesManagement {
@@ -128,6 +115,7 @@ public class ComptesManagement {
 		return listeCpt;
 	}
 
+
 	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
 		// Le compte peut seulement être supprimé si son solde est à 0
 		if (cpt.solde != 0 ) {
@@ -148,7 +136,7 @@ public class ComptesManagement {
 	 * @param annee l'année du relevé
 	 * @author Émilien FIEU
 	 */
-	public void gererReleve(CompteCourant cpt, Month mois, Year annee) {
+	public void genererReleve(CompteCourant cpt, Month mois, Year annee) {
 		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee);
 	}
 }
