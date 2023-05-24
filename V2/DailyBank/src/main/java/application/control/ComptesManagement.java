@@ -1,11 +1,14 @@
 package application.control;
 
+import java.time.Month;
+import java.time.Year;
 import java.util.ArrayList;
 
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.AlertUtilities;
 import application.tools.EditionMode;
+import application.tools.RelevePDF;
 import application.tools.StageManagement;
 import application.view.ComptesManagementController;
 import javafx.fxml.FXMLLoader;
@@ -112,6 +115,7 @@ public class ComptesManagement {
 		return listeCpt;
 	}
 
+
 	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
 		// Le compte peut seulement être supprimé si son solde est à 0
 		if (cpt.solde != 0 ) {
@@ -123,5 +127,16 @@ public class ComptesManagement {
 		acc.supprimerCompteCourant(cpt);
 		AlertUtilities.showAlert(this.primaryStage, "Suppression d'un compte",
 				"Succès suppression compte", "Le compte a été supprimé avec succès", AlertType.INFORMATION);
+	}
+
+	/**
+	 * Génère un relevé PDF pour le compte passé en paramètre
+	 * @param cpt le compte pour lequel générer le relevé
+	 * @param mois le mois du relevé
+	 * @param annee l'année du relevé
+	 * @author Émilien FIEU
+	 */
+	public void genererReleve(CompteCourant cpt, Month mois, Year annee) {
+		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee);
 	}
 }

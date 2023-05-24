@@ -2,10 +2,11 @@ package application.tools;
 
 import java.util.Optional;
 
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 /**
  * Utilitaire pour afficher une fenêtre de message ou de confirmation.
@@ -69,5 +70,53 @@ public class AlertUtilities {
 		alert.setContentText(_content);
 
 		alert.showAndWait();
+	}
+
+	public static Pair<String, String> showMonthRequestDialog() {
+		Dialog<Pair<String, String>> dialog = new Dialog<>();
+		dialog.setTitle("Selection du mois et de l'année du relevé");
+		dialog.setHeaderText(null);
+
+		DialogPane dialogPane = dialog.getDialogPane();
+
+		dialogPane.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+		GridPane gridPane = new GridPane();
+		gridPane.setHgap(10);
+		gridPane.setVgap(10);
+
+		TextField monthTextField = new TextField();
+		monthTextField.setPromptText("Mois");
+		TextField yearTextField = new TextField();
+		yearTextField.setPromptText("Année");
+
+
+
+		gridPane.add(new Label("Mois :"), 0, 0);
+		gridPane.add(monthTextField, 1, 0);
+		gridPane.add(new Label("Année :"), 0, 1);
+		gridPane.add(yearTextField, 1, 1);
+
+		dialogPane.setContent(gridPane);
+		monthTextField.requestFocus();
+
+		dialog.setResultConverter(dialogButton -> {
+			if (dialogButton == ButtonType.OK) {
+				return new Pair<>(monthTextField.getText(), yearTextField.getText());
+			}
+			return null;
+		});
+
+		dialog.showAndWait();
+
+		Pair<String, String> result = dialog.getResult();
+		if (result != null) {
+			String month = result.getKey();
+			String year = result.getValue();
+			System.out.println("Mois: " + month);
+			System.out.println("Année: " + year);
+		}
+
+		return result;
 	}
 }

@@ -39,12 +39,14 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doAutre" text="Enregistrer Virement" GridPane.rowIndex="2">
+
+                        <Button fx:id="btnVirement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doAutre" text="Enregistrer Virement" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCRUDPrelevement" text="Gérer Prélèvements" textFill="#874cc7" GridPane.rowIndex="3">
+
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>

@@ -136,6 +136,13 @@ public class OperationEditorPaneController {
 		this.primaryStage.close();
 	}
 
+
+	/**
+	 * Effectue l'opération de crédit ou de débit.
+	 *
+	 * Débit exeptionnel : Émilien FIEU
+	 * @author Émilien FIEU
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {
@@ -164,16 +171,29 @@ public class OperationEditorPaneController {
 					this.txtMontant.requestFocus();
 					return;
 				}
-				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
-					info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
-							+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-							+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-					this.lblMessage.setText(info);
-					this.txtMontant.getStyleClass().add("borderred");
-					this.lblMontant.getStyleClass().add("borderred");
-					this.lblMessage.getStyleClass().add("borderred");
-					this.txtMontant.requestFocus();
-					return;
+
+				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise ) {
+					if (!ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())){
+						info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
+								+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+								+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+						this.lblMessage.setText(info);
+						this.txtMontant.getStyleClass().add("borderred");
+						this.lblMontant.getStyleClass().add("borderred");
+						this.lblMessage.getStyleClass().add("borderred");
+						this.txtMontant.requestFocus();
+						return;
+					}
+					else{
+						boolean continuer = AlertUtilities.confirmYesCancel(this.primaryStage,"Confirmation débite exeptionnel",
+								"Voulez vous vraiment débiter le compte de "+montant+"€ ?",
+								"Compte : " + this.compteEdite.idNumCompte + " \nCe débit dépassera la limite de découvert autorisé !",
+								AlertType.CONFIRMATION);
+
+						if(!continuer) {
+							return;
+						}
+					}
 				}
 				String typeOp = this.cbTypeOpe.getValue();
 				this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);

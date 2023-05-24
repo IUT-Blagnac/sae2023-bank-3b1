@@ -178,6 +178,9 @@ public class Access_BD_CompteCourant {
 			String query = "INSERT INTO COMPTECOURANT VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
 
 			PreparedStatement pst = con.prepareStatement(query);
+			if (compte.debitAutorise > 0) {
+				compte.debitAutorise = -compte.debitAutorise;
+			}
 			pst.setInt(1, compte.debitAutorise);
 			pst.setDouble(2, compte.solde);
 			pst.setInt(3, compte.idNumCli);
