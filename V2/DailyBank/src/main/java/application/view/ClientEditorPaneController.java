@@ -1,6 +1,5 @@
 package application.view;
 
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 import application.DailyBankState;

@@ -149,8 +149,6 @@ public class OperationsManagement {
 		this.compteCible = null;
 		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible, this);
 
-		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
-
 		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 		try {
 			ac.getCompteCourant(op.get(1).idNumCompte);
@@ -180,6 +178,21 @@ public class OperationsManagement {
 				op = null;
 			}
 		}
+		return;
+	}
+
+
+	/**
+	 * Ouvre le CRUD des prélèvements.
+	 * 
+	 * 
+	 * @author Vincent Barette
+	 */
+	public void crudPrelevement() {
+		PrelevementManagementPane pmp = new PrelevementManagementPane(this.primaryStage, this.dailyBankState);
+
+		pmp.doPrelevementManagementDialog(this.compteConcerne.idNumCompte+"");
+		
 		return;
 	}
 

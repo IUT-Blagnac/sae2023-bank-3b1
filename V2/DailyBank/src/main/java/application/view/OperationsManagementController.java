@@ -113,7 +113,7 @@ public class OperationsManagementController {
 
 	@FXML
 	private void doCRUDPrelevement() {
-		
+		this.omDialogController.crudPrelevement();
 	}
 
 	private void validateComponentState() {

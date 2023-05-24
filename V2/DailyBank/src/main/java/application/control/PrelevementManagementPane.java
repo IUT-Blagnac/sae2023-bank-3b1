@@ -6,14 +6,12 @@ import application.tools.AlertUtilities;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.PrelevementManagementController;
-import application.view.PrelevementManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.data.Prelevement;
 import model.data.Prelevement;
 import model.orm.Access_BD_Prelevement;
 import model.orm.exception.ApplicationException;
@@ -22,25 +20,26 @@ import model.orm.exception.DatabaseConnexionException;
 import java.util.ArrayList;
 
 /**
- * Classe de gestion du menu d’édition d’employé
- * @author Émilien FIEU
+ * Classe de gestion du menu d’édition de prélèvement
+ * @author Vincent Barette
  */
-public class PrelevementManagement {
+public class PrelevementManagementPane {
 
     private Stage primaryStage;
     private DailyBankState dailyBankState;
     private PrelevementManagementController pmcViewController;
+	private String idCompte;
 
     /**
      * Constructeur de la classe
      * @param _parentStage la fenetre dans lequel est le menu
      * @param _dbstate l’état de l’application
-     * @author Émilien FIEU
+     * @author Vincent Barette
      */
-    public PrelevementManagement(Stage _parentStage, DailyBankState _dbstate) {
+    public PrelevementManagementPane(Stage _parentStage, DailyBankState _dbstate) {
         this.dailyBankState = _dbstate;
         try{
-            FXMLLoader loader = new FXMLLoader(PrelevementManagementController.class.getResource("Prelevementmanagement.fxml"));
+            FXMLLoader loader = new FXMLLoader(PrelevementManagementController.class.getResource("prelevementmanagement.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
@@ -64,14 +63,14 @@ public class PrelevementManagement {
     }
 
     /**
-     * Lance la modification de l’employé
-     * @param Prelevement l’employé à modifier
-     * @return l’employé modifié
-     * @author Émilien FIEU
+     * Lance la modification du prélèvement
+     * @param Prelevement à modifier
+     * @return le prélèvement modifié
+     * @author Vincent Barette
      */
     public Prelevement modifierPrelevement(Prelevement Prelevement){
-        PrelevementEditorPane eep = new PrelevementEditorPane(this.primaryStage, this.dailyBankState);
-        Prelevement result = eep.doPrelevementEditorDialog(Prelevement, EditionMode.MODIFICATION);
+        PrelevementEditorPane pep = new PrelevementEditorPane(this.primaryStage, this.dailyBankState);
+        Prelevement result = pep.doPrelevementEditorDialog(Prelevement, EditionMode.MODIFICATION, this.idCompte);
         if (result != null){
             try {
                 Access_BD_Prelevement ac = new Access_BD_Prelevement();
@@ -91,12 +90,12 @@ public class PrelevementManagement {
     }
 
     /**
-     * Lance la suppression de l’employé
-     * @param Prelevement l’employé à modifier
-     * @author Émilien FIEU
+     * Lance la suppression du prélèvement
+     * @param Prelevement Prélèvement à modifier
+     * @author Vincent Barette
      */
     public void supprimerPrelevement(Prelevement Prelevement){
-        boolean confirmation = AlertUtilities.confirmYesCancel(this.primaryStage, "Suppression d'un employé", "Voulez-vous vraiment supprimer l'employé ", Prelevement.toString(), Alert.AlertType.CONFIRMATION);
+        boolean confirmation = AlertUtilities.confirmYesCancel(this.primaryStage, "Suppression d'un prélèvement", "Voulez-vous vraiment supprimer ce prélèvement ", Prelevement.toString(), Alert.AlertType.CONFIRMATION);
 
         if (confirmation){
             try {
@@ -115,13 +114,13 @@ public class PrelevementManagement {
     }
 
     /**
-     * Lance la création d’un employé
-     * @return l’employé crée
+     * Lance la création d’un prélèvement
+     * @return une copie du prélèvement créé
      */
     public Prelevement creerPrelevement(){
         Prelevement Prelevement;
         PrelevementEditorPane eep = new PrelevementEditorPane(this.primaryStage, this.dailyBankState);
-        Prelevement = eep.doPrelevementEditorDialog(null, EditionMode.CREATION);
+        Prelevement = eep.doPrelevementEditorDialog(null, EditionMode.CREATION, this.idCompte);
 
         if (Prelevement != null) {
             try {
@@ -143,26 +142,26 @@ public class PrelevementManagement {
     }
 
     /**
-     * Lance le menu de gestion des employés
-     * @author Émilien FIEU
+     * Lance le menu de gestion des prélèvements
+     * @author Vincent BARETTE
      */
-    public void doPrelevementManagementDialog() {
-        this.pmcViewController.displayDialog();
+    public void doPrelevementManagementDialog(String idCompte) {
+    	this.idCompte = idCompte;
+        this.pmcViewController.displayDialog(idCompte);
     }
 
     /**
-     * Cherche les employés selon le numéro, le nom, le prénom
-     * @param num le numéro de l’employé recherché
-     * @param nom le nom ou le début de nom de l’employé recherché
-     * @param prenom le prénom ou le début de prénom de l’employé recherché
-     * @return una liste des employés trouvés
-     * @author Vincent Barette
+     * Cherche les prélèvements selon l'identifiant et le propriétaire du compte
+     * @param idPrelev L'identifiant du prélèvement
+     * @param idCompte L'identifiant du proprio
+     * @return une liste des prélèvements trouvés
+     * @author Vincent BARETTE
      */
-    public ArrayList<Prelevement> getlistePrelevement(int num, String nom, String prenom){
+    public ArrayList<Prelevement> getlistePrelevement(int idPrelev, int idCompte){
         ArrayList<Prelevement> listePrelevement = new ArrayList<Prelevement>();
         try {
             Access_BD_Prelevement ac = new Access_BD_Prelevement();
-            listePrelevement = ac.getPrelevementList(this.dailyBankState.getEmployeActuel().idAg, num, nom, prenom);
+            listePrelevement = ac.getPrelevementList(idPrelev, idCompte);
         } catch (DatabaseConnexionException e) {
             ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
             ed.doExceptionDialog();
@@ -173,7 +172,6 @@ public class PrelevementManagement {
             ed.doExceptionDialog();
             listePrelevement = new ArrayList<>();
         }
-
 
         return listePrelevement;
     }

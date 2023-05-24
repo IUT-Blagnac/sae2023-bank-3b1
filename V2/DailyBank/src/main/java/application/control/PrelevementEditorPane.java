@@ -6,12 +6,16 @@ import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.EmployeEditorPaneController;
 import application.view.EmployeManagementController;
+import application.view.PrelevementEditorPaneController;
+import application.view.PrelevementManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.CompteCourant;
 import model.data.Employe;
+import model.data.Prelevement;
 
 /**
  * Classe de gestion du menu d’édition d’employé
@@ -19,7 +23,7 @@ import model.data.Employe;
  */
 public class PrelevementEditorPane {
     private  Stage primaryStage;
-    private EmployeEditorPaneController eepcViewController;
+    private PrelevementEditorPaneController pepcViewController;
     private DailyBankState dailyBankState;
 
     /**
@@ -31,7 +35,7 @@ public class PrelevementEditorPane {
     public PrelevementEditorPane(Stage primaryStage, DailyBankState dailyBankState) {
         this.dailyBankState = dailyBankState;
         try {
-            FXMLLoader loader = new FXMLLoader(EmployeManagementController.class.getResource("employeeditorpane.fxml"));
+            FXMLLoader loader = new FXMLLoader(PrelevementManagementController.class.getResource("prelevementeditorpane.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -45,8 +49,8 @@ public class PrelevementEditorPane {
             this.primaryStage.setTitle("Gestion d'un client");
             this.primaryStage.setResizable(false);
 
-            this.eepcViewController = loader.getController();
-            this.eepcViewController.initContext(this.primaryStage, this.dailyBankState);
+            this.pepcViewController = loader.getController();
+            this.pepcViewController.initContext(this.primaryStage, this.dailyBankState);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,7 +64,7 @@ public class PrelevementEditorPane {
      * @return L’employé modifié/créé
      * @author Émilien FIEU
      */
-    public Employe doEmployeEditorDialog(Employe e, EditionMode editionMode) {
-        return this.eepcViewController.displayDialog(e, editionMode);
+    public Prelevement doPrelevementEditorDialog(Prelevement p, EditionMode editionMode, String idCompte) {
+        return this.pepcViewController.displayDialog(p, editionMode, idCompte);
     }
 }

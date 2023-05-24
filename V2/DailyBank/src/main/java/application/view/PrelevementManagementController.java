@@ -2,6 +2,7 @@ package application.view;
 
 import application.DailyBankState;
 import application.control.EmployeManagement;
+import application.control.PrelevementManagementPane;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,41 +23,42 @@ import java.util.ArrayList;
  */
 public class PrelevementManagementController {
     private Stage primaryStage;
-    private EmployeManagement cmDialogController;
-    private ObservableList<Employe> olvEmployes;
+    private PrelevementManagementPane pmDialogController;
+    private ObservableList<Prelevement> olvPrelevements;
 
     /**
      * Méthode qui initialise le contexte de l’objet
      * @param _containingStage La fenetre qui contient ce menu
      * @param _cm le controlleur des employé
      * @param _dbstate l’état de l’application
-     * @author Émilien FIEU
+     * @author Vincent Barette
      */
-    public void initContext(Stage _containingStage, EmployeManagement _cm, DailyBankState _dbstate) {
-        this.cmDialogController = _cm;
+    public void initContext(Stage _containingStage, PrelevementManagementPane _pm, DailyBankState _dbstate) {
+        this.pmDialogController = _pm;
         this.primaryStage = _containingStage;
         this.configure();
     }
 
     /**
      * Méthode qui permet de configurer la fenetre
-     * @author Émilien FIEU
+     * @author Vincent BARETTE
      */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
-        this.olvEmployes = FXCollections.observableArrayList();
-        this.lvEmployes.setItems(this.olvEmployes);
-        this.lvEmployes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        this.lvEmployes.getFocusModel().focus(-1);
-        this.lvEmployes.getSelectionModel().selectedItemProperty().addListener(e -> validateComponentState());
+        this.olvPrelevements = FXCollections.observableArrayList();
+        this.lvPrelevements.setItems(this.olvPrelevements);
+        this.lvPrelevements.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        this.lvPrelevements.getFocusModel().focus(-1);
+        this.lvPrelevements.getSelectionModel().selectedItemProperty().addListener(e -> validateComponentState());
         this.validateComponentState();
     }
 
     /**
      * Méthode qui affiche le menu
-     * @author Émilien FIEU
+     * @author Vincent BARETTE
      */
-    public void displayDialog() {
+    public void displayDialog(String idCompte) {
+    	this.txtIDCompte.setText(idCompte);
         this.primaryStage.showAndWait();
     }
 
@@ -71,7 +73,7 @@ public class PrelevementManagementController {
 
     // Les différentes parties de l’interface dont nous avons besoin
     @FXML
-    private ListView<Employe> lvEmployes;
+    private ListView<Prelevement> lvPrelevements;
     @FXML
     private TextField txtIDPrelev;
     @FXML
@@ -91,19 +93,19 @@ public class PrelevementManagementController {
     }
 
     /**
-     * Déclenche la recherche des employés
-     * @author Émilien FIEU
+     * Déclenche la recherche des prélèvements
+     * @author Vincent Barette
      */
     @FXML
     private void doRechercher() {
         int numPrelev;
         try {
-            String nc = this.txtIDPrelev.getText();
+            String np = this.txtIDPrelev.getText();
 
-            if (nc.equals("")) {
+            if (np.equals("")) {
                 numPrelev = -1;
             } else {
-                numPrelev = Integer.parseInt(nc);
+                numPrelev = Integer.parseInt(np);
                 if (numPrelev < 0) {
                     this.txtIDPrelev.setText("");
                     numPrelev = -1;
@@ -114,63 +116,54 @@ public class PrelevementManagementController {
             numPrelev = -1;
         }
 
-        String debutNom = this.txtIDCompte.getText();
+        ArrayList<Prelevement> listePrelevements = new ArrayList<>();
+        int idCompte = Integer.valueOf(this.txtIDCompte.getText());
+        listePrelevements = pmDialogController.getlistePrelevement(numPrelev, idCompte);
 
-        if (numPrelev !=-1){
-            this.txtIDCompte.setText("");
-        } else {
-            if (debutNom.equals("") && !debutPrenom.equals("")) {
-                this.txtIDCompte.setText("");
-            }
-        }
-
-        ArrayList<Prelevement> listeEmploye = new ArrayList<>();
-        listeEmploye = cmDialogController.getlisteEmploye(numPrelev, txtIDCompte.getText());
-
-        lvEmployes.getItems().clear();
-        lvEmployes.getItems().addAll(listeEmploye);
+        this.lvPrelevements.getItems().clear();
+        this.lvPrelevements.getItems().addAll(listePrelevements);
     }
 
     /**
-     * Déclenche la création d’un employé
-     * @author Émilien FIEU
+     * Déclenche la création d’un prélèvement
+     * @author Vincent Barette
      */
     @FXML
-    private void doCreerEmploye() {
-        Employe employe;
-        employe = this.cmDialogController.creerEmploye();
-        if (employe != null) {
-            this.olvEmployes.add(employe);
+    private void doCreerPrelevement() {
+        Prelevement pre;
+        pre = this.pmDialogController.creerPrelevement();
+        if (pre != null) {
+            this.olvPrelevements.add(pre);
         }
     }
 
     /**
-     * Déclenche la modification d’un employé
-     * @author Émilien FIEU
+     * Déclenche la modification d’un prélèvement
+     * @author Vincent Barette
      */
     @FXML
-    public void doModifierEmploye() {
-        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+    public void doModifierPrelevement() {
+        int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
         if (selectedIndice >= 0){
-            Employe employeMod= this.olvEmployes.get(selectedIndice);
-            Employe resultat = this.cmDialogController.modifierEmploye(employeMod);
+            Prelevement prelevMod= this.olvPrelevements.get(selectedIndice);
+            Prelevement resultat = this.pmDialogController.modifierPrelevement(prelevMod);
             if (resultat != null) {
-                this.olvEmployes.set(selectedIndice, resultat);
+                this.olvPrelevements.set(selectedIndice, resultat);
             }
         }
     }
 
     /**
-     * Déclenche la supprésion d’un employé
-     * @author Émilien FIEU
+     * Déclenche la supprésion d’un prélèvement
+     * @author Vincent Barette
      */
     @FXML
-    public void doSupprimerEmplyé() {
-        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+    public void doSupprimerPrelevement() {
+        int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
         if (selectedIndice >= 0){
-            Employe employeSup= this.olvEmployes.get(selectedIndice);
-            this.cmDialogController.supprimerEmploye(employeSup);
-            this.olvEmployes.remove(selectedIndice);
+        	Prelevement prelevementSup= this.olvPrelevements.get(selectedIndice);
+            this.pmDialogController.supprimerPrelevement(prelevementSup);
+            this.olvPrelevements.remove(selectedIndice);
         }
     }
 
@@ -181,13 +174,13 @@ public class PrelevementManagementController {
      */
     private void validateComponentState() {
 
-        int selectedIndice = this.lvEmployes.getSelectionModel().getSelectedIndex();
+        int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
         if (selectedIndice >= 0) {
-            this.btnModifierEmploye.setDisable(false);
-            this.btnSupprimerEmploye.setDisable(false);
+            this.btnModifier.setDisable(false);
+            this.btnSupprimer.setDisable(false);
         } else {
-            this.btnModifierEmploye.setDisable(true);
-            this.btnSupprimerEmploye.setDisable(true);
+            this.btnModifier.setDisable(true);
+            this.btnSupprimer.setDisable(true);
         }
     }
 
