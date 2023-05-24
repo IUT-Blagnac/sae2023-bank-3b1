@@ -2,11 +2,19 @@ package application.tools;
 
 import application.DailyBankState;
 import application.control.ExceptionDialog;
-import com.itextpdf.text.*;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.BaseColor  ;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPRow;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.data.Client;
@@ -15,7 +23,6 @@ import model.data.Operation;
 import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -52,6 +59,11 @@ public class RelevePDF {
         // titre
         Paragraph titre = new Paragraph("Relevé de compte", titleFont);
         titre.setAlignment(Element.ALIGN_CENTER);
+
+        // ligne de séparation
+
+        LineSeparator ls = new LineSeparator();
+        Chunk linebreak = new Chunk(ls);
 
         // infos client
         Paragraph infosClient = new Paragraph("Client : \n"
@@ -137,10 +149,9 @@ public class RelevePDF {
             pair = !pair;
         }
 
-
-
         try {
             d.add(titre);
+            d.add(linebreak);
             d.add(infosClient);
             d.add(infosAgence);
             d.add(table);
@@ -151,9 +162,6 @@ public class RelevePDF {
 
         AlertUtilities.showAlert(primaryStage, "Génération du relevé",
                 "Succès génération relevé", "Le relevé a été généré avec succès", Alert.AlertType.INFORMATION);
-
-
-
 
     }
 }
