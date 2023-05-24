@@ -105,3 +105,60 @@ image::../img/ModifEmploye.png[]
 
 Pour modifier un employé, il faut sélectionner un employé et cliquer sur Modifier. On peut alors modifier les informations de l'employé.
 
+
+[discrete]
+=== Débit, Crédit & Virement
+
+__Depuis le menu "Gestion des opérations" d'un compte DailyBank actif, le guichetier peut effectuer des opérations affectant le solde des comptes bancaires.__
+
+image::../img/Employe.png[]
+
+[discrete]
+==== Débit
+
+Le guichetier peut effectuer un débit sur un compte en utilisant le bouton "Enregistrer Débit". Il pourra ensuite saisir un montant ainsi qu'un motif pour l'opération, et confirmer la transaction.
+
+image::../img/DocUtil/Debit.png[]
+
+[discrete]
+==== Crédit
+
+Le guichetier peut effectuer un crédit sur un compte en utilisant le bouton "Enregistrer Crédit". Il pourra ensuite saisir un montant ainsi qu'un motif pour l'opération, et confirmer la transaction.
+
+image::../img/DocUtil/Credit.png[]
+
+[discrete]
+==== Virement
+
+Le guichetier peut effectuer un virement d'un compte à un autre, en utilisant le bouton "Enregistrer Virement". Il pourra ensuite saisir un montant ainsi que le bénéficiaire de la somme, et confirmer la transaction.
+
+image::../img/DocUtil/Virement.png[]
+
+
+
+[discrete]
+=== Gestion des prélèvements automatiques
+
+__Depuis le menu "Gestion des prélèvements" d'un compte DailyBank actif, le guichetier peut créer, lire, modifier ou supprimer ses prélèvements automatiques.__
+
+[discrete]
+==== Recherche & Lecture
+
+Cliquer sur le bouton **Rechercher** permet d'afficher la liste des prélèvements automatiques associés au compte DailyBank. Il est également possible de chercher un prélèvement automatique en particulier en renseignant son identifiant dans le champ de recherche.
+
+
+image::../img/DocUtil/CRUDP/Rechercher.png[]
+
+[discrete]
+==== Création
+
+Cliquer sur le bouton **Nouveau prélèvement** ouvrira une fenêtre permettant de créer un nouveau prélèvement automatique. Il est nécessaire de renseigner le montant du prélèvement, la date récurrente, le motif du prélèvement ainsi que le compte bénéficiaire du prélèvement.
+
+
+image::../img/AjoutEmploye.png[]
+
+Pour ajouter un employé, il faut remplir correctement les champs et cliquer sur Créer.
+
+image::../img/ModifEmploye.png[]
+
+Pour modifier un employé, il faut sélectionner un employé et cliquer sur Modifier. On peut alors modifier les informations de l'employé.
