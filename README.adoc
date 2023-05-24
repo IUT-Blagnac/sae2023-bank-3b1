@@ -26,10 +26,9 @@
 |2      |Batch            | Prélèvements automatiques |                      |          |           |
 |2      |Batch            | Reléves mensuels          |                      |          |           |
 
-/!\ Le travail peut être sur une branche différente.
-
 |=======================
 
+/!\ Le travail peut être sur une branche différente.
 
 Chaque étudiant doit mettre son nom sur une des colonnes étudiant.
 Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a développé en indiquant
