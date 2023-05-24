@@ -18,7 +18,7 @@
          <center>
             <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <GridPane alignment="CENTER">
+                  <GridPane alignment="CENTER" prefHeight="238.0" prefWidth="190.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -29,17 +29,22 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnDebit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebit" text="Enregistrer Débit" GridPane.rowIndex="1">
+                        <Button fx:id="btnDebit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebit" text="Enregistrer Débit">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnCredit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCredit" text="Enregistrer Crédit" GridPane.rowIndex="2">
+                        <Button fx:id="btnCredit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCredit" text="Enregistrer Crédit" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doAutre" text="Enregistrer Virement" GridPane.rowIndex="3">
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doAutre" text="Enregistrer Virement" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doCRUDPrelevement" text="Gérer Prélèvements" textFill="#874cc7" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
