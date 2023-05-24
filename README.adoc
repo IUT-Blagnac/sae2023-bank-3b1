@@ -19,12 +19,14 @@
 |2      |Chef d’Agence    | Emprunt                   | Simuler emprunt      |          |           |
 |2      |Chef d’Agence    | Emprunt                   | Simuler assurance    |          |           |
 |2      |Guichetier       | Compte                    | Relevé PDF           |          |           |
-|2      |Guichetier       | CRUD Prélèvement          | C                    |          |           |
-|2      |Guichetier       | CRUD Prélèvement          | R                    |          |           |
-|2      |Guichetier       | CRUD Prélèvement          | U                    |          |           |
-|2      |Guichetier       | CRUD Prélèvement          | D                    |          |           |
+|2      |Guichetier       | CRUD Prélèvement          | C                    | F        |           |
+|2      |Guichetier       | CRUD Prélèvement          | R                    | F        |           |
+|2      |Guichetier       | CRUD Prélèvement          | U                    | F        |           |
+|2      |Guichetier       | CRUD Prélèvement          | D                    | F        |           |
 |2      |Batch            | Prélèvements automatiques |                      |          |           |
 |2      |Batch            | Reléves mensuels          |                      |          |           |
+
+/!\ Le travail peut être sur une branche différente.
 
 |=======================
 
