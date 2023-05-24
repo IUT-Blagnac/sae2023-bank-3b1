@@ -50,21 +50,17 @@ public class RelevePDF {
      * @param annee L'année du relevé
      * @autor Émilien FIEU
      */
-    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee) {
+    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee, String fileLocation) {
         Document d = new Document();
+
         try {
-            if (!Files.exists(Paths.get("releves"))) {
-                Files.createDirectory(Paths.get("releves"));
-            }
-            String pdfFilename = "releves/Releve du compte no" + cpt.idNumCompte +" "+ mois.getValue()+".:"+annee.toString()+".pdf";
-            PdfWriter writer = PdfWriter.getInstance(d, new FileOutputStream(pdfFilename));
+            PdfWriter writer = PdfWriter.getInstance(d, new FileOutputStream(fileLocation));
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
+
 
         d.open();
 

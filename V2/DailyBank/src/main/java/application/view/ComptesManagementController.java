@@ -1,5 +1,6 @@
 package application.view;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
@@ -12,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Pair;
@@ -175,7 +177,14 @@ public class ComptesManagementController {
 			Month month = Month.of(Integer.parseInt(result.getKey()));
 			Year year = Year.parse(result.getValue());
 
-			this.cmDialogController.genererReleve(cpt, month, year);
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Enregistrer le relevé");
+			fileChooser.setInitialFileName("releve_" + cpt.idNumCompte + "_" + month + "_" + year + ".pdf");
+			fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+			File file = fileChooser.showSaveDialog(primaryStage);
+			String path = file.getAbsolutePath();
+
+			this.cmDialogController.genererReleve(cpt, month, year, path);
 
 		}
 	}

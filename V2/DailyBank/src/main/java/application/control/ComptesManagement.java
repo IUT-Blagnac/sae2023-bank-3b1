@@ -136,7 +136,7 @@ public class ComptesManagement {
 	 * @param annee l'année du relevé
 	 * @author Émilien FIEU
 	 */
-	public void genererReleve(CompteCourant cpt, Month mois, Year annee) {
-		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee);
+	public void genererReleve(CompteCourant cpt, Month mois, Year annee, String fileLocation) {
+		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee, fileLocation);
 	}
 }
