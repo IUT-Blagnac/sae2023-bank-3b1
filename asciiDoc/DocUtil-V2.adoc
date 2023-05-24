@@ -152,13 +152,23 @@ image::../img/DocUtil/CRUDP/Rechercher.png[]
 [discrete]
 ==== Création
 
-Cliquer sur le bouton **Nouveau prélèvement** ouvrira une fenêtre permettant de créer un nouveau prélèvement automatique. Il est nécessaire de renseigner le montant du prélèvement, la date récurrente, le motif du prélèvement ainsi que le compte bénéficiaire du prélèvement.
+Cliquer sur le bouton **Nouveau prélèvement** ouvrira une fenêtre permettant de créer un nouveau prélèvement automatique. Il est nécessaire de renseigner le montant du prélèvement, la date récurrente, le motif du prélèvement ainsi que le compte bénéficiaire des futures transactions.
+
+Le champ **Date Recurrente** correspond au jour du mois où les futurs prélèvements seront effectués. Par exemple, si le champ est renseigné avec la valeur 3, le prélèvement sera effectué le 3 de chaque mois.
+
+image::../img/DocUtil/CRUDP/Nouveau.png[]
+
+[discrete]
+==== Mise à jour
+
+La modification d'un virement s'effectue en selectionnant un virement dans la liste des virements et en cliquant sur le bouton **Modifier prélèvement**. Il est alors possible de modifier le montant du prélèvement, la date récurrente, le motif du prélèvement ainsi que le compte bénéficiaire des futures transactions.
+
+image::../img/DocUtil/CRUDP/Modifier.png[]
 
 
-image::../img/AjoutEmploye.png[]
+[discrete]
+==== Suppression
 
-Pour ajouter un employé, il faut remplir correctement les champs et cliquer sur Créer.
+La suppression d'un virement s'effectue en selectionnant un virement dans la liste des virements et en cliquant sur le bouton **Supprimer prélèvement**. Il vous sera demandé de confirmer l'action.
 
-image::../img/ModifEmploye.png[]
 
-Pour modifier un employé, il faut sélectionner un employé et cliquer sur Modifier. On peut alors modifier les informations de l'employé.
