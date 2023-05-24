@@ -30,18 +30,33 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.Year;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Cette classe permet de générer un relevé de compte au format PDF
+ * @author Émilien FIEU
+ */
 public class RelevePDF {
-    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes) {
+    /**
+     * Cette méthode génère un relevé de compte au format PDF
+     * @param primaryStage La fenêtre principale de l'application
+     * @param dailyBankState L'état de l'application
+     * @param cpt Le compte pour lequel on veut générer un relevé
+     * @param clientDesComptes Le client propriétaire du compte
+     * @param mois Le mois du relevé
+     * @param annee L'année du relevé
+     * @autor Émilien FIEU
+     */
+    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee) {
         Document d = new Document();
         try {
             if (!Files.exists(Paths.get("releves"))) {
                 Files.createDirectory(Paths.get("releves"));
             }
-            String pdfFilename = "releves/Releve du compte no" + cpt.idNumCompte +" Date "+ LocalDate.now()+ ".pdf";
+            String pdfFilename = "releves/Releve du compte no" + cpt.idNumCompte +" "+ mois.getValue()+":"+annee.toString()+".pdf";
             PdfWriter writer = PdfWriter.getInstance(d, new FileOutputStream(pdfFilename));
         } catch (DocumentException e) {
             throw new RuntimeException(e);
@@ -111,13 +126,10 @@ public class RelevePDF {
             Access_BD_Operation acc = new Access_BD_Operation();
             ArrayList<Operation> ope = acc.getOperations(cpt.idNumCompte);
 
-            LocalDate date = LocalDate.now();
-            Month month = date.getMonth();
-            LocalDate firstDay = LocalDate.of(date.getYear(), month, 1);
-            Date firstDayDate = Date.from(firstDay.atStartOfDay(ZoneId.systemDefault()).toInstant());
-
+            Date dateDebutDate = Date.from(LocalDate.of(annee.getValue(), mois.getValue(), 1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date dateFinDate = Date.from(LocalDate.of(annee.getValue(), mois.getValue(), mois.length(annee.isLeap())).atStartOfDay(ZoneId.systemDefault()).toInstant());
             for (Operation o : ope) {
-                if (o.dateOp.compareTo(firstDayDate) < 0) {
+                if (o.dateOp.before(dateDebutDate) || o.dateOp.after(dateFinDate)) {
                     continue;
                 }
                 table.addCell(String.valueOf(o.idOperation));

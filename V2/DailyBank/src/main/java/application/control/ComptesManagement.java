@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.Year;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -140,7 +141,14 @@ public class ComptesManagement {
 				"Succès suppression compte", "Le compte a été supprimé avec succès", AlertType.INFORMATION);
 	}
 
-	public void gererReleve(CompteCourant cpt) {
-		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes);
+	/**
+	 * Génère un relevé PDF pour le compte passé en paramètre
+	 * @param cpt le compte pour lequel générer le relevé
+	 * @param mois le mois du relevé
+	 * @param annee l'année du relevé
+	 * @author Émilien FIEU
+	 */
+	public void gererReleve(CompteCourant cpt, Month mois, Year annee) {
+		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee);
 	}
 }

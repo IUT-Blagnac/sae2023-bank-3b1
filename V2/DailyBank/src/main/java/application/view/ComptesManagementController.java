@@ -1,18 +1,21 @@
 package application.view;
 
+import java.time.Month;
+import java.time.Year;
 import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.AlertUtilities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Pair;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.exception.DataAccessException;
@@ -133,7 +136,35 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			this.cmDialogController.gererReleve(cpt);
+
+
+			Pair<String, String> result = AlertUtilities.showMonthRequestDialog();
+
+			if (result == null) {
+				return;
+			}
+
+			if (result.getKey().isEmpty() || result.getValue().isEmpty()) {
+				AlertUtilities.showAlert(primaryStage,"Erreur", "Les champs ne peuvent pas être vides", "Veuillez remplir les champs", Alert.AlertType.ERROR);
+				return;
+			}
+			if (!result.getValue().matches("[0-9]{4}")) {
+				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ année doit être un nombre à 4 chiffres", "Veuillez remplir le champ année avec un nombre à 4 chiffres", Alert.AlertType.ERROR);
+				return;
+			}
+			if (!result.getKey().matches("[0-9]{2}")) {
+				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ mois doit être un nombre à 2 chiffres", "Veuillez remplir le champ mois avec un nombre à 2 chiffres", Alert.AlertType.ERROR);
+				return;
+			}
+			if (Integer.parseInt(result.getKey())>12 || Integer.parseInt(result.getKey())<1){
+				AlertUtilities.showAlert(primaryStage,"Erreur", "Le champ mois doit être compris entre 1 et 12", "Veuillez remplir le champ mois avec un nombre compris entre 1 et 12", Alert.AlertType.ERROR);
+				return;
+			}
+			Month month = Month.of(Integer.parseInt(result.getKey()));
+			Year year = Year.parse(result.getValue());
+
+			this.cmDialogController.gererReleve(cpt, month, year);
+
 		}
 	}
 
@@ -157,4 +188,6 @@ public class ComptesManagementController {
 			this.btnSupprCompte.setDisable(true);
 		}
 	}
+
+
 }
