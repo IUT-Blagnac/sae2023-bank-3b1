@@ -191,6 +191,7 @@ public class OperationEditorPaneController {
 								AlertType.CONFIRMATION);
 
 						if(!continuer) {
+
 							return;
 						}
 					}

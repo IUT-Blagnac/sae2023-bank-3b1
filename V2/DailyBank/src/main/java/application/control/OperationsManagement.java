@@ -88,7 +88,10 @@ public class OperationsManagement {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				if  (this.compteConcerne.debitAutorise - op.montant > this.compteConcerne.debitAutorise)
+					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				else
+					ao.insererDebitExep(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
