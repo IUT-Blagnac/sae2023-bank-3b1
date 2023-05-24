@@ -111,6 +111,11 @@ public class OperationsManagementController {
 		this.updateInfoCompteClient();
 	}
 
+	@FXML
+	private void doCRUDPrelevement() {
+		this.omDialogController.crudPrelevement();
+	}
+
 	private void validateComponentState() {
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);

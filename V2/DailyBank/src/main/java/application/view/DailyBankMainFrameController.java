@@ -201,8 +201,7 @@ public class DailyBankMainFrameController {
 	}
 
 	/*
-	 * Action menu Employé. Not Yet Implemented. Pour le moment : une alerte
-	 * d'information
+	 * Action menu Employé. 
 	 */
 	@FXML
 	private void doEmployeOption() {
