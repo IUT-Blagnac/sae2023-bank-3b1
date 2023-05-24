@@ -24,7 +24,7 @@ public class PrelevementEditorPaneController {
 
     /**
      * Initialise le contexte de l’objet
-     * @param primaryStage la fenetre dans laquelle est le menue
+     * @param primaryStage la fenetre dans laquelle est le menu
      * @param dailyBankState l’état de l’application
      * @author Vincent BARETTE
      */
@@ -43,8 +43,7 @@ public class PrelevementEditorPaneController {
 
     /**
      * Affiche le menu
-     * @param prelevement l’employé à modifier (null si création d’un prélèvement,
-     * pas null si modification)
+     * @param p le prélèvement à modifier
      * @param mode mode du menu : création ou modification
      * @return le prélèvement modifié / créé
      * 
