@@ -126,4 +126,5 @@ public class DailyBankMainFrame extends Application {
 		EmployeManagement em = new EmployeManagement(this.primaryStage, this.dailyBankState);
 		em.doEmployeManagementDialog();
 	}
+
 }
