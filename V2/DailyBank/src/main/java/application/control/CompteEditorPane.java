@@ -13,11 +13,19 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * Classe CompteEditorPane, gère l'affichage de la fenêtre de gestion d'un
+ */
 public class CompteEditorPane {
 
 	private Stage primaryStage;
 	private CompteEditorPaneController cepcViewController;
 
+	/**
+	 * Constructeur de la classe CompteEditorPane
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate Etat de l'application
+	 */
 	public CompteEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
@@ -43,6 +51,13 @@ public class CompteEditorPane {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion d'un compte
+	 * @param client Client propriétaire du compte
+	 * @param cpte Compte à gérer
+	 * @param em Mode d'édition
+	 * @return Compte géré
+	 */
 	public CompteCourant doCompteEditorDialog(Client client, CompteCourant cpte, EditionMode em) {
 		return this.cepcViewController.displayDialog(client, cpte, em);
 	}

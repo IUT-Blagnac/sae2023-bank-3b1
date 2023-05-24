@@ -72,6 +72,10 @@ public class AlertUtilities {
 		alert.showAndWait();
 	}
 
+	/**
+	 * Affiche une fenêtre de saise du mois et de l'année du relevé
+	 * @return Pair<String, String> contenant le mois et l'année
+	 */
 	public static Pair<String, String> showMonthRequestDialog() {
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
 		dialog.setTitle("Selection du mois et de l'année du relevé");

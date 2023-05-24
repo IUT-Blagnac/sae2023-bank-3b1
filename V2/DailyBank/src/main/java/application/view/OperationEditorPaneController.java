@@ -19,6 +19,9 @@ import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Controlleur de la fenêtre d'édition d'opération crédit & débit.
+ */
 public class OperationEditorPaneController {
 
 	// Etat courant de l'application
@@ -33,12 +36,21 @@ public class OperationEditorPaneController {
 	private Operation operationResultat;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialisaton du contexte de la fenêtre d'édition d'opération crédit & débit.
+	 * @param _containingStage feneêtre physique contenant la scène
+	 * @param _dbstate état courant de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configuration de la fenêtre d'édition d'opération crédit & débit.
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
@@ -107,6 +119,12 @@ public class OperationEditorPaneController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Fermeture de la fenêtre d'édition d'opération crédit & débit.
+	 * @param e événement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -130,6 +148,9 @@ public class OperationEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Annule l'opération.
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;

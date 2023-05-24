@@ -23,6 +23,9 @@ import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
+/**
+ * Contrôleur de la gestion des comptes d'un client
+ */
 public class ComptesManagementController {
 
 	// Etat courant de l'application
@@ -39,6 +42,14 @@ public class ComptesManagementController {
 	private ObservableList<CompteCourant> oListCompteCourant;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialisation du contexte de la fenêtre
+	 * @param _containingStage Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
+	 * @param _cm Contrôleur de Dialogue associé à ComptesManagementController
+	 * @param _dbstate Etat courant de l'application
+	 * @param client Client dont on gère les comptes
+	 */
 	public void initContext(Stage _containingStage, ComptesManagement _cm, DailyBankState _dbstate, Client client) {
 		this.cmDialogController = _cm;
 		this.primaryStage = _containingStage;
@@ -47,6 +58,9 @@ public class ComptesManagementController {
 		this.configure();
 	}
 
+	/**
+	 * Configure les éléments graphiques de la fenêtre
+	 */
 	private void configure() {
 		String info;
 
@@ -66,11 +80,20 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des comptes
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre
+	 * @param e Evènement de fermeture de la fenêtre
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -92,11 +115,17 @@ public class ComptesManagementController {
 	@FXML
 	private Button btnReleve;
 
+	/**
+	 * Annule et ferme la fenêtre
+	 */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
 
+	/**
+	 * Lance l’affichage de la fenêtre de gestion des opérations d’un compte
+	 */
 	@FXML
 	private void doVoirOperations() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -108,10 +137,19 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Non implémenté, pas besoin d’éditer un compte
+	 */
 	@FXML
 	private void doModifierCompte() {
 	}
 
+	/**
+	 * Cloture le compte sélectionné
+	 * @throws RowNotFoundOrTooManyRowsException  Si le compte n’existe pas ou si plusieurs comptes ont été trouvés
+	 * @throws DatabaseConnexionException Si la connexion à la base de données a échoué
+	 * @throws DataAccessException Si l’accès aux données a échoué
+	 */
 	@FXML
 	private void doSupprimerCompte() throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -123,6 +161,9 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Crée un nouveau compte
+	 */
 	@FXML
 	private void doNouveauCompte() {
 		CompteCourant compte;
@@ -132,6 +173,9 @@ public class ComptesManagementController {
 		}
 	}
 
+	/**
+	 * Génère un relevé de compte
+	 */
 	@FXML
 	private void doReleve() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
@@ -189,6 +233,9 @@ public class ComptesManagementController {
 		}
 	}
 
+	/**
+	 * Charge la liste des comptes d’un client
+	 */
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -196,6 +243,9 @@ public class ComptesManagementController {
 		this.oListCompteCourant.addAll(listeCpt);
 	}
 
+	/**
+	 * Valide l’état des composants de la fenêtre
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);

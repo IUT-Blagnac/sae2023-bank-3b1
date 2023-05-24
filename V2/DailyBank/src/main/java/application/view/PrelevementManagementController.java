@@ -18,8 +18,8 @@ import model.data.Prelevement;
 import java.util.ArrayList;
 
 /**
- * Classe controlleur du menu de gestion des Employé
- * @author Émilien FIEU
+ * Classe controlleur du menu de gestion des prélèvements
+ * @author Vincent Barette
  */
 public class PrelevementManagementController {
     private Stage primaryStage;
@@ -29,7 +29,7 @@ public class PrelevementManagementController {
     /**
      * Méthode qui initialise le contexte de l’objet
      * @param _containingStage La fenetre qui contient ce menu
-     * @param _cm le controlleur des employé
+     * @param _pm le controlleur des prélèvements
      * @param _dbstate l’état de l’application
      * @author Vincent Barette
      */
@@ -85,7 +85,7 @@ public class PrelevementManagementController {
 
     /**
      * Méthode appelée lorsque l’on appuie sur le bouton "Retour gestion Agence"
-     * @author Émilien FIEU
+     * @author Vincent Barette
      */
     @FXML
     private void doCancel() {
@@ -170,7 +170,7 @@ public class PrelevementManagementController {
     /**
      * Cette méthode est appelée pour faire en sorte que les boutons supprimer et activer ne soit actifs que lorsqu'un
      * employé est sélectionné
-     * @author Émilien FIEU
+     * @author Vincent Barette
      */
     private void validateComponentState() {
 

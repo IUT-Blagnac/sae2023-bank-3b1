@@ -22,6 +22,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_Operation {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_Operation() {
 	}
 
@@ -168,8 +171,16 @@ public class Access_BD_Operation {
 		}
 	}
 
+	/**
+	 * Enregistrement d'un débit exceptionnel.
+	 * @param idNumCompte compte débité
+	 * @param montant montant débité
+	 * @param typeOp libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée ou autre)
+	 */
 	public void insererDebitExep(int idNumCompte, double montant, String typeOp)
-			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
+			throws DatabaseConnexionException, DataAccessException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
 			CallableStatement call;
@@ -191,11 +202,6 @@ public class Access_BD_Operation {
 			call.execute();
 
 			int res = call.getInt(4);
-
-			if (res != 0) { // Erreur applicative
-				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
-						"Erreur de règle de gestion : découvert autorisé dépassé", null);
-			}
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
 		}
@@ -250,7 +256,7 @@ public class Access_BD_Operation {
 		}
 	}
 
-	/*
+	/**
 	 * Fonction utilitaire qui retourne un ordre sql "to_date" pour mettre une date
 	 * dans une requête sql
 	 *

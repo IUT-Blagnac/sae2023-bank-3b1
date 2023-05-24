@@ -22,6 +22,9 @@ import model.data.CompteCourant;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.*;
 
+/**
+ * Classe de gestion des comptes
+ */
 public class ComptesManagement {
 
 	private Stage primaryStage;
@@ -29,6 +32,12 @@ public class ComptesManagement {
 	private DailyBankState dailyBankState;
 	private Client clientDesComptes;
 
+	/**
+	 * Constructeur
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate Etat de l'application
+	 * @param client Client dont on gère les comptes
+	 */
 	public ComptesManagement(Stage _parentStage, DailyBankState _dbstate, Client client) {
 
 		this.clientDesComptes = client;
@@ -56,16 +65,25 @@ public class ComptesManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des comptes
+	 */
 	public void doComptesManagementDialog() {
 		this.cmcViewController.displayDialog();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des opérations d'un compte
+	 */
 	public void gererOperationsDUnCompte(CompteCourant cpt) {
 		OperationsManagement om = new OperationsManagement(this.primaryStage, this.dailyBankState,
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
 
+	/**
+	 * Affiche la fenêtre de création d'un nouveau compte
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
@@ -96,6 +114,10 @@ public class ComptesManagement {
 		return compte;
 	}
 
+	/**
+	 * Cherche les comptes d'un client
+	 * @return Liste des comptes trouvés
+	 */
 	public ArrayList<CompteCourant> getComptesDunClient() {
 		ArrayList<CompteCourant> listeCpt = new ArrayList<>();
 
@@ -116,6 +138,13 @@ public class ComptesManagement {
 	}
 
 
+	/**
+	 * Clôture un compte
+	 * @param cpt Compte à clôturer
+	 * @throws RowNotFoundOrTooManyRowsException Si le compte n'existe pas ou si plusieurs comptes ont été trouvés
+	 * @throws DatabaseConnexionException Si la connexion à la base de données a échoué
+	 * @throws DataAccessException Si une erreur d'accès aux données a eu lieu
+	 */
 	public void supprimerCompte(CompteCourant cpt) throws RowNotFoundOrTooManyRowsException, DatabaseConnexionException, DataAccessException {
 		// Le compte peut seulement être supprimé si son solde est à 0
 		if (cpt.solde != 0 ) {

@@ -19,6 +19,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_Prelevement {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_Prelevement() {
 	}
 

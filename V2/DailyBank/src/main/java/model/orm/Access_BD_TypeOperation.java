@@ -17,6 +17,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_TypeOperation {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_TypeOperation() {
 	}
 

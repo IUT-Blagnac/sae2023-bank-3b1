@@ -71,6 +71,9 @@ public class OperationsManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des opérations.
+	 */
 	public void doOperationsManagementDialog() {
 		this.omcViewController.displayDialog();
 	}

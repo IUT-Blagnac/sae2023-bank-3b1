@@ -30,7 +30,7 @@ public class LogToDatabase {
 	// Local
 	private static Connection currentConnexion = null;
 
-	/*
+	/**
 	 * Load du driver. Code dit "static" (hors d'une méthode) => exécuté au
 	 * chargement de la classe. Permet de retrouver le diver => arrêt si driver non
 	 * trouvé.

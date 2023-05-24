@@ -30,6 +30,13 @@ public class ClientsManagementController {
 	private ObservableList<Client> oListClients;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialisation du contexte de l'application
+	 * @param _containingStage La fenêtre physique de l'application
+	 * @param _cm Le contrôleur de dialogue associé à ClientsManagementController
+	 * @param _dbstate L'état courant de l'application
+	 */
 	public void initContext(Stage _containingStage, ClientsManagement _cm, DailyBankState _dbstate) {
 		this.cmDialogController = _cm;
 		this.primaryStage = _containingStage;
@@ -37,6 +44,9 @@ public class ClientsManagementController {
 		this.configure();
 	}
 
+	/**
+	 * Configuration de la fenêtre
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -49,11 +59,20 @@ public class ClientsManagementController {
 		doRechercher();
 	}
 
+	/**
+	 * Affichage de la fenêtre de gestion des clients
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Fermeture de la fenêtre
+	 * @param e
+	 * @return
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -77,11 +96,17 @@ public class ClientsManagementController {
 	@FXML
 	private Button btnComptesClient;
 
+	/**
+	 * Bouton "Annuler"
+	 */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
 
+	/**
+	 * Bouton "Rechercher"
+	 */
 	@FXML
 	private void doRechercher() {
 		int numCompte;
@@ -125,6 +150,9 @@ public class ClientsManagementController {
 		this.validateComponentState();
 	}
 
+	/**
+	 * Bouton "Comptes Clients"
+	 */
 	@FXML
 	private void doComptesClient() {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
@@ -134,6 +162,9 @@ public class ClientsManagementController {
 		}
 	}
 
+	/**
+	 * Bouton "Modifier Client"
+	 */
 	@FXML
 	private void doModifierClient() {
 
@@ -147,11 +178,15 @@ public class ClientsManagementController {
 		}
 	}
 
+
 	@FXML
 	private void doDesactiverClient() {
 		// TODO : Non implémenté => désactivé
 	}
 
+	/**
+	 * Bouton "Nouveau Client"
+	 */
 	@FXML
 	private void doNouveauClient() {
 		Client client;
@@ -161,6 +196,9 @@ public class ClientsManagementController {
 		}
 	}
 
+	/**
+	 * Validation de l'état des composants de la fenêtre
+	 */
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnDesactClient.setDisable(true);

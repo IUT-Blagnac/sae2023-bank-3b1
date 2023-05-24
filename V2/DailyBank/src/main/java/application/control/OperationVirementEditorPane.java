@@ -21,6 +21,11 @@ public class OperationVirementEditorPane {
 	private Stage primaryStage;
 	private OperationVirementEditorPaneController oepcViewController;
 
+	/**
+	 * Constructeur de la classe.
+	 * @param _parentStage La fenêtre parente.
+	 * @param _dbstate L'état de l'application.
+	 */
 	public OperationVirementEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 		System.out.println("hello");
 		try {

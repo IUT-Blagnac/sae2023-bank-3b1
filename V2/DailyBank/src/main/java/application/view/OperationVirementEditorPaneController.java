@@ -26,6 +26,9 @@ import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
+/**
+ * Contrôleur de la fenêtre d'édition d'opération virement.
+ */
 public class OperationVirementEditorPaneController {
 
 	// Etat courant de l'application
@@ -41,12 +44,21 @@ public class OperationVirementEditorPaneController {
 	private ArrayList<Operation> operationResultat;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise le contexte de l'application.
+	 * @param _containingStage Fenêtre physique ou est la scène
+	 * @param _dbstate Etat courant de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre.
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
@@ -90,6 +102,12 @@ public class OperationVirementEditorPaneController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * @param e Evènement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -112,12 +130,18 @@ public class OperationVirementEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Action sur le bouton "Annuler".
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * Action sur le bouton "Valider".
+	 */
 	@FXML
 	private void doAjouter() {
 		// règles de validation d'un débit :

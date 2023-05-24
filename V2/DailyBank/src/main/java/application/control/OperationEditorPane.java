@@ -13,11 +13,20 @@ import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Classe permettant de gérer la fenêtre d'édition d'une opération.
+ */
 public class OperationEditorPane {
 
 	private Stage primaryStage;
 	private OperationEditorPaneController oepcViewController;
 
+	/**
+	 * Constructeur de la classe.
+	 *
+	 * @param _parentStage Fenêtre parente.
+	 * @param _dbstate Etat de l'application.
+	 */
 	public OperationEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
@@ -44,6 +53,13 @@ public class OperationEditorPane {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre d'édition d'une opération.
+	 *
+	 * @param cpte Compte courant.
+	 * @param cm   Catégorie de l'opération.
+	 * @return Opération.
+	 */
 	public Operation doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm) {
 		return this.oepcViewController.displayDialog(cpte, cm);
 	}

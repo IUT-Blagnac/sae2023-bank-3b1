@@ -19,6 +19,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_Employe {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_Employe() {
 	}
 

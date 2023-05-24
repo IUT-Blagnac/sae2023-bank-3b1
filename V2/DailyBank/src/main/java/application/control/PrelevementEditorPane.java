@@ -18,19 +18,20 @@ import model.data.Employe;
 import model.data.Prelevement;
 
 /**
- * Classe de gestion du menu d’édition d’employé
- * @author Émilien FIEU
+ * Classe PrelevementEditorPane, gère l'affichage de la fenêtre de gestion des prélèvements
+ * @author Vincent Barette
  */
 public class PrelevementEditorPane {
     private  Stage primaryStage;
     private PrelevementEditorPaneController pepcViewController;
     private DailyBankState dailyBankState;
 
+
     /**
-     * Constructeur de la classe
-     * @param primaryStage la fenetre dans laquelle est le menu
-     * @param dailyBankState l’état de l’application
-     * @author Émilien FIEU
+     * Constructeur de la classe PrelevementEditorPane
+     * @param primaryStage La fenêtre principale de l'application
+     * @param dailyBankState L'état de l'application
+     * @autor Vincent Barette
      */
     public PrelevementEditorPane(Stage primaryStage, DailyBankState dailyBankState) {
         this.dailyBankState = dailyBankState;
@@ -58,11 +59,12 @@ public class PrelevementEditorPane {
     }
 
     /**
-     * Affiche le menu
-     * @param e l’employé à modifier (null si création)
-     * @param editionMode mode de fonctionnement du menu (création ou modification)
-     * @return L’employé modifié/créé
-     * @author Émilien FIEU
+     * Affiche la fenêtre de gestion des prélèvements
+     * @param p Le prélèvement à afficher
+     * @param editionMode Le mode d'édition de la fenêtre
+     * @param idCompte L'identifiant du compte courant
+     * @return Le prélèvement
+     * @autor Vincent Barette
      */
     public Prelevement doPrelevementEditorDialog(Prelevement p, EditionMode editionMode, String idCompte) {
         return this.pepcViewController.displayDialog(p, editionMode, idCompte);

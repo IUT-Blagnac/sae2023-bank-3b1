@@ -116,6 +116,7 @@ public class PrelevementManagementPane {
     /**
      * Lance la création d’un prélèvement
      * @return une copie du prélèvement créé
+     * @author Vincent Barette
      */
     public Prelevement creerPrelevement(){
         Prelevement Prelevement;
