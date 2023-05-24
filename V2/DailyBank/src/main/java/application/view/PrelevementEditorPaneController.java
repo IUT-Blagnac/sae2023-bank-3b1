@@ -62,6 +62,7 @@ public class PrelevementEditorPaneController {
         switch (mode) {
         case CREATION:
             this.txtIDCompte.setText(idCompte);
+            System.out.println(this.txtIDCompte.getText());
             this.txtID.setDisable(true);
             this.txtMontant.setDisable(false);
             this.txtDateReccurente.setDisable(false);
@@ -78,6 +79,7 @@ public class PrelevementEditorPaneController {
             this.txtDateReccurente.setDisable(false);
             this.txtBeneficiaire.setDisable(false);
             this.txtIDCompte.setDisable(true);
+            this.txtIDCompte.setText(this.prelevementEdite.idCompteProprio+"");
 
             this.lblMessage.setText("Modification des informations du prélèvement");
             this.butOk.setText("Modifier");
@@ -91,7 +93,6 @@ public class PrelevementEditorPaneController {
         this.txtMontant.setText(""+this.prelevementEdite.montant);
         this.txtDateReccurente.setText(""+this.prelevementEdite.dateReccurente);
         this.txtBeneficiaire.setText(this.prelevementEdite.beneficiaire);
-        this.txtIDCompte.setText(this.prelevementEdite.idCompteProprio+"");
 
         this.prelevementResultat = null;
 
@@ -156,6 +157,15 @@ public class PrelevementEditorPaneController {
      * @author Vincent Barette
      */
     private boolean isSaisieValide() {
+        try {
+        	Integer.valueOf(this.txtDateReccurente.getText());
+        	Integer.valueOf(this.txtMontant.getText());
+        } catch (Exception e) {
+        	AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Les nombres ne sont pas des nombres\n- Philosophe Grec", Alert.AlertType.ERROR);
+        	return false;
+        	
+        }
+        
     	this.prelevementEdite.id = Integer.valueOf(this.txtID.getText());
     	this.prelevementEdite.montant = Integer.valueOf(this.txtMontant.getText());
     	this.prelevementEdite.dateReccurente = Integer.valueOf(this.txtDateReccurente.getText());
@@ -166,6 +176,18 @@ public class PrelevementEditorPaneController {
         		|| this.txtMontant.getText().isEmpty() || this.txtDateReccurente.getText().isEmpty()) {
             AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Tous les champs sont mandatory", Alert.AlertType.ERROR);
             this.txtID.requestFocus();
+            return false;
+        }
+        
+        if (Integer.valueOf(this.txtDateReccurente.getText()) < 1 || Integer.valueOf(this.txtDateReccurente.getText()) > 31) {
+            AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Ce jour ne semble pas exister", Alert.AlertType.ERROR);
+            this.txtDateReccurente.requestFocus();
+            return false;
+        }
+        
+        if (Integer.valueOf(this.txtMontant.getText()) < 1) {
+            AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le montant doit être positif", Alert.AlertType.ERROR);
+            this.txtDateReccurente.requestFocus();
             return false;
         }
 
