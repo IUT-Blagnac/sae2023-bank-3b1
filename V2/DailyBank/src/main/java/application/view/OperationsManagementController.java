@@ -54,6 +54,11 @@ public class OperationsManagementController {
 		this.lvOperations.setSelectionModel(new NoSelectionModel<Operation>());
 		this.updateInfoCompteClient();
 		this.validateComponentState();
+		if (this.compteConcerne.estCloture.equals("O")) {
+			this.btnDebit.setDisable(true);
+			this.btnCredit.setDisable(true);
+			this.btnVirement.setDisable(true);
+		}
 	}
 
 	public void displayDialog() {
@@ -79,6 +84,8 @@ public class OperationsManagementController {
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
+	@FXML
+	private Button btnVirement;
 
 	@FXML
 	private void doCancel() {
