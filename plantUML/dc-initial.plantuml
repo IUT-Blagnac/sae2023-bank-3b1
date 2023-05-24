@@ -1,0 +1,246 @@
+@startuml dc-initial
+
+
+'-----------------------------------
+' Common definitions for generated models
+' JMB 2020
+'-----------------------------------
+
+'-----------------------------------
+' Content of class
+'-----------------------------------
+hide circle
+hide empty members
+hide empty methods
+
+'-----------------------------------
+' Colors & Fonts
+'-----------------------------------
+'Colors => see http://plantuml.com/color
+skinparam classAttributeIconSize 0
+'skinparam monochrome true
+'skinparam monochrome reverse
+'skinparam handwritten true
+skinparam package {
+	BackgroundColor empty
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+skinparam roundcorner 5
+
+skinparam class {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+
+skinparam enum {
+  	BackgroundColor LightGreen
+}
+
+skinparam arrow {
+    MessageAlign center
+}
+
+'-----------------------------------
+' SAE 2.1/2.5 Comptes
+' v1. 2022-03-07
+'-----------------------------------
+
+'-----------------------------------
+' Common definitions for generated models
+' JMB 2020
+'-----------------------------------
+
+'-----------------------------------
+' Content of class
+'-----------------------------------
+hide circle
+hide empty members
+hide empty methods
+
+'-----------------------------------
+' Colors & Fonts
+'-----------------------------------
+'Colors => see http://plantuml.com/color
+skinparam classAttributeIconSize 0
+'skinparam monochrome true
+'skinparam monochrome reverse
+'skinparam handwritten true
+skinparam package {
+	BackgroundColor empty
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+skinparam roundcorner 5
+
+skinparam class {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+
+skinparam enum {
+  	BackgroundColor LightGreen
+}
+
+skinparam arrow {
+    MessageAlign center
+}
+
+
+'-------------- UC
+skinparam actorStyle awesome
+left to right direction
+
+skinparam usecase {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+}
+
+skinparam actor {
+	BorderColor DarkSlateGray
+}
+
+skinparam agent {
+	BorderColor DarkSlateGray
+}
+
+
+
+'---- Defines to show/hide versions
+
+'---- Garder une seule des trois lignes ci-dessous pour generer la version souhaitee
+!define v0
+!define v1
+!define v2
+
+
+!ifdef v0
+!define VERSION V.0
+!endif
+!ifdef v1
+!define VERSION V.1
+!endif
+!ifdef v2
+!define VERSION V.2
+!endif
+
+
+
+'-----------------------------------
+' Title & Legend
+'-----------------------------------
+title Diagramme de Classes Initial (VERSION)
+legend right
+   <i>Le source de ce diagramme se trouve dans dc-initial.plantuml</i>
+ endlegend
+center footer <i>Diagramme généré par JMB via http://plantuml.sourceforge.net.</i>
+
+'-----------------------------------
+' Classes
+'-----------------------------------
+
+'-- v0
+
+class Employe {
+  nom
+  prenom
+  droitAcces
+  login
+  motPasse
+}
+
+class AgenceBancaire {
+  nomAg
+  adressePostaleAg
+}
+
+Class Client {
+  nom
+  prenom
+  adressePostale
+  email
+  telephone
+  estInactif
+}
+
+class CompteCourant {
+  idNumCompte
+  debitAutorise = 0
+  /solde
+  !ifdef v1
+  estCloturé
+  !endif
+}
+
+!ifdef v1
+note left of CompteCourant::estCloturé
+V1
+end note
+!endif
+
+Class Operation {
+  montant
+  dateOp
+  dateValeur
+}
+
+class TypeOperation 
+
+Employe "ChefAgence 0..1" ----- "1" AgenceBancaire
+Employe "Guichetiers *" ----- "1" AgenceBancaire
+Client "1..*" ----- "1" AgenceBancaire : Avoir
+Client "1" ----- "1..*" CompteCourant : Posséder
+CompteCourant "*" ----- "1" AgenceBancaire : Gérer
+CompteCourant *- "*" Operation
+Operation "*" --- "1" TypeOperation : Avoir
+
+note bottom of TypeOperation : cheque, retrait CB, \n paiement CB, virement, ...
+
+
+!ifdef v2
+class PrelevementAutomatique {
+  montant
+  dateRecurrente
+  beneficiaire
+}
+
+Class Emprunt {
+  tauxEmp
+  capitalEmp
+  dureeEmp
+  deateDebEmp
+}
+
+class AssuranceEmprunt {
+  tauxAss
+  tauxCouv
+}
+
+Client "1" - "0..*" Emprunt
+Emprunt "1" - "0..1" AssuranceEmprunt : Couvrir
+
+CompteCourant *-- "*" PrelevementAutomatique
+
+note right of Emprunt : V2
+note right of AssuranceEmprunt : V2
+note right of PrelevementAutomatique : V2
+
+!endif
+
+
+
+@enduml
