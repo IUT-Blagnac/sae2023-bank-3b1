@@ -85,6 +85,8 @@ public class ComptesManagementController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
+	@FXML
+	private Button btnReleve;
 
 	@FXML
 	private void doCancel() {
@@ -123,6 +125,15 @@ public class ComptesManagementController {
 		compte = this.cmDialogController.creerNouveauCompte();
 		if (compte != null) {
 			this.oListCompteCourant.add(compte);
+		}
+	}
+
+	@FXML
+	private void doReleve() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			this.cmDialogController.gererReleve(cpt);
 		}
 	}
 
