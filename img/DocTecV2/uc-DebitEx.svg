@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="544px"
+   preserveAspectRatio="none"
+   style="width:838px;height:544px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 838 544"
+   width="838px"
+   zoomAndPan="magnify"
+   id="svg156"
+   sodipodi:docname="dc-DebitEx.svg"
+   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview158"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1377323"
+     inkscape:cx="480.34148"
+     inkscape:cy="294.44537"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
+     inkscape:window-x="2560"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg156" />
+  <defs
+     id="defs2" />
+  <g
+     id="g154">
+    <!--entity guichetier-->
+    <g
+       id="elem_guichetier">
+      <ellipse
+         cx="428"
+         cy="166.5"
+         fill="#F1F1F1"
+         rx="16"
+         ry="16"
+         style="stroke:#181818;stroke-width:1.5;"
+         id="ellipse4" />
+      <path
+         d="M428,186.5 C432,186.5 435,186.5 439,182.5 C447,182.5 455,190.5 455,198.5 L455,202.5 C455,206.5 451,210.5 447,210.5 L409,210.5 C405,210.5 401,206.5 401,202.5 L401,198.5 C401,190.5 409,182.5 417,182.5 C421,186.5 424,186.5 428,186.5 "
+         fill="#F1F1F1"
+         style="stroke:#181818;stroke-width:1.5;"
+         id="path6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="74"
+         x="391"
+         y="224.9951"
+         id="text8">Guichetier</text>
+    </g>
+    <!--entity chef-->
+    <g
+       id="elem_chef">
+      <ellipse
+         cx="428"
+         cy="399.5"
+         fill="#F1F1F1"
+         rx="16"
+         ry="16"
+         style="stroke:#181818;stroke-width:1.5;"
+         id="ellipse11" />
+      <path
+         d="M428,419.5 C432,419.5 435,419.5 439,415.5 C447,415.5 455,423.5 455,431.5 L455,435.5 C455,439.5 451,443.5 447,443.5 L409,443.5 C405,443.5 401,439.5 401,435.5 L401,431.5 C401,423.5 409,415.5 417,415.5 C421,419.5 424,419.5 428,419.5 "
+         fill="#F1F1F1"
+         style="stroke:#181818;stroke-width:1.5;"
+         id="path13" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="103"
+         x="376.5"
+         y="457.9951"
+         id="text15">Chef d’agence</text>
+    </g>
+    <g
+       id="elem_crediter">
+      <ellipse
+         cx="126.8518"
+         cy="336.5704"
+         fill="#F1F1F1"
+         rx="88.3518"
+         ry="20.0704"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse18" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="138"
+         x="57.8518"
+         y="339.417"
+         id="text20">Créditer un compte</text>
+    </g>
+    <g
+       id="elem_debiter">
+      <ellipse
+         cx="127.1635"
+         cy="261.6327"
+         fill="#F1F1F1"
+         rx="86.1635"
+         ry="19.6327"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse23" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="133"
+         x="60.6635"
+         y="264.4794"
+         id="text25">Débiter un compte</text>
+    </g>
+    <g
+       id="elem_creer">
+      <ellipse
+         cx="127.1107"
+         cy="188.5221"
+         fill="#F1F1F1"
+         rx="80.6107"
+         ry="18.5221"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse28" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="120"
+         x="65.6726"
+         y="191.8348"
+         id="text30">Créér un compte</text>
+    </g>
+    <g
+       id="elem_virement">
+      <ellipse
+         cx="126.7893"
+         cy="108.5579"
+         fill="#F1F1F1"
+         rx="120.7893"
+         ry="26.5579"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse33" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="155"
+         x="46.2893"
+         y="104.157"
+         id="text35">Effectuer un virement</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="147"
+         x="52.2893"
+         y="120.4539"
+         id="text37">du compte à compte</text>
+    </g>
+    <g
+       id="elem_cloturer">
+      <ellipse
+         cx="126.8518"
+         cy="26.5704"
+         fill="#F1F1F1"
+         rx="88.3518"
+         ry="20.0704"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse40" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="138"
+         x="57.8518"
+         y="29.417"
+         id="text42">Cloturer un compte</text>
+    </g>
+    <g
+       id="elem_releve">
+      <ellipse
+         cx="427.7693"
+         cy="87.3539"
+         fill="#F1F1F1"
+         rx="119.7693"
+         ry="26.3539"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse45" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="152"
+         x="348.7693"
+         y="82.953"
+         id="text47">Générer un relevé de</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="54"
+         x="397.7693"
+         y="99.2499"
+         id="text49">compte</text>
+    </g>
+    <g
+       id="elem_emprunt">
+      <ellipse
+         cx="720.1144"
+         cy="26.4229"
+         fill="#F1F1F1"
+         rx="90.1144"
+         ry="20.4229"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse52" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="142"
+         x="649.1144"
+         y="29.2696"
+         id="text54">Simuler un emprunt</text>
+    </g>
+    <g
+       id="elem_assurance">
+      <ellipse
+         cx="720.0203"
+         cy="104.3041"
+         fill="#F1F1F1"
+         rx="99.5203"
+         ry="22.3041"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse57" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="163"
+         x="638.5203"
+         y="107.1507"
+         id="text59">Simuler une assurance</text>
+    </g>
+    <g
+       id="elem_prelevement">
+      <ellipse
+         cx="719.8371"
+         cy="184.6674"
+         fill="#F1F1F1"
+         rx="101.3371"
+         ry="22.6674"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse62" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="167"
+         x="636.3371"
+         y="187.5141"
+         id="text64">Gérer les prélèvements</text>
+    </g>
+    <g
+       id="elem_creerClient">
+      <ellipse
+         cx="720.1608"
+         cy="265.5322"
+         fill="#F1F1F1"
+         rx="103.1608"
+         ry="23.0322"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse67" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="171"
+         x="634.6608"
+         y="268.3788"
+         id="text69">Créér un nouveau client</text>
+    </g>
+    <g
+       id="elem_modifClient">
+      <ellipse
+         cx="719.7915"
+         cy="343.6583"
+         fill="#F1F1F1"
+         rx="88.7915"
+         ry="20.1583"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse72" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="139"
+         x="650.2915"
+         y="346.505"
+         id="text74">Modifier infos client</text>
+    </g>
+    <g
+       id="elem_gerer">
+      <ellipse
+         cx="428.0118"
+         cy="517.4024"
+         fill="#F1F1F1"
+         rx="95.0118"
+         ry="21.4024"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse77" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="153"
+         x="351.5118"
+         y="520.249"
+         id="text79">Gérérer les employés</text>
+    </g>
+    <g
+       id="elem_debitEx">
+      <ellipse
+         cx="720.176"
+         cy="425.2579"
+         fill="#F1F1F1"
+         rx="112.176"
+         ry="26.2579"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse82" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="141"
+         x="646.676"
+         y="420.857"
+         id="text84">Effectuer des débits</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="671.676"
+         y="437.1539"
+         id="text86">exeptionnels</text>
+    </g>
+    <g
+       id="elem_inactif">
+      <ellipse
+         cx="126.9278"
+         cy="421.4856"
+         fill="#F1F1F1"
+         rx="100.4278"
+         ry="22.4856"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="ellipse89" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="165"
+         x="44.4278"
+         y="424.3322"
+         id="text91">Rendre un client Inactif</text>
+    </g>
+    <!--reverse link crediter to guichetier-->
+    <g
+       id="link_crediter_guichetier">
+      <path
+         d="M190.78,319.79 C209.55,313.95 229.92,306.76 248,298.5 C300.08,274.69 355.61,238.71 390.76,214.44 "
+         fill="none"
+         id="crediter-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="185.54,321.4,195.3191,322.5702,190.318,319.9266,192.9616,314.9254,185.54,321.4"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon95" />
+    </g>
+    <!--reverse link debiter to guichetier-->
+    <g
+       id="link_debiter_guichetier">
+      <path
+         d="M191.41,246.02 C252.09,231.2 341.48,209.38 390.87,197.32 "
+         fill="none"
+         id="debiter-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="186.36,247.25,196.0519,249.0015,191.2174,246.0642,194.1546,241.2297,186.36,247.25"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon99" />
+    </g>
+    <!--reverse link creer to guichetier-->
+    <g
+       id="link_creer_guichetier">
+      <path
+         d="M213.01,188.5 C271.82,188.5 347.09,188.5 390.89,188.5 "
+         fill="none"
+         id="creer-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="207.73,188.5,216.73,192.5,212.73,188.5,216.73,184.5,207.73,188.5"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon103" />
+    </g>
+    <!--reverse link virement to guichetier-->
+    <g
+       id="link_virement_guichetier">
+      <path
+         d="M209.57,130.32 C268.86,146.19 346.25,166.89 390.91,178.84 "
+         fill="none"
+         id="virement-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="204.61,129,212.2777,135.1811,209.4416,130.2865,214.3362,127.4504,204.61,129"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon107" />
+    </g>
+    <!--reverse link cloturer to guichetier-->
+    <g
+       id="link_cloturer_guichetier">
+      <path
+         d="M197.35,41.59 C214.72,47.17 232.73,54.64 248,64.5 C281.58,86.19 276.02,107.51 308,131.5 C333.38,150.54 366.13,165.66 390.84,175.53 "
+         fill="none"
+         id="cloturer-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="192.47,40.06,199.8561,46.575,197.2399,41.5595,202.2553,38.9432,192.47,40.06"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon111" />
+    </g>
+    <!--reverse link releve to guichetier-->
+    <g
+       id="link_releve_guichetier">
+      <path
+         d="M428,119.36 C428,129.12 428,138.89 428,148.65 "
+         fill="none"
+         id="releve-backto-guichetier"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="428,114.25,424,123.25,428,119.25,432,123.25,428,114.25"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon115" />
+    </g>
+    <!--link guichetier to emprunt-->
+    <g
+       id="link_guichetier_emprunt">
+      <path
+         d="M465.16,175.53 C489.87,165.66 522.62,150.54 548,131.5 C579.98,107.51 574.68,86.58 608,64.5 C621.54,55.53 637.42,48.46 652.86,42.98 "
+         fill="none"
+         id="guichetier-to-emprunt"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="657.64,41.33,647.828,40.4788,652.9125,42.9582,650.4331,48.0427,657.64,41.33"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon119" />
+    </g>
+    <!--link guichetier to assurance-->
+    <g
+       id="link_guichetier_assurance">
+      <path
+         d="M465.14,178.03 C512.11,164.43 594.97,140.43 653.22,123.55 "
+         fill="none"
+         id="guichetier-to-assurance"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="658.08,122.15,648.3237,120.8032,653.2762,123.5368,650.5426,128.4893,658.08,122.15"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon123" />
+    </g>
+    <!--link guichetier to prelevement-->
+    <g
+       id="link_guichetier_prelevement">
+      <path
+         d="M465.14,188 C502.14,187.49 561.41,186.67 613.37,185.96 "
+         fill="none"
+         id="guichetier-to-prelevement"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="618.38,185.89,609.3238,182.019,613.3805,185.9614,609.4381,190.0182,618.38,185.89"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon127" />
+    </g>
+    <!--link guichetier to creerClient-->
+    <g
+       id="link_guichetier_creerClient">
+      <path
+         d="M465.14,198.1 C510.68,210.19 589.99,231.25 647.87,246.61 "
+         fill="none"
+         id="guichetier-to-creerClient"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="653.05,247.99,645.3777,241.8145,648.2174,246.707,643.3249,249.5467,653.05,247.99"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon131" />
+    </g>
+    <!--link guichetier to modifClient-->
+    <g
+       id="link_guichetier_modifClient">
+      <path
+         d="M465.11,215.98 C500.17,241.71 555.63,279.92 608,305.5 C624.23,313.43 642.53,320.42 659.52,326.18 "
+         fill="none"
+         id="guichetier-to-modifClient"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="664.28,327.77,657.0128,321.1226,659.538,326.1846,654.4761,328.7098,664.28,327.77"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon135" />
+    </g>
+    <!--link chef to gerer-->
+    <g
+       id="link_chef_gerer">
+      <path
+         d="M428,461.24 C428,471.03 428,480.83 428,490.63 "
+         fill="none"
+         id="chef-to-gerer"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="428,495.75,432,486.75,428,490.75,424,486.75,428,495.75"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon139" />
+    </g>
+    <!--link chef to debitEx-->
+    <g
+       id="link_chef_debitEx">
+      <path
+         d="M479.51,422.2 C513.59,422.67 559.99,423.31 602.88,423.9 "
+         fill="none"
+         id="chef-to-debitEx"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="608.09,423.97,599.1363,419.8674,603.0903,423.9129,599.0449,427.8669,608.09,423.97"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon143" />
+    </g>
+    <!--reverse link inactif to chef-->
+    <g
+       id="link_inactif_chef">
+      <path
+         d="M232.56,421.5 C281.36,421.5 337.2,421.5 376.48,421.5 "
+         fill="none"
+         id="inactif-backto-chef"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="227.56,421.5,236.56,425.5,232.56,421.5,236.56,417.5,227.56,421.5"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon147" />
+    </g>
+    <!--reverse link guichetier to chef-->
+    <g
+       id="link_guichetier_chef">
+      <path
+         d="M428,248.28 C428,292.82 428,337.37 428,381.91 "
+         fill="none"
+         id="guichetier-backto-chef"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="none"
+         points="421,248.16,428,228.16,435,248.16,421,248.16"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon151" />
+    </g>
+    <!--SRC=[RLCvRiCm4EpvYYsLmXym0ZUEOQH84xTkP75b4w58WOSF84M-aIvbz0xz92_9YgGj-cW4SMQMUynIOkt0QJ1YktF0XS7A2QsO_H2gBKtPG5avRLRk917A0rhT86FJfHVL3fr0CuNImlPoPDFv3clWVr_VvHPLXO4dicQic9k-uyAX0Q-Wqathy2dG1WFCYfU-spmGSDn4VhYXxnx43-IYhgbw7wFtr4g3ogqLS9_4qF_aOMS9NIkry-Q-hWIpOjbtYl96XK69-xwZgjOgKmSOMR4IZPTHYKrhl7A1JlyvJnErrfkInXGabrD8E6IJQA6bdcN_km-rsY1iOwvK_3WJfVqUIsfN2anfmspcuSoADyr5JIw1KBMskQmPc2IBsSS2g7AfJtqNSs_HN0-RauG7t-nQuH7ROO4KIZjQjpYouXqLDnWc7DB0gwBL4dLGYVZF61jN2IQ-dSp6vRXZpblnAEGHVF7xFk1iTCv8UXh49LjpXj2pcpVmwE0DaJjsG-KEtL1NheJ1mtEiApwfD5m2gOq8fKaInFL19P0DtzJHvon_hkmV]-->
+  </g>
+  <rect
+     style="fill:none;stroke:#ff0f0f;stroke-width:2.84067;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     id="rect1102"
+     width="490.95364"
+     height="91.307175"
+     x="343.8862"
+     y="375.32101"
+     ry="31.812347" />
+</svg>

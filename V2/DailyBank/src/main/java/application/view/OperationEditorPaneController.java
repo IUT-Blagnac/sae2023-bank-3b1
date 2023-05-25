@@ -19,6 +19,9 @@ import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Controlleur de la fenêtre d'édition d'opération crédit & débit.
+ */
 public class OperationEditorPaneController {
 
 	// Etat courant de l'application
@@ -33,12 +36,21 @@ public class OperationEditorPaneController {
 	private Operation operationResultat;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialisaton du contexte de la fenêtre d'édition d'opération crédit & débit.
+	 * @param _containingStage feneêtre physique contenant la scène
+	 * @param _dbstate état courant de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configuration de la fenêtre d'édition d'opération crédit & débit.
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
@@ -107,6 +119,12 @@ public class OperationEditorPaneController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Fermeture de la fenêtre d'édition d'opération crédit & débit.
+	 * @param e événement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -130,12 +148,22 @@ public class OperationEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Annule l'opération.
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.primaryStage.close();
 	}
 
+
+	/**
+	 * Effectue l'opération de crédit ou de débit.
+	 *
+	 * Débit exeptionnel : Émilien FIEU
+	 * @author Émilien FIEU
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.categorieOperation) {
@@ -164,16 +192,30 @@ public class OperationEditorPaneController {
 					this.txtMontant.requestFocus();
 					return;
 				}
-				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
-					info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
-							+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-							+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-					this.lblMessage.setText(info);
-					this.txtMontant.getStyleClass().add("borderred");
-					this.lblMontant.getStyleClass().add("borderred");
-					this.lblMessage.getStyleClass().add("borderred");
-					this.txtMontant.requestFocus();
-					return;
+
+				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise ) {
+					if (!ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())){
+						info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
+								+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+								+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+						this.lblMessage.setText(info);
+						this.txtMontant.getStyleClass().add("borderred");
+						this.lblMontant.getStyleClass().add("borderred");
+						this.lblMessage.getStyleClass().add("borderred");
+						this.txtMontant.requestFocus();
+						return;
+					}
+					else{
+						boolean continuer = AlertUtilities.confirmYesCancel(this.primaryStage,"Confirmation débite exeptionnel",
+								"Voulez vous vraiment débiter le compte de "+montant+"€ ?",
+								"Compte : " + this.compteEdite.idNumCompte + " \nCe débit dépassera la limite de découvert autorisé !",
+								AlertType.CONFIRMATION);
+
+						if(!continuer) {
+
+							return;
+						}
+					}
 				}
 				String typeOp = this.cbTypeOpe.getValue();
 				this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);

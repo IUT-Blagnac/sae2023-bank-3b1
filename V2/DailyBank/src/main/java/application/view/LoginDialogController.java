@@ -52,14 +52,14 @@ public class LoginDialogController {
 		this.primaryStage.showAndWait();
 	}
 
-	/*
+	/**
 	 * Configuration de LoginDialogController. Fermeture par la croix.
 	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
-	/*
+	/**
 	 * Méthode de fermeture de la fenêtre par la croix.
 	 *
 	 * @param e Evénement associé (inutilisé pour le moment)
@@ -82,7 +82,7 @@ public class LoginDialogController {
 
 	// Actions
 
-	/*
+	/**
 	 * Action quitter (annuler le login et fermer la fenêtre)
 	 */
 	@FXML
@@ -91,7 +91,7 @@ public class LoginDialogController {
 		this.primaryStage.close();
 	}
 
-	/*
+	/**
 	 * Action login.
 	 *
 	 * Vérifier que login/password non vides. Lancer la recherche par le contrôleur
@@ -114,7 +114,7 @@ public class LoginDialogController {
 		}
 	}
 
-	/*
+	/**
 	 * Affichage d'un message d'erreur
 	 *
 	 * @param texte Texte à afficher

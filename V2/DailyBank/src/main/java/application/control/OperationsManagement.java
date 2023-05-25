@@ -72,6 +72,9 @@ public class OperationsManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des opérations.
+	 */
 	public void doOperationsManagementDialog() {
 		this.omcViewController.displayDialog();
 	}
@@ -89,7 +92,10 @@ public class OperationsManagement {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
 
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				if  (this.compteConcerne.debitAutorise - op.montant > this.compteConcerne.debitAutorise)
+					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				else
+					ao.insererDebitExep(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
@@ -150,8 +156,6 @@ public class OperationsManagement {
 		this.compteCible = null;
 		ArrayList<Operation> op = ovep.doOperationEditorDialog(this.compteConcerne, this.compteCible, this);
 
-		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
-
 		Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 		try {
 			ac.getCompteCourant(op.get(1).idNumCompte);
@@ -181,6 +185,21 @@ public class OperationsManagement {
 				op = null;
 			}
 		}
+		return;
+	}
+
+
+	/**
+	 * Ouvre le CRUD des prélèvements.
+	 * 
+	 * 
+	 * @author Vincent Barette
+	 */
+	public void crudPrelevement() {
+		PrelevementManagementPane pmp = new PrelevementManagementPane(this.primaryStage, this.dailyBankState);
+
+		pmp.doPrelevementManagementDialog(this.compteConcerne.idNumCompte+"");
+		
 		return;
 	}
 

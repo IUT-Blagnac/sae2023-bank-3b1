@@ -17,12 +17,20 @@ import model.orm.Access_BD_Client;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
+/**
+ * Classe permettant de gérer la fenêtre de gestion des clients
+ */
 public class ClientsManagement {
 
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
 	private ClientsManagementController cmcViewController;
 
+	/**
+	 * Constructeur
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate Etat de l'application
+	 */
 	public ClientsManagement(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -48,10 +56,18 @@ public class ClientsManagement {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des clients
+	 */
 	public void doClientManagementDialog() {
 		this.cmcViewController.displayDialog();
 	}
 
+	/**
+	 * Affiche la fenêtre d'édition d'un client
+	 * @param c Client à éditer
+	 * @return Client édité
+	 */
 	public Client modifierClient(Client c) {
 		ClientEditorPane cep = new ClientEditorPane(this.primaryStage, this.dailyBankState);
 		Client result = cep.doClientEditorDialog(c, EditionMode.MODIFICATION);
@@ -73,6 +89,10 @@ public class ClientsManagement {
 		return result;
 	}
 
+	/**
+	 * Affiche la fenêtre de création d'un client
+	 * @return Client créé
+	 */
 	public Client nouveauClient() {
 		Client client;
 		ClientEditorPane cep = new ClientEditorPane(this.primaryStage, this.dailyBankState);
@@ -96,11 +116,22 @@ public class ClientsManagement {
 		return client;
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des comptes d'un client
+	 * @param c Client dont on veut gérer les comptes
+	 */
 	public void gererComptesClient(Client c) {
 		ComptesManagement cm = new ComptesManagement(this.primaryStage, this.dailyBankState, c);
 		cm.doComptesManagementDialog();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des opérations d'un client
+	 * @param _numCompte Numéro du compte du client
+	 * @param _debutNom Début du nom du client
+	 * @param _debutPrenom Début du prénom du client
+	 * @return Liste des clients
+	 */
 	public ArrayList<Client> getlisteComptes(int _numCompte, String _debutNom, String _debutPrenom) {
 		ArrayList<Client> listeCli = new ArrayList<>();
 		try {

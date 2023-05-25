@@ -21,6 +21,9 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
 
+/**
+ * Contrôleur de la fenêtre de gestion des opérations sur un compte.
+ */
 public class OperationsManagementController {
 
 	// Etat courant de l'application
@@ -39,6 +42,15 @@ public class OperationsManagementController {
 	private OperationsManagement om;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialise le contexte de la fenêtre.
+	 * @param _containingStage Fenêtre physique ou est la scène
+	 * @param _om Contrôleur de Dialogue associé à OperationsManagementController
+	 * @param _dbstate Etat courant de l'application
+	 * @param client Client du compte
+	 * @param compte Compte concerné
+	 */
 	public void initContext(Stage _containingStage, OperationsManagement _om, DailyBankState _dbstate, Client client,
 			CompteCourant compte) {
 		this.primaryStage = _containingStage;
@@ -49,6 +61,9 @@ public class OperationsManagementController {
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre.
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -57,13 +72,27 @@ public class OperationsManagementController {
 		this.lvOperations.setSelectionModel(new NoSelectionModel<Operation>());
 		this.updateInfoCompteClient();
 		this.validateComponentState();
+		if (this.compteConcerne.estCloture.equals("O")) {
+			this.btnDebit.setDisable(true);
+			this.btnCredit.setDisable(true);
+			this.btnVirement.setDisable(true);
+		}
 	}
 
+	/**
+	 * Affiche la fenêtre.
+	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Ferme la fenêtre.
+	 * @param e Evènement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -83,8 +112,13 @@ public class OperationsManagementController {
 	@FXML
 	private Button btnCredit;
 	@FXML
+	private Button btnVirement;
+	@FXML
 	private Button btnEmprunt;
 
+	/**
+	 * Ferme la fenêtre.
+	 */
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
@@ -95,6 +129,9 @@ public class OperationsManagementController {
 	    this.omDialogController.simulerEmprunt();
 	}
 
+	/**
+	 * Enregistre un débit sur le compte.
+	 */
 	@FXML
 	private void doDebit() {
 
@@ -105,6 +142,9 @@ public class OperationsManagementController {
 		}
 	}
 
+	/**
+	 * Enregistre un crédit sur le compte.
+	 */
 	@FXML
 	private void doCredit() {
 
@@ -115,12 +155,26 @@ public class OperationsManagementController {
 		}
 	}
 
+	/**
+	 * Enregistre un virement sur le compte.
+	 */
 	@FXML
 	private void doAutre() {
 		this.omDialogController.enregistrerVirement();
 		this.updateInfoCompteClient();
 	}
 
+	/**
+	 * Affiche la fenêtre de gestion des prélèvements.
+	 */
+	@FXML
+	private void doCRUDPrelevement() {
+		this.omDialogController.crudPrelevement();
+	}
+
+	/**
+	 * Valide l'état des composants de la fenêtre.
+	 */
 	private void validateComponentState() {
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);

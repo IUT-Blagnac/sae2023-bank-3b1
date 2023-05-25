@@ -58,7 +58,7 @@ public class DailyBankMainFrameController {
 		this.primaryStage.show();
 	}
 
-	/*
+	/**
 	 * Configuration de DailyBankMainFrameController. Fermeture par la croix,
 	 * bindings des boutons connexion/déconnexion.
 	 */
@@ -68,7 +68,7 @@ public class DailyBankMainFrameController {
 		this.btnDeconn.managedProperty().bind(this.btnDeconn.visibleProperty());
 	}
 
-	/*
+	/**
 	 * Méthode de fermeture de la fenêtre par la croix.
 	 *
 	 * @param e Evénement associé (inutilisé pour le moment)
@@ -107,7 +107,7 @@ public class DailyBankMainFrameController {
 
 	// Actions
 
-	/*
+	/**
 	 * Action menu quitter. Demander une confirmation puis fermer la fenêtre (donc
 	 * l'application car fenêtre principale).
 	 */
@@ -121,7 +121,7 @@ public class DailyBankMainFrameController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu aide. Affichage d'une alerte simplement avec information.
 	 */
 	@FXML
@@ -130,7 +130,7 @@ public class DailyBankMainFrameController {
 		AlertUtilities.showAlert(this.primaryStage, "Aide", null, contenu, AlertType.INFORMATION);
 	}
 
-	/*
+	/**
 	 * Action login. Demande au contrôleur de dialogue de lancer le login puis maj
 	 * de la fenêtre.
 	 */
@@ -141,7 +141,7 @@ public class DailyBankMainFrameController {
 		this.validateComponentState();
 	}
 
-	/*
+	/**
 	 * Action déconnexion. Demande au contrôleur de dialogue de réaliser la
 	 * déconnexion puis maj de la fenêtre.
 	 */
@@ -151,7 +151,7 @@ public class DailyBankMainFrameController {
 		this.validateComponentState();
 	}
 
-	/*
+	/**
 	 * Mise à jour de la fenêtre Les champs d'affichage de la banque et de l'employé
 	 * sont mis à jour. Les boutons de connexion/déconnexion et les menus sont mis à
 	 * jour. Si un employé est connecté : les champs sont remplis et les
@@ -191,7 +191,7 @@ public class DailyBankMainFrameController {
 		}
 	}
 
-	/*
+	/**
 	 * Action menu client. Demande au contrôleur de dialogue de lancer la gestion
 	 * client
 	 */
@@ -200,21 +200,15 @@ public class DailyBankMainFrameController {
 		this.dbmfDialogController.gestionClients();
 	}
 
-	/*
-	 * Action menu Employé. Not Yet Implemented. Pour le moment : une alerte
-	 * d'information
+	/**
+	 * Action menu Employé. 
 	 */
 	@FXML
 	private void doEmployeOption() {
 		this.dbmfDialogController.gestionEmploye();
-//		LocalDate current_date;
-//
-//		current_date = LocalDate.now();
-//		AlertUtilities.showAlert(this.primaryStage, "Gestion des Employé", "En cours de développement",
-//				"Livraison prévue\nEn juin " + current_date.getYear(), AlertType.INFORMATION);
 	}
 
-	/*
+	/**
 	 * Se déconnecter de la bd oracle. Demande au contrôleur de dialogue de se
 	 * déconnecter.
 	 */

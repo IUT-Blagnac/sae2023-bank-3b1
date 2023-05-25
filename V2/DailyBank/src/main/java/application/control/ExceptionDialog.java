@@ -11,11 +11,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.orm.exception.ApplicationException;
 
+/**
+ * Classe gérant l'affichage d'une fenêtre de dialogue en cas d'exception
+ */
 public class ExceptionDialog {
 
 	private Stage primaryStage;
 	private ExceptionDialogController edcViewController;
 
+	/**
+	 * Constructeur
+	 *
+	 * @param _parentStage Fenêtre parent
+	 * @param _dbstate Etat de l'application
+	 * @param ae Exception à afficher
+	 */
 	public ExceptionDialog(Stage _parentStage, DailyBankState _dbstate, ApplicationException ae) {
 
 		try {
@@ -41,6 +51,9 @@ public class ExceptionDialog {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre de dialogue
+	 */
 	public void doExceptionDialog() {
 		this.edcViewController.displayDialog();
 	}

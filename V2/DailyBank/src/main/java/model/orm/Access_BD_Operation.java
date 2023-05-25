@@ -22,6 +22,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_Operation {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_Operation() {
 	}
 
@@ -169,6 +172,42 @@ public class Access_BD_Operation {
 	}
 
 	/**
+	 * Enregistrement d'un débit exceptionnel.
+	 * @param idNumCompte compte débité
+	 * @param montant montant débité
+	 * @param typeOp libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée ou autre)
+	 */
+	public void insererDebitExep(int idNumCompte, double montant, String typeOp)
+			throws DatabaseConnexionException, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call Debit_Exceptionnel (?, ?, ?, ?)}";
+			// les ? correspondent aux paramètres : cf. déf procédure (4 paramètres)
+			call = con.prepareCall(q);
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			// 1 -> valeur du premier paramètre, cf. déf procédure
+			call.setDouble(2, montant);
+			System.out.println("Debit");
+			System.out.println(montant);
+			call.setString(3, typeOp);
+			// Paramètres out
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
+
+			call.execute();
+
+			int res = call.getInt(4);
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
+	/**
 	 * Enregistrement d'un crédit.
 	 *
 	 * Se fait par procédure stockée : - Vérifie que le débitAutorisé n'est pas
@@ -217,7 +256,7 @@ public class Access_BD_Operation {
 		}
 	}
 
-	/*
+	/**
 	 * Fonction utilitaire qui retourne un ordre sql "to_date" pour mettre une date
 	 * dans une requête sql
 	 *

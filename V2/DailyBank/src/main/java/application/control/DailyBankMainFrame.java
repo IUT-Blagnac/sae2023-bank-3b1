@@ -122,8 +122,12 @@ public class DailyBankMainFrame extends Application {
 		cm.doClientManagementDialog();
 	}
 
+	/**
+	 * Lancer la gestion des Employe (liste des employé).
+	 */
 	public void gestionEmploye(){
 		EmployeManagement em = new EmployeManagement(this.primaryStage, this.dailyBankState);
 		em.doEmployeManagementDialog();
 	}
+
 }

@@ -17,6 +17,9 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
 
+/**
+ * Contrôleur de la vue CompteEditorPane
+ */
 public class CompteEditorPaneController {
 
 	// Etat courant de l'application
@@ -32,12 +35,21 @@ public class CompteEditorPaneController {
 	private CompteCourant compteResultat;
 
 	// Manipulation de la fenêtre
+
+	/**
+	 * Initialisation du contexte graphique
+	 * @param _containingStage fenêtre physique contenant la scène
+	 * @param _dbstate	état courant de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configuration des composants graphiques
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
@@ -45,6 +57,13 @@ public class CompteEditorPaneController {
 		this.txtSolde.focusedProperty().addListener((t, o, n) -> this.focusSolde(t, o, n));
 	}
 
+	/**
+	 * Affichage de la fenêtre
+	 * @param client client concerné par le compte
+	 * @param cpte compte à afficher
+	 * @param mode mode d'édition
+	 * @return le compte édité ou null si l'opération a été annulée
+	 */
 	public CompteCourant displayDialog(Client client, CompteCourant cpte, EditionMode mode) {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
@@ -97,12 +116,25 @@ public class CompteEditorPaneController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Fermeture de la fenêtre
+	 * @param e événement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
 		return null;
 	}
 
+	/**
+	 * Focus sur le champ de saisie du découvert autorisé
+	 * @param txtField champ de saisie
+	 * @param oldPropertyValue ancienne valeur du focus
+	 * @param newPropertyValue nouvelle valeur du focus
+	 * @return null
+	 */
 	private Object focusDecouvert(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -120,6 +152,13 @@ public class CompteEditorPaneController {
 		return null;
 	}
 
+	/**
+	 * Focus sur le champ de saisie du solde
+	 * @param txtField champ de saisie
+	 * @param oldPropertyValue ancienne valeur du focus
+	 * @param newPropertyValue nouvelle valeur du focus
+	 * @return null
+	 */
 	private Object focusSolde(ObservableValue<? extends Boolean> txtField, boolean oldPropertyValue,
 			boolean newPropertyValue) {
 		if (oldPropertyValue) {
@@ -158,12 +197,18 @@ public class CompteEditorPaneController {
 	@FXML
 	private Button btnCancel;
 
+	/**
+	 * Action sur le bouton Annuler
+	 */
 	@FXML
 	private void doCancel() {
 		this.compteResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * Action sur le bouton Ajouter
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -187,6 +232,10 @@ public class CompteEditorPaneController {
 
 	}
 
+	/**
+	 * Vérification de la validité de la saisie
+	 * @return true si la saisie est valide
+	 */
 	private boolean isSaisieValide() {
 
 		return true;

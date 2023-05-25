@@ -39,6 +39,7 @@ public class EmployeEditorPaneController {
      */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
+        this.primaryStage.setTitle("Edition d’un employé");
     }
 
     /**

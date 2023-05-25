@@ -13,12 +13,20 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
 
+/**
+ * Classe permettant de gérer la fenêtre d'édition d'un client
+ */
 public class ClientEditorPane {
 
 	private Stage primaryStage;
 	private ClientEditorPaneController cepcViewController;
 	private DailyBankState dailyBankState;
 
+	/**
+	 * Constructeur
+	 * @param _parentStage Fenêtre parente
+	 * @param _dbstate Etat de l'application
+	 */
 	public ClientEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -44,6 +52,12 @@ public class ClientEditorPane {
 		}
 	}
 
+	/**
+	 * Affiche la fenêtre d'édition d'un client
+	 * @param client Client à éditer
+	 * @param em Mode d'édition
+	 * @return Client édité
+	 */
 	public Client doClientEditorDialog(Client client, EditionMode em) {
 		return this.cepcViewController.displayDialog(client, em);
 	}

@@ -1,6 +1,5 @@
 package application.view;
 
-import java.util.Optional;
 import java.util.regex.Pattern;
 
 import application.DailyBankState;
@@ -34,16 +33,30 @@ public class ClientEditorPaneController {
 
 	// Manipulation de la fenêtre
 
+	/**
+	 * Initialisation du contexte graphique
+	 * @param _containingStage fenêtre contenant la scène
+	 * @param _dbstate etat de l'application
+	 */
 	public void initContext(Stage _containingStage, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
 		this.configure();
 	}
 
+	/**
+	 * Configure la fenêtre
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
+	/**
+	 * Affiche la fenêtre d’édition d’un client
+	 * @param client client à éditer
+	 * @param mode mode d'édition
+	 * @return le client édité ou null si l'édition a été annulée
+	 */
 	public Client displayDialog(Client client, EditionMode mode) {
 
 		this.editionMode = mode;
@@ -128,6 +141,12 @@ public class ClientEditorPaneController {
 	}
 
 	// Gestion du stage
+
+	/**
+	 * Gestion de la fermeture de la fenêtre
+	 * @param e événement de fermeture
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doCancel();
 		e.consume();
@@ -161,12 +180,18 @@ public class ClientEditorPaneController {
 	@FXML
 	private Button butCancel;
 
+	/**
+	 * Gestion du bouton "Annuler"
+	 */
 	@FXML
 	private void doCancel() {
 		this.clientResultat = null;
 		this.primaryStage.close();
 	}
 
+	/**
+	 * Gestion du bouton "Ajouter"
+	 */
 	@FXML
 	private void doAjouter() {
 		switch (this.editionMode) {
@@ -190,6 +215,10 @@ public class ClientEditorPaneController {
 
 	}
 
+	/**
+	 * Vérification de la validité des données saisies
+	 * @return true si les données sont valides
+	 */
 	private boolean isSaisieValide() {
 		this.clientEdite.nom = this.txtNom.getText().trim();
 		this.clientEdite.prenom = this.txtPrenom.getText().trim();

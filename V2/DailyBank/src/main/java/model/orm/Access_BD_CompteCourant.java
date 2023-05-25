@@ -18,6 +18,9 @@ import model.orm.exception.Table;
  */
 public class Access_BD_CompteCourant {
 
+	/**
+	 * Constructeur.
+	 */
 	public Access_BD_CompteCourant() {
 	}
 
@@ -167,10 +170,14 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
-	public CompteCourant ajouterCompte(CompteCourant compte, int idNumCli) throws DataAccessException {
-		return null;
-	}
-
+	/**
+	 * Suppression d'un CompteCourant.
+	 * @param compte IN compte.idNumCompte (clé primaire) doit exister seul
+	 * @param idNumCli IN idNumCli (clé primaire) doit exister seul
+	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée
+	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 */
 	public void ajouterCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
@@ -178,6 +185,9 @@ public class Access_BD_CompteCourant {
 			String query = "INSERT INTO COMPTECOURANT VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
 
 			PreparedStatement pst = con.prepareStatement(query);
+			if (compte.debitAutorise > 0) {
+				compte.debitAutorise = -compte.debitAutorise;
+			}
 			pst.setInt(1, compte.debitAutorise);
 			pst.setDouble(2, compte.solde);
 			pst.setInt(3, compte.idNumCli);
@@ -198,6 +208,13 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
+	/**
+	 * Suppression d'un CompteCourant.
+	 * @param compte IN compte.idNumCompte (clé primaire) doit exister seul
+	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée
+	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 */
 	public void supprimerCompteCourant(CompteCourant compte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
