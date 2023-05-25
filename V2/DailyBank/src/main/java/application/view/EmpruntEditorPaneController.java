@@ -97,48 +97,35 @@ public class EmpruntEditorPaneController implements Initializable {
 
                 if (!montant.getText().isEmpty() && isNumber(this.montant) && !annee.getText().isEmpty() && isNumber(annee) && !TA.getText().isEmpty() && isNumber(TA)) {
 
-                        int numTA= Integer.parseInt(TA.getText());
-                        int numA= Integer.parseInt(annee.getText());
-                        int numMontant= Integer.parseInt(montant.getText());
+                        double numTA= Integer.parseInt(TA.getText());
+                        double numA= Integer.parseInt(annee.getText());
+                        double numMontant= Integer.parseInt(montant.getText());
 
-                        aff ="Année \t| Capital restant dû \t|Intérêts \t| Amortissement du capital \t| Annuité\n";
+                        aff ="Année \t| Capital restant dû       \t|Intérêts \t| Amortissement du capital \t| Annuité\n";
 
-                        int Capital=numMontant;
-                        int interet=(Capital/100)*numTA;
-                        int amor= (Capital/numA);
-                        int annuite= amor+interet;
+                        double Capital=numMontant;
+                        double interet= (Capital/100)*numTA;
+                        double annuite = numMontant*((numTA/100)/(1-Math.pow((1+(numTA/100)),(-numA))));
+                        double amor = annuite-interet;
 
-
-                        int totI = 0;
-                        int totC = 0;
-                        int totA = 0;
+                        double totI = 0;
+                        double totC = 0;
+                        double totA = 0;
                         for (int i =0 ; i<numA; i++) {
                                 int bona =i+1;
                                 totI += interet;
                                 totC += amor;
-                                totA += annuite;
+                                totA = annuite;
                                 aff = aff + ""+ bona +"         \t| " + Capital + "               \t| " + interet + "      \t| " + amor +" \t| " + annuite + "\n";
 
                                 Capital = Capital-amor;
                                 interet = (Capital/100)*numTA;
-                                annuite = amor+interet;
-
-
+                                amor = annuite-interet;
                         }
-
-
-                        aff = aff + ""+ " Total " +"     \t| " + "           " + " \t| " + totI + " \t| " + totC +" \t| " + totA + "\n";
                         txt.setText(aff);
-
-
-
                 }
 
         }
-
-
-
-
 
         @FXML
         private void doAss() {
