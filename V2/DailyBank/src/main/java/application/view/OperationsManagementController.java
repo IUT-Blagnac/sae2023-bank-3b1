@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import application.DailyBankState;
+import application.control.EmpruntManagement;
 import application.control.OperationsManagement;
 import application.tools.NoSelectionModel;
 import application.tools.PairsOfValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -34,6 +36,7 @@ public class OperationsManagementController {
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
 	private ObservableList<Operation> oListOperations;
+	private OperationsManagement om;
 
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, OperationsManagement _om, DailyBankState _dbstate, Client client,
@@ -79,10 +82,17 @@ public class OperationsManagementController {
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
+	@FXML
+	private Button btnEmprunt;
 
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
+	}
+
+	@FXML
+	private void doEmprunt() {
+	    this.omDialogController.simulerEmprunt();
 	}
 
 	@FXML
@@ -114,7 +124,7 @@ public class OperationsManagementController {
 	private void validateComponentState() {
 		this.btnCredit.setDisable(false);
 		this.btnDebit.setDisable(false);
-
+		this.btnEmprunt.setDisable(false);
 	}
 
 	/**

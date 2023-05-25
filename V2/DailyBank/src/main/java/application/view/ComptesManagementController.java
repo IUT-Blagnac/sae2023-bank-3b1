@@ -85,6 +85,8 @@ public class ComptesManagementController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
+	@FXML
+	private Button btnEmprunt;
 
 	@FXML
 	private void doCancel() {

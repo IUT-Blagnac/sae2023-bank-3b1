@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
-import model.data.TypeOperation;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
@@ -33,10 +32,11 @@ public class OperationsManagement {
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
 	private CompteCourant compteCible;
+	private OperationsManagement omDialogController;
 
 	/**
 	 * Crée une nouvelle classe de gestion des opérations
-	 * 
+	 *
 	 * @param _parentStage Scène mère
 	 * @param _dbstate     Référence à l'état courant de l'application
 	 * @param client       Le client selectionné
@@ -47,6 +47,7 @@ public class OperationsManagement {
 		this.clientDuCompte = client;
 		this.compteConcerne = compte;
 		this.dailyBankState = _dbstate;
+		this.omDialogController = this;
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					OperationsManagementController.class.getResource("operationsmanagement.fxml"));
@@ -214,5 +215,11 @@ public class OperationsManagement {
 	 */
 	public void setCompteCible(CompteCourant _compteCible) {
 		this.compteCible = _compteCible;
+	}
+
+
+	public void simulerEmprunt() {
+		EmpruntManagement em = new EmpruntManagement(this.primaryStage, this.dailyBankState);
+		em.doSimulerEditorDialog();
 	}
 }

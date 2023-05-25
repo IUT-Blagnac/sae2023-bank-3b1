@@ -64,6 +64,11 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="btnEmprunt" mnemonicParsing="false" onAction="#doEmprunt" text="Simuler un emprunt">
+                     <HBox.margin>
+                        <Insets left="250.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </bottom>
