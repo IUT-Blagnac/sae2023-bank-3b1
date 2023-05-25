@@ -1,10 +1,12 @@
 package application.view;
 
 import java.time.LocalDate;
+import java.time.Year;
 
 import application.DailyBankState;
 import application.control.DailyBankMainFrame;
 import application.tools.AlertUtilities;
+import application.tools.RelevePDF;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -139,6 +141,8 @@ public class DailyBankMainFrameController {
 
 		this.dbmfDialogController.loginDunEmploye();
 		this.validateComponentState();
+
+		RelevePDF.batchGenereRelevePDF(this.primaryStage, this.dailyBankState, LocalDate.now().getMonth(), Year.parse(String.valueOf(LocalDate.now().getYear())));
 	}
 
 	/**

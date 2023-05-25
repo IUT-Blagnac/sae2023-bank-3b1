@@ -20,9 +20,13 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.orm.Access_BD_Client;
+import model.orm.Access_BD_CompteCourant;
 import model.orm.Access_BD_Operation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
@@ -30,6 +34,7 @@ import java.time.Month;
 import java.time.Year;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -47,7 +52,7 @@ public class RelevePDF {
      * @param annee L'année du relevé
      * @autor Émilien FIEU
      */
-    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee, String fileLocation) {
+    public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee, String fileLocation, boolean disableFinishAlert) {
         Document d = new Document();
 
         try {
@@ -165,8 +170,61 @@ public class RelevePDF {
         }
         d.close();
 
-        AlertUtilities.showAlert(primaryStage, "Génération du relevé",
+        if (!disableFinishAlert) AlertUtilities.showAlert(primaryStage, "Génération du relevé",
                 "Succès génération relevé", "Le relevé a été généré avec succès", Alert.AlertType.INFORMATION);
 
     }
+
+    public static void batchGenereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, Month mois, Year annee) {
+        File dir = new File("releves");
+        if (dir.exists()) {
+            ArrayList<File> files = new ArrayList<>(Arrays.asList(dir.listFiles()));
+
+            ArrayList<String> filesName = new ArrayList<>();
+            for (File f : files) {
+                filesName.add(f.getName());
+            }
+
+            if (filesName.contains(annee.getValue() + "_" + mois.getValue())) {
+                return;
+            }
+        }
+
+        if (!AlertUtilities.confirmYesCancel(primaryStage, "Génération des relevés",
+                "Génération des relevés", "Les  relevés de ce mois n'ont pas été générés, voulez-vous les générer ?", Alert.AlertType.CONFIRMATION)) {
+            return;
+        }
+        try {
+            Access_BD_Client acc = new Access_BD_Client();
+            Access_BD_CompteCourant acc2 = new Access_BD_CompteCourant();
+            ArrayList<Client> clients = acc.getClients(dailyBankState.getAgenceActuelle().idAg, -1, "", "");
+
+
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+
+            File dir2 = new File("releves" + File.separator + annee.getValue() + "_" + mois.getValue());
+            if (!dir2.exists()) {
+                dir2.mkdir();
+            }
+            for (Client c : clients) {
+                ArrayList<CompteCourant> comptes = acc2.getCompteCourants(c.idNumCli);
+                for (CompteCourant cpt : comptes) {
+                    genereRelevePDF(primaryStage, dailyBankState, cpt, c, mois, annee, "releves"+ File.separator + annee.getValue() + "_" + mois.getValue()  + File.separator + c.idNumCli + "_" + cpt.idNumCompte + "_" + mois.getValue() + "_" + annee.getValue() + ".pdf", true);
+                }
+            }
+
+            AlertUtilities.showAlert(primaryStage, "Génération des relevés",
+                    "Succès génération relevés", "Les relevés ont été générés avec succès", Alert.AlertType.INFORMATION);
+        } catch (DatabaseConnexionException e) {
+            ExceptionDialog ed = new ExceptionDialog(primaryStage, dailyBankState, e);
+            ed.doExceptionDialog();
+            primaryStage.close();
+        } catch (ApplicationException ae) {
+            ExceptionDialog ed = new ExceptionDialog(primaryStage, dailyBankState, ae);
+            ed.doExceptionDialog();
+        }
+    }
+
 }
