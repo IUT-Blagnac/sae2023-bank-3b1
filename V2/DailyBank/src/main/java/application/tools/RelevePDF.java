@@ -50,6 +50,8 @@ public class RelevePDF {
      * @param clientDesComptes Le client propriétaire du compte
      * @param mois Le mois du relevé
      * @param annee L'année du relevé
+     * @param fileLocation L'emplacement du fichier PDF
+     * @param disableFinishAlert Si on veut désactiver l'alerte de fin de génération
      * @autor Émilien FIEU
      */
     public static void genereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, CompteCourant cpt, Client clientDesComptes, Month mois, Year annee, String fileLocation, boolean disableFinishAlert) {
@@ -175,6 +177,13 @@ public class RelevePDF {
 
     }
 
+    /**
+     * Génère les relevés de tous les clients de l'agence actuelle
+     * @param primaryStage La fenêtre principale
+     * @param dailyBankState L'état de la banque
+     * @param mois Le mois
+     * @param annee L'année
+     */
     public static void batchGenereRelevePDF(Stage primaryStage, DailyBankState dailyBankState, Month mois, Year annee) {
         File dir = new File("releves");
         if (dir.exists()) {

@@ -142,6 +142,8 @@ public class DailyBankMainFrameController {
 		this.dbmfDialogController.loginDunEmploye();
 		this.validateComponentState();
 
+		// Une fois connecté, on regardi si besoin de générer les relevés et on les
+		// génère si besoin
 		RelevePDF.batchGenereRelevePDF(this.primaryStage, this.dailyBankState, LocalDate.now().getMonth(), Year.parse(String.valueOf(LocalDate.now().getYear())));
 	}
 
