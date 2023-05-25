@@ -10,11 +10,11 @@
 * Emilien Fieu
 * Vincent Barette
 
-Version 1.0, 17 Mai 2023, Groupe 3B1
+Version 2.0, 26 Mai 2023, Groupe 3B1
 
 == Présentation rapide de l'application
 
-L’application DailyBank est une application qui est destinée à une banque qui comporte plusieur agences. Les agences comportent des employé dont un chef d’agence. Elle gère des client qui ont des comptes bancaires.
+L’application DailyBank est une application qui est destinée à une banque qui comporte plusieurs agences. Les agences comportent des employés dont un chef d’agence. Elle gère des clients qui ont des comptes bancaires.
 
 === Use Case global
 
@@ -211,4 +211,85 @@ image::../img/DocTecV2/sequence_nouvel_employe.png[]
 image::../img/Employe.png[]
 
 .Ecran d'édition d'un employé
-image::../img/ModifEmploye.png[]
+image::../img/DocTecV2/ModifEmploye.png[]
+
+=== Débits Exceptionnels
+_Émilien FIEU_
+
+==== Partie de use case réalisé
+
+.Partie du use case utilisé pour les débits exceptionnels
+image::../img/DocTecV2/uc-DebitEx.svg[]
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.Partie du diagramme de classe utilisé pour les débits exceptionnels, en lecture en rouge et en mise à jour en vert
+image::../img/DocTecV2/dcDebitEx.svg[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankState
+** control
+*** OperationEditorPane
+** tool
+*** AlertUtilities
+** view
+*** OperationEditorController (utilise OperationEditor.fxml)
+* model
+** data
+*** Operation
+*** Compte
+*** Employe
+** orm
+*** Access_BD_Operation
+
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de débit
+image::../img/Debit.png[]
+
+.Capture d’écran de la fenêtre de validation de débit exceptionnel
+image::../img/DocTecV2/DebitEx.png[]
+
+=== Relevé PDF
+_Émilien FIEU_
+
+==== Partie de use case réalisé
+
+.Partie du use case utilisé pour les relevés PDF
+image::../img/DocTecV2/uc-PDF.svg[]
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.Partie du diagramme de classe utilisé pour les relevés PDF, en lecture en rouge (ici il n’y a pas de mise à jour des données)
+image::../img/DocTecV2/dc-PDF.svg[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankApp
+** DailyBankState
+** control
+*** CompteManagement
+** tool
+*** AlertUtilities
+*** RelevePDF
+** view
+*** CompteManagementController (utilise CompteManagement.fxml)
+* model
+** data
+*** Client
+*** CompteCourant
+*** Operation
+** orm
+*** Access_BD_Operation
+
+==== Captures d’écran de la fonctionnalité
+
+.Capture d’écran de la fenêtre de sélection du mois du relevé
+image::../img/DocTecV2/PDFMois.png[]
+
+.Exemple de relevé PDF
+image::../img/DocUtil/RelevePDF/Releve.png[]
