@@ -18,27 +18,29 @@ L’application DailyBank est une application qui est destinée à une banque qu
 
 === Use Case global
 
-TODO = update to V2
+
 
 .UseCase de la Version 2 de l’application DailyBank
-image::../plantUML/useCaseV1.png[]
+image::../plantUML/useCaseV2.png[]
 
 .*Explication du Use Case Global :*
 
 .*Guichetier :*
 ** Le guichetier peut modifier les informations d'un client.
 ** Le guichetier peut créer un nouveau client.
-** Le guichetier peut consulter un compte bancaire.
-** Le guichetier peut débiter un compte bancaire.
-** Le guichetier peut créditer un compte bancaire.
-** Le guichetier peut créer un nouveau compte bancaire.
-** Le guichetier peut cloturer un compte bancaire.
-** Le guichetier peut effectuer un virement entre deux comptes bancaires.
+** Le guichetier peut gérer les opérations d'un compte bancaire.
+*** Débiter, créditer, consulter, virer à un autre compte.
+** Le guichetier peut gérer les comptes bancaires des clients.
+*** Créer, consulter, modifier, cloturer.
+** Le guichetier peut gérer les prélèvements automatiques des comptes.
+*** Créer, consulter, modifier, supprimer.
 
 .*Chef d'agence :*
 
 ** Le Chef d'Agence peut rendre inactif un compte bancaire.
 ** Le Chef d'Agence peut gérer les employés de son agence.
+*** Créer, consulter, modifier, supprimer.
+** Le Chef d'Agence peut effectuer un débit exceptionnel.
 ** Le Chef d'Agence *est* un guichetier.
 
 
@@ -118,7 +120,7 @@ _Un emprunt peut-être assuré par une assurance (selon la base de données, ce 
 
 image::../img/a1_schema_site_web.png[]
 
-=== Ressources externes utiliséesiffnj
+=== Ressources externes utilisées
 * JavaFX (Version 17)
 ** Rôle : Affichage de l'interface graphique
 * JDBC (Version 19)
