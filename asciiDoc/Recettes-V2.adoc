@@ -289,3 +289,21 @@ Un employé est sélectionné. ^| OK
 ^|C_D_E.2   ^|Compléter les champs avec un montant supérieur a la limite de découvert et valider ^|Une fenetre de confirmation s’ouvre ^| aucune ^| OK
 
 ^|C_D_E.3   ^|Cliquer sur le bouton « Ok » ^|Le débit est effectué en dépassant la limite de découvert du compte  ^| aucune ^| OK
+
+|====
+
+=== Fonctionnalités en Batch
+
+==== Génération des relevés de compte mensuels pour tous les clients
+
+|====
+>|Cas de test 4+|Test-03-01-01
+>|Titre 4+| Génération des relevés de compte mensuels pour tous les clients
+>|Objectif 4+| Vérifier qu'il est possible de générer les relevés de compte mensuels pour tous les clients automatiquement
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|B_R_C.1    ^| Se connecter a l’application ^|Une fenêtre s’ouvre pour demander si l’utilisateur veut générer les relevés de tous les utilisateurs ^|Les relevés n’ont pas déja été généré sur la machine de l’utilisateur ^| OK
+
+^|B_R_C.2   ^|Cliquer sur le bouton « Ok » ^|Les relevés de tous les clients sont générés dans le dossier releves/<annee>_<mois>  ^| aucune ^| OK
