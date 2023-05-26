@@ -166,6 +166,6 @@ public class ComptesManagement {
 	 * @author Émilien FIEU
 	 */
 	public void genererReleve(CompteCourant cpt, Month mois, Year annee, String fileLocation) {
-		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee, fileLocation);
+		RelevePDF.genereRelevePDF(this.primaryStage, this.dailyBankState, cpt, this.clientDesComptes, mois, annee, fileLocation,false);
 	}
 }
