@@ -1,9 +1,13 @@
 package model.orm;
 
 import java.sql.*;
+import java.time.*;
 import java.util.ArrayList;
+import java.util.Date;
 
+import application.control.ExceptionDialog;
 import model.data.CompteCourant;
+import model.data.Operation;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.ManagementRuleViolation;
@@ -237,5 +241,28 @@ public class Access_BD_CompteCourant {
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.CompteCourant, Order.DELETE, "Erreur accès", e);
 		}
+	}
+
+	public double get_solde_Date(CompteCourant compte, Month mois, Year year){
+		double solde = compte.solde;
+
+		try {
+			Access_BD_Operation aco = new Access_BD_Operation();
+
+			ArrayList<Operation> operations = aco.getOperations(compte.idNumCompte);
+
+			for (Operation ope: operations){
+				System.out.println(ope.montant + " " + ope.dateOp + " " + ope.idNumCompte);
+				if (ope.dateOp.after(Date.from(YearMonth.of(year.getValue(), mois.getValue()).atEndOfMonth().atStartOfDay(ZoneId.systemDefault()).toInstant()))){
+					solde -= ope.montant;
+				}
+			}
+		}catch (DatabaseConnexionException ex) {
+			throw new RuntimeException(ex);
+		} catch (DataAccessException ex) {
+			throw new RuntimeException(ex);
+		}
+
+		return solde;
 	}
 }

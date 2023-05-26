@@ -66,6 +66,9 @@ public class RelevePDF {
         }
 
 
+
+
+
         d.open();
 
         Font titleFont = FontFactory.getFont(FontFactory.COURIER_BOLD, 20);
@@ -123,8 +126,8 @@ public class RelevePDF {
         // contenu du tableau
 
         try {
-            Access_BD_Operation acc = new Access_BD_Operation();
-            ArrayList<Operation> ope = acc.getOperations(cpt.idNumCompte);
+            Access_BD_Operation aco = new Access_BD_Operation();
+            ArrayList<Operation> ope = aco.getOperations(cpt.idNumCompte);
 
             Date dateDebutDate = Date.from(LocalDate.of(annee.getValue(), mois.getValue(), 1).atStartOfDay(ZoneId.systemDefault()).toInstant());
             Date dateFinDate = Date.from(LocalDate.of(annee.getValue(), mois.getValue(), mois.length(annee.isLeap())).atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -161,12 +164,21 @@ public class RelevePDF {
             pair = !pair;
         }
 
+        // ajout du solde
+        Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+
+        Paragraph solde = new Paragraph("Solde en début de période : "+ acc.get_solde_Date(cpt, mois.minus(1), annee)
+                +"\nSolde en fin de période: " + acc.get_solde_Date(cpt, mois, annee));
+        solde.setAlignment(Element.ALIGN_RIGHT);
+
+
         try {
             d.add(titre);
             d.add(linebreak);
             d.add(infosClient);
             d.add(infosAgence);
             d.add(table);
+            d.add(solde);
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         }
