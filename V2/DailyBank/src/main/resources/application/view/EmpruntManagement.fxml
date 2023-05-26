@@ -13,28 +13,39 @@
    <top>
       <AnchorPane prefHeight="186.0" prefWidth="704.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="23.0" layoutY="23.0" text="Montant:" />
-            <TextField fx:id="montant" layoutX="94.0" layoutY="18.0" prefHeight="31.0" prefWidth="82.0" />
-            <TextField fx:id="annee" layoutX="245.0" layoutY="18.0" prefHeight="14.0" prefWidth="72.0" />
-            <TextField fx:id="TA" layoutX="399.0" layoutY="18.0" prefHeight="19.0" prefWidth="71.0" />
-            <Label layoutX="196.0" layoutY="23.0" text="Année:" />
-            <Label layoutX="343.0" layoutY="23.0" text="Taux:" />
+            <Label layoutX="16.0" layoutY="47.0" text="Montant:" />
+            <TextField fx:id="montant" layoutX="80.0" layoutY="42.0" prefHeight="31.0" prefWidth="93.0" />
+            <TextField fx:id="annee" layoutX="238.0" layoutY="42.0" prefHeight="14.0" prefWidth="72.0" />
+            <TextField fx:id="TA" layoutX="363.0" layoutY="42.0" prefHeight="19.0" prefWidth="71.0" />
+            <Label layoutX="189.0" layoutY="47.0" text="Année:" />
+            <Label layoutX="321.0" layoutY="47.0" text="Taux:" />
+            <Label layoutX="16.0" layoutY="108.0" text="Simuler une assurance d'emprunt:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Simuler un emprunt:" />
+            <Label layoutX="18.0" layoutY="146.0" text="Montant:" />
+            <Label layoutX="191.0" layoutY="146.0" text="Durée en mois:" />
+            <Label layoutX="419.0" layoutY="146.0" text="Taux:" />
+            <TextField fx:id="montantAss" layoutX="82.0" layoutY="141.0" prefHeight="31.0" prefWidth="91.0" />
+            <TextField fx:id="DureeMois" layoutX="302.0" layoutY="141.0" prefHeight="31.0" prefWidth="91.0" />
+            <TextField fx:id="TauxAnnuel" layoutX="463.0" layoutY="141.0" prefHeight="31.0" prefWidth="86.0" />
          </children>
       </AnchorPane>
    </top>
    <bottom>
       <HBox prefHeight="73.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="butCancel" mnemonicParsing="false" onAction="#doCancel" prefHeight="35.0" prefWidth="191.0" text="Retour gestion comptes">
+            <Button fx:id="butCancel" mnemonicParsing="false" onAction="#doCancel" prefHeight="35.0" prefWidth="67.0" text="Retour">
                <HBox.margin>
                   <Insets left="25.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="butOk" mnemonicParsing="false" onAction="#doSimul" text="Valider">
+            <Button fx:id="butAss" mnemonicParsing="false" onAction="#doAss" prefHeight="35.0" prefWidth="247.0" text="Simuler une assurance d'emprunt">
                <HBox.margin>
-                  <Insets left="250.0" top="15.0" />
-               </HBox.margin>
-            </Button>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin></Button>
+            <Button fx:id="butOk" mnemonicParsing="false" onAction="#doSimul" prefHeight="36.0" prefWidth="194.0" text="Simuler un emprunt">
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </bottom>

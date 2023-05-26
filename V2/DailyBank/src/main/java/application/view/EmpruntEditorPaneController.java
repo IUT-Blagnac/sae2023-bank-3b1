@@ -38,6 +38,7 @@ public class EmpruntEditorPaneController implements Initializable {
 
         public void displayDialog() {
                 this.butOk.setText("Simulation emprunt");
+                this.butAss.setText("Simulation assurance");
                 this.butCancel.setText("Annuler");
                 this.primaryStage.showAndWait();
         }
@@ -74,8 +75,8 @@ public class EmpruntEditorPaneController implements Initializable {
         private TextField DureeMois;
 
 
-
-
+        @FXML
+        private Button butAss;
         @FXML
         private Button butOk;
         @FXML
@@ -93,19 +94,19 @@ public class EmpruntEditorPaneController implements Initializable {
         @FXML
         private void doSimul() {
 
+                txt.setText("");
                 String aff = "";
 
                 if (!montant.getText().isEmpty() && isNumber(this.montant) && !annee.getText().isEmpty() && isNumber(annee) && !TA.getText().isEmpty() && isNumber(TA)) {
-
-                        double numTA= Integer.parseInt(TA.getText());
-                        double numA= Integer.parseInt(annee.getText());
-                        double numMontant= Integer.parseInt(montant.getText());
+                        int numTA= Integer.parseInt(TA.getText());
+                        int numA= Integer.parseInt(annee.getText());
+                        int numMontant= Integer.parseInt(montant.getText());
 
                         aff ="Année \t| Capital restant dû       \t|Intérêts \t| Amortissement du capital \t| Annuité\n";
 
                         double Capital=numMontant;
                         double interet= (Capital/100)*numTA;
-                        double annuite = numMontant*((numTA/100)/(1-Math.pow((1+(numTA/100)),(-numA))));
+                        double annuite = numMontant*(((double) numTA /100)/(1-Math.pow((1+((double) numTA /100)),(-numA))));
                         double amor = annuite-interet;
 
                         double totI = 0;
@@ -121,14 +122,16 @@ public class EmpruntEditorPaneController implements Initializable {
                                 Capital = Capital-amor;
                                 interet = (Capital/100)*numTA;
                                 amor = annuite-interet;
+
                         }
                         txt.setText(aff);
                 }
-
         }
 
         @FXML
         private void doAss() {
+
+                txt.setText("");
 
                 String aff = "";
 
@@ -141,7 +144,7 @@ public class EmpruntEditorPaneController implements Initializable {
                         float tour = numA;
                         numA = numA - numA - numA;
 
-                        aff ="Num mois | Capital restant dû en début de période |Intérêts | Montant des interet | Montant du princiapl  |  Montant à rembourser (Mensualité) | Capital restant du en fin de période \n";
+                        aff ="Num mois \t| Capital restant dû en début de période \t| Intérêts \t| Montant des intérêts \t| Montant du principal  \t|  Montant à rembourser (Mensualité) \t| Capital restant du en fin de période \n";
 
                         double CapDeb=numMontant;
                         double interet=CapDeb*Tapl;
@@ -156,11 +159,7 @@ public class EmpruntEditorPaneController implements Initializable {
 
                         for (int i =0 ; i<tour; i++) {
                                 int bona =i+1;
-
-                                aff = aff + "    "+ bona +"             |                   " + CapDeb + "             |                           " + interet + "     |               " + princ +"                  |   " + MontantArembourser + "  |    " + CapFin + "\n";
-
-
-
+                                aff = aff + ""+ bona +"         \t| " + CapDeb + "               \t| " + interet + "      \t| " + interet +" \t| " + princ + " \t| " + MontantArembourser + " \t| " + CapFin + "\n";
 
 
 
