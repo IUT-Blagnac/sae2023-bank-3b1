@@ -215,6 +215,118 @@ image::../img/Employe.png[]
 .Ecran d'édition d'un employé
 image::../img/DocTecV2/ModifEmploye.png[]
 
+=== CRUD Prélèvements bancaires
+_Vincent BARETTE_
+
+Cette fonctionnalité permet de gérer les prélèvements automatiques de la banque. Elle permet de créer, lire, mettre à jour et supprimer des prélèvements automatique.
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.Partie du diagramme de classe utilisé pour le CRUD Employé(mise à jour en vert, lecture en rouge)
+image::../img/DocTecV2/doCRUDPrelevement.png[]
+
+Cette fonctionnalité nécessite de lire et mettre à jour les données des employés.
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankApp
+** DailyBankState
+** control
+*** PrelevementEditorPane
+*** PrelevementManagement
+** tool
+*** AlertUtilities
+*** EditionMode
+** view
+*** PrevelementManagementController (utilise PrelevementMangement.fxml)
+* model
+** data
+*** Prelevement
+** orm
+*** Access_BD_Prelevement
+*** exception
+**** DatabaseConnexionException
+**** ApplicationException
+
+
+==== Eléments essentiels à connaître, spécificités, … nécessaires à la mise en œuvre du développement. Cette partie peut être illustrée par un diagramme de séquence.
+
+.Diagramme de séquence de la création d'un nouvel employé
+image::../img/DocTecV2/sequence_nouvel_prelevement.png[]
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Ecran de gestion des prélèvements
+image::../img/DocUtil/CRUDP/Main.png[]
+
+.Ecran d'édition d'un prélèvement
+image::../img/DocUtil/CRUDP/Modifier.png[]
+
+=== Débit
+_Vincent Barette_
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.Partie du diagramme de classe utilisé pour les débits, en lecture en rouge et en mise à jour en vert
+image::../img/DocTecV2/dcDebitEx.svg[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankState
+** control
+*** OperationEditorPane
+** tool
+*** AlertUtilities
+** view
+*** OperationEditorController (utilise OperationEditor.fxml)
+* model
+** data
+*** Operation
+*** Compte
+*** Employe
+** orm
+*** Access_BD_Operation
+
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de débit
+image::../img/DocUtil/Debit.png[]
+
+=== Crédit
+_Vincent Barette_
+
+==== Partie du diagramme de classes données nécessaires : en lecture, en mise à jour
+
+.Partie du diagramme de classe utilisé pour les crédits, en lecture en rouge et en mise à jour en vert
+image::../img/DocTecV2/dcDebitEx.svg[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankState
+** control
+*** OperationEditorPane
+** tool
+*** AlertUtilities
+** view
+*** OperationEditorController (utilise OperationEditor.fxml)
+* model
+** data
+*** Operation
+*** Compte
+*** Employe
+** orm
+*** Access_BD_Operation
+
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de crédit
+image::../img/DocUtil/Credit.png[]
+
 === Débits Exceptionnels
 _Émilien FIEU_
 
