@@ -59,7 +59,7 @@ manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez
 |           a| image::https://img.shields.io/badge/DocUtil-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
 |           a| image::https://img.shields.io/badge/DocTech-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
 |           | Code V2           |
-|           a| image::https://img.shields.io/badge/Cahier Recettes-PasFait-red.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
+|           a| image::https://img.shields.io/badge/CahierRecettes-V2-green.svg[https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
 |           | `jar` projet     
 
 |===
