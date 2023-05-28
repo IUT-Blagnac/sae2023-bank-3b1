@@ -106,8 +106,8 @@ Ordinateur sous Windows ou OS équivalent.
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-
-^|All_G_CB.3 ^|Sélectionner le bouton "Clôturer compte". ^|Une alerte nous indiquant que le compte est clôturé s'affiche et le compte est en mode clôturé ^|Un compte actif est sélectionné et son solde doit être à 0. ^|OK
+^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné. ^|OK
+^|All_G_CB.3 ^|Sélectionner le bouton "Clôturer compte". ^|Une alerte nous indiquant que le compte est clôturé s'affiche et le compte est en mode clôturé ^|Un compte actif est sélectionné, son solde doit être à 0 et seulement les chefs d'agence peuvent clôturer. ^|OK
 
 |====
 
@@ -119,7 +119,8 @@ Ordinateur sous Windows ou OS équivalent.
 
 5+|
 
-^|All_G_CB.4 ^|Sélectionner le bouton "Nouveau compte". ^|Une page s'ouvre qui nous permet de renseigner les informations du nouveau compte qui doit être créé ^|Le découvert autorisé doit être inférieur à 0. ^|OK
+^|All_G_CB.1 ^|Sélectionner le bouton "Nouveau compte". ^|La fenêtre de création des comptes s'ouvre. ^|Le découvert autorisé doit être inférieur à 0. ^|OK
+^|All_G_CB.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau compte est créé. ^|Un client actif doit être selectionné et tous les champs doivent être remplis ^|OK
 
 |====
 
@@ -455,5 +456,33 @@ Un employé est sélectionné. ^| OK
 ^|B_R_C.1    ^| Se connecter a l’application ^|Une fenêtre s’ouvre pour demander si l’utilisateur veut générer les relevés de tous les utilisateurs ^|Les relevés n’ont pas déja été généré sur la machine de l’utilisateur ^| OK
 
 ^|B_R_C.2   ^|Cliquer sur le bouton « Ok » ^|Les relevés de tous les clients sont générés dans le dossier releves/<annee>_<mois>  ^| aucune ^| OK
+
+|====
+
+=== Simulations
+
+|====
+>|Cas de test 4+|Test-03-05-01
+>|Titre 4+| Simulation emprunt
+>|Objectif 4+| Vérifier qu'il est possible de simuler un emprunt
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|S_E.1  ^| Cliquer sur "simuler un emprunt" dans la page des opérations d'un compte ^| Une fenêtre s'ouvre pour saisir les informations de l'emprunt ^| Aucune ^| OK
+^|S_E.2  ^| Dans la barre "Simuler un emprunt", saisir le montant, le nombre d'années de l'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'emprunt selon l'année. ^| Aucune ^| OK
+
+|====
+
+|====
+>|Cas de test 4+|Test-03-05-01
+>|Titre 4+| Simulation assurance d'emprunt
+>|Objectif 4+| Vérifier qu'il est possible de simuler une assurance d'emprunt
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|S_E.1  ^| Cliquer sur "simuler un emprunt" dans la page des opérations d'un compte ^| Une fenêtre s'ouvre pour saisir les informations de l'assurance d'emprunt ^| Aucune ^| OK
+^|S_E.2  ^| Dans la barre "Simuler une assurance d'emprunt", saisir le montant, le nombre de mois de l'assurance d'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'assurance d'emprunt selon le mois. ^| Aucune ^| OK
 
 |====
