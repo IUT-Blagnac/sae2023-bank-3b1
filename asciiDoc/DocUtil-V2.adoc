@@ -88,7 +88,7 @@ image::../img/Debit.png[]
 
 On peut alors ajouter un débit sur le compte.
 
-==== Gestion des employés
+==== Gestion des employés (E)
 
 Si l'utilisateur est un chef d'agence, il a accès à la page « Gestion des Employés »
 
@@ -172,6 +172,9 @@ Le fichier PDF est alors enregistré à l’emplacement que vous avez choisi. Vo
 
 .Exemple de relevé de compte
 image::../img/DocUtil/RelevePDF/Releve.png[]
+
+===== Relevés automatiques (E)
+Lorsque vous lancez l’application, elle va vérifier si vous avez déja les relevés du mois courant. Si ce n’est pas le cas, elle va alors générer les relevés pour tous les comptes de l’agence. Vous pouvez alors voir les relevés dans le dossier « Releve » de l’application.
 
 ==== Débit, Crédit & Virement
 
