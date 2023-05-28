@@ -407,3 +407,24 @@ image::../img/DocTecV2/PDFMois.png[]
 
 .Exemple de relevé PDF
 image::../img/DocUtil/RelevePDF/Releve.png[]
+
+
+=== Gestion des comptes
+_Tanguy Picuira_
+
+==== Création d'un compte
+
+===== Partie de use case réalisé
+
+.Partie du use case utilisé pour la gestion des comptes
+image::../img/DocTecV2/CreerCptUC.png[]
+
+===== Partie du diagramme de classes données nécessaires
+
+.Partie du diagramme de classe utilisé pour la création d'un compte
+image::../img/DocTecV2/DC_UtiliseCreer.png[]
+
+==== Suppression d'un compte
+
+===== Partie de use case réalisé
+
