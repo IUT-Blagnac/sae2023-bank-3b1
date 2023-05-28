@@ -56,10 +56,10 @@ manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez
 |           a| image::https://img.shields.io/badge/JavaDoc-V1-red.svg[]        |je n'ai pas pu génerer la javadoc, cela fait planter intellij, je retenterai demain 
 |           | Suivi projet V1   |Issues semblent pas à jour ( todo / in progress / done), mauvais suivi de l'avencement. attention aux labels manquants sur les issues. Bon commentaires des commits. readme OK, icones appreciables (sauf quand on doit editer le fichier en raw ;), arborescence OK. respectez convention nommage du repo
 | 26/05     a| image::https://img.shields.io/badge/GANTT Réalisé-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2R%C3%A9alis%C3%A9.pdf] |
-|           a| image::https://img.shields.io/badge/DocUtil-V2-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
-|           a| image::https://img.shields.io/badge/DocTech-V2-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
-|           | Code V2           |
-|           a| image::https://img.shields.io/badge/Recettes-V2-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
-|           | `jar` projet     
-
+|           a| image::https://img.shields.io/badge/DocUtil-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |
+|           a| image::https://img.shields.io/badge/DocTech-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
+|           a| image::https://img.shields.io/badge/Code-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
+|           a| image::https://img.shields.io/badge/Recettes-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
+|           a| image::https://img.shields.io/badge/Jar-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
+|           a| image::https://img.shields.io/badge/Javadoc-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
 |===
