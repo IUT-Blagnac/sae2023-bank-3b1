@@ -177,6 +177,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée
 	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author Tanguy Picuira
 	 */
 	public void ajouterCompteCourant(CompteCourant compte, int idNumCli) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {
@@ -214,6 +215,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DataAccessException Erreur d'accès aux données (requête mal formée
 	 * @throws RowNotFoundOrTooManyRowsException La requête modifie 0 ou plus de 1
 	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @author Tanguy Picuira
 	 */
 	public void supprimerCompteCourant(CompteCourant compte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 		try {

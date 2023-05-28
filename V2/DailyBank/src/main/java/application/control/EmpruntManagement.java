@@ -1,3 +1,7 @@
+/**
+ * @author Tanguy Picuira
+ * Classe EmpruntManagement
+ */
 package application.control;
 
 import application.DailyBankState;
@@ -21,7 +25,12 @@ public class EmpruntManagement implements Initializable {
     private Stage primaryStage;
     private EmpruntEditorPaneController omcDialogController;
 
-
+    /**
+     * Constructeur de la classe EmpruntManagement.
+     * @param primaryStage
+     * @param dailyBankState
+     * @author Tanguy Picuira
+     */
     public EmpruntManagement(Stage primaryStage, DailyBankState dailyBankState) {
         try {
             FXMLLoader loader = new FXMLLoader(EmpruntManagementController.class.getResource("EmpruntManagement.fxml"));
@@ -53,6 +62,10 @@ public class EmpruntManagement implements Initializable {
 
     }
 
+    /**
+     * Affiche la fenêtre de gestion des emprunts.
+     * @author Tanguy Picuira
+     */
     public void doSimulerEditorDialog() {
         this.omcDialogController.displayDialog();
     }

@@ -1,3 +1,8 @@
+/**
+ * Classe EmpruntEditorPaneController.java
+ * @author Tanguy Picuira
+ */
+
 package application.view;
 
 import java.net.URL;
@@ -6,7 +11,6 @@ import application.DailyBankState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,17 +29,27 @@ public class EmpruntEditorPaneController implements Initializable {
 
         // Données de la fenêtre
 
-        // Manipulation de la fenêtre
+        /**
+         * Initialisation du contrôleur de vue EmpruntEditorPaneController.
+         * @param _primaryStage
+         * @param _dbstate
+         */
         public void initContext(Stage _primaryStage, DailyBankState _dbstate) {
                 this.primaryStage = _primaryStage;
                 this.dbs = _dbstate;
                 this.configure();
         }
 
+        /**
+         * Configuration de la fenêtre.
+         */
         private void configure() {
                 this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
         }
 
+        /**
+         * Affichage de la fenêtre.
+         */
         public void displayDialog() {
                 this.butOk.setText("Simulation emprunt");
                 this.butAss.setText("Simulation assurance");
@@ -44,8 +58,11 @@ public class EmpruntEditorPaneController implements Initializable {
         }
 
 
-
-        // Gestion du stage
+        /**
+         * Vérifie si le texte est un nombre.
+         * @param e
+         * @return rien
+         */
         private Object closeWindow(WindowEvent e) {
                 this.doCancel();
                 e.consume();
@@ -91,6 +108,10 @@ public class EmpruntEditorPaneController implements Initializable {
                 this.primaryStage.close();
         }
 
+        /**
+         * Réalise la simulation d'un emprunt.
+         * @author Tanguy Picuira
+         */
         @FXML
         private void doSimul() {
 
@@ -128,6 +149,10 @@ public class EmpruntEditorPaneController implements Initializable {
                 }
         }
 
+        /**
+         * Réalise de la simulation d'une assurance emprunt.
+         * @author Tanguy Picuira
+         */
         @FXML
         private void doAss() {
 
