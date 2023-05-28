@@ -428,3 +428,10 @@ image::../img/DocTecV2/DC_UtiliseCreer.png[]
 
 ===== Partie de use case réalisé
 
+.Partie du use case utilisé pour la gestion des comptes
+image::../img/DocTecV2/Vrai.png[]
+
+===== Partie du diagramme de classes données nécessaires
+
+.Partie du diagramme de classe utilisé pour la suppression d'un compte
+image::../img/DocTecV2/DC_Cloturer.png[]
