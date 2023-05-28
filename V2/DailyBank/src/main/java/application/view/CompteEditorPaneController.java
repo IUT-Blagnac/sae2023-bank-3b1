@@ -68,7 +68,7 @@ public class CompteEditorPaneController {
 		this.clientDuCompte = client;
 		this.editionMode = mode;
 		if (cpte == null) {
-			this.compteEdite = new CompteCourant(0, 200, 0, "N", this.clientDuCompte.idNumCli);
+			this.compteEdite = new CompteCourant(0, -200, 0, "N", this.clientDuCompte.idNumCli);
 		} else {
 			this.compteEdite = new CompteCourant(cpte);
 		}

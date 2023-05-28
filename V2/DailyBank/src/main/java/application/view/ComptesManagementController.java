@@ -251,15 +251,15 @@ public class ComptesManagementController {
 	private void validateComponentState() {
 		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);
+		this.btnSupprCompte.setDisable(true);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		if (selectedIndice >= 0) {
+		if (selectedIndice >= 0 && this.oListCompteCourant.get(selectedIndice).solde == 0 && this.dailyBankState.isChefDAgence()) {
 			this.btnSupprCompte.setDisable(false);
-			this.btnVoirOpes.setDisable(false);
 		} else {
-			this.btnVoirOpes.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
 		}
+		this.btnModifierCompte.setDisable(selectedIndice < 0);
 	}
 
 
