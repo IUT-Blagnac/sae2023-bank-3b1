@@ -470,7 +470,7 @@ Un employé est sélectionné. ^| OK
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|S_E.1  ^| Cliquer sur "simuler un emprunt" dans la page des opérations d'un compte ^| Une fenêtre s'ouvre pour saisir les informations de l'emprunt ^| Aucune ^| OK
-^|S_E.2  ^| Dans la barre "Simuler un emprunt", saisir le montant, le nombre d'années de l'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'emprunt selon l'année. ^| Aucune ^| OK
+^|S_E.2  ^| Dans la barre "Simuler un emprunt", saisir le montant, le nombre d'années de l'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'emprunt selon l'année. ^| Les saisies doivent être des entiers sauf pour le taux qui peut être un float. ^| OK
 
 |====
 
@@ -483,6 +483,6 @@ Un employé est sélectionné. ^| OK
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|S_E.1  ^| Cliquer sur "simuler un emprunt" dans la page des opérations d'un compte ^| Une fenêtre s'ouvre pour saisir les informations de l'assurance d'emprunt ^| Aucune ^| OK
-^|S_E.2  ^| Dans la barre "Simuler une assurance d'emprunt", saisir le montant, le nombre de mois de l'assurance d'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'assurance d'emprunt selon le mois. ^| Aucune ^| OK
+^|S_E.2  ^| Dans la barre "Simuler une assurance d'emprunt", saisir le montant, le nombre de mois de l'assurance d'emprunt ainsi que le taux. ^| Un tableau s'affiche en-dessous avec les informations de l'assurance d'emprunt selon le mois. ^| Les saisies doivent être des entiers sauf pour le taux qui peut être un float. ^| OK
 
 |====
