@@ -244,3 +244,48 @@ image::../img/DocUtil/CRUDP/Modifier.png[]
 La suppression d'un virement s'effectue en selectionnant un virement dans la liste des virements et en cliquant sur le bouton **Supprimer prélèvement**. Il vous sera demandé de confirmer l'action.
 
 
+==== Gestion des comptes
+
+__Depuis le menu "Gestion des comptes" d'un client, le chef d'agence ou le guichetier peut créer, lire, modifier ou supprimer ses comptes bancaires.__
+
+===== Création d'un compte (T)
+
+La création d'un compte se fait sur le compte d'un client actif. Pour créer un compte, il faut appuyer sur le bouton "Nouveau compte" et remplir les champs correctement puis appuyer sur ajouter.
+
+.Le bouton "Nouveau compte" ouvre la page de la création d'un compte
+image::../img/DocUtil/NouveauCompte.png[]
+
+===== Suppression d'un compte (T)
+
+La suppression d'un compte se fait sur le compte d'un client actif. Pour clôturer un compte il faut appuyer sur le bouton "Clôturer compte" et que le solde du compte soit à 0.
+
+.Le bouton "Clôturer compte" affiche une alerte si le compte est bien clôturé et affiche une alerte sinon.
+image::../img/DocUtil/SupprimerCompte.png[]
+
+.Succès de la suppression
+image::../img/DocUtil/SuccesSuppressionCpt.png[]
+.Erreur de la suppression
+image::../img/DocUtil/ErreurSuppressionCpt.png[]
+
+
+==== Simulations
+
+__Depuis la page "Gestion des opérations" d'un client, le chef d'agence ou le guichetier peut simuler un emprunt ou une assurance d'emprunt.__
+
+===== Simulation d'un emprunt (T)
+
+La simulation d'un emprunt se fait dans la page des opérations d'un compte. Pour simuler un emprunt, il faut appuyer sur le bouton "Simulation emprunt" et la page des simulations s'ouvre.
+
+image::../img/DocUtil/Simuler.png[]
+
+Après avoir correctement rempli les champs, cliquer sur le bouton "Simuler un emprunt", un tableau correspondant à l'emprunt va s'afficher.
+
+.Simulation emprunt
+image::../img/DocUtil/SimulationEmprunt.png[]
+
+===== Simulation d'une assurance d'emprunt (T)
+
+La simulation d'une assurance d'emprunt se fait dans la même page que pour la simulation d'un emprunt. Après avoir correctement rempli les champs, appuyer sur le bouton "Simulation assurance" et un tableau correspondant à la simulation d'une assurance d'emprunt va s'afficher.
+
+.Simulation assurance d'emprunt
+image::../img/DocUtil/SimulationAssurance.png[]
