@@ -118,10 +118,10 @@ public class EmpruntEditorPaneController implements Initializable {
                 txt.setText("");
                 String aff = "";
 
-                if (!montant.getText().isEmpty() && isNumber(this.montant) && !annee.getText().isEmpty() && isNumber(annee) && !TA.getText().isEmpty() && isNumber(TA)) {
-                        int numTA= Integer.parseInt(TA.getText());
-                        int numA= Integer.parseInt(annee.getText());
-                        int numMontant= Integer.parseInt(montant.getText());
+                if (!montant.getText().isEmpty() && isNumber(this.montant) && !annee.getText().isEmpty() && isNumber(annee) && !TA.getText().isEmpty() && isFloat(TA)) {
+                        double numTA= Float.parseFloat(TA.getText());
+                        double numA= Integer.parseInt(annee.getText());
+                        double numMontant= Integer.parseInt(montant.getText());
 
                         aff ="Année \t| Capital restant dû       \t|Intérêts \t| Amortissement du capital \t| Annuité\n";
 
