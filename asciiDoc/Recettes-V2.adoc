@@ -92,8 +92,22 @@ Ordinateur sous Windows ou OS équivalent.
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
 ^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné. ^|OK
 ^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné. ^|OK
-^|All_G_CB.3 ^|Sélectionner le bouton "Clôturer compte". ^|Une alerte nous indiquant que le compte est clôturé s'affiche et le compte est en mode clôturé ^|Un compte actif est sélectionné. ^|OK
 
+
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+|Clôturer un compte
+>|Objectif 4+| Vérifier qu'il est possible de clôturer un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_CB.3 ^|Sélectionner le bouton "Clôturer compte". ^|Une alerte nous indiquant que le compte est clôturé s'affiche et le compte est en mode clôturé ^|Un compte actif est sélectionné et son solde doit être à 0. ^|OK
 
 |====
 

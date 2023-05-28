@@ -237,6 +237,10 @@ public class OperationsManagement {
 	}
 
 
+	/**
+	 * Appelle la fenêtre de simulation d'emprunt.
+	 * @author Tanguy Picuira
+	 */
 	public void simulerEmprunt() {
 		EmpruntManagement em = new EmpruntManagement(this.primaryStage, this.dailyBankState);
 		em.doSimulerEditorDialog();

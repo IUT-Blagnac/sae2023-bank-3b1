@@ -1,3 +1,7 @@
+/**
+ * @author Tanguy Picuira
+ * Classe EmpruntEditorPane
+ */
 package application.control;
 
 import application.DailyBankState;
@@ -14,6 +18,12 @@ public class EmpruntEditorPane {
     private Stage primaryStage;
     private EmpruntEditorPaneController empruntEditorPaneController;
 
+    /**
+     * Constructeur de la classe EmpruntEditorPane.
+     * @param primaryStage
+     * @param _dbstate
+     * @author Tanguy Picuira
+     */
     public EmpruntEditorPane(Stage primaryStage, DailyBankState _dbstate) {
         try {
             FXMLLoader loader = new FXMLLoader(ClientsManagementController.class.getResource("EmpruntManagement.fxml"));
