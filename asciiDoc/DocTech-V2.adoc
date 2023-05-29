@@ -424,6 +424,28 @@ image::../img/DocTecV2/CreerCptUC.png[]
 .Partie du diagramme de classe utilisé pour la création d'un compte
 image::../img/DocTecV2/DC_UtiliseCreer.png[]
 
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankState
+** control
+*** CompteEditorPane
+** tool
+*** AlertUtilities
+** view
+*** CompteEditorController (utilise CompteEditor.fxml)
+* model
+** data
+*** Compte
+*** Client
+** orm
+*** Access_BD_Compte
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la création d'un nouveau compte
+image::../img/DocTecV2/CreationCpt.png[]
+
 ==== Suppression d'un compte
 
 ===== Partie de use case réalisé
@@ -435,3 +457,83 @@ image::../img/DocTecV2/Vrai.png[]
 
 .Partie du diagramme de classe utilisé pour la suppression d'un compte
 image::../img/DocTecV2/DC_Cloturer.png[]
+
+==== Classes impliquées dans chaque package
+
+* application
+** DailyBankState
+** control
+*** CompteEditorPane
+** tool
+*** AlertUtilities
+** view
+*** CompteEditorController (utilise CompteEditor.fxml)
+* model
+** data
+*** Compte
+*** Client
+** orm
+*** Access_BD_Compte
+
+==== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de gestion des comptes
+image::../img/DocTecV2/CloturerCpt.png[]
+
+=== Simulations
+_Tanguy Picuira_
+
+==== Simulation d'un emprunt
+
+===== Partie de use case réalisé
+
+.Partie du use case utilisé pour les simulations
+image::../img/DocTecV2/ucSimulation.png[]
+
+===== Partie du diagramme de classes données nécessaires
+
+.Partie du diagramme de classe utilisé pour les simulations
+image::../img/DocTecV2/dcSimulation.png[]
+
+===== Classes impliquées dans chaque package
+
+* application
+** control
+*** EmpruntEditorPane
+** tool
+*** AlertUtilities
+** view
+*** EmpruntManagementController (utilise EmpruntManagement.fxml)
+
+===== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de simulation d'un emprunt
+image::../img/DocUtil/SimulationEmprunt.png[]
+
+==== Simulation d'une assurance d'emprunt
+
+===== Partie de use case réalisé
+
+.Partie du use case utilisé pour les simulations
+image::../img/DocTecV2/ucSimulerE.png[]
+
+===== Partie du diagramme de classes données nécessaires
+
+.Partie du diagramme de classe utilisé pour les simulations
+image::../img/DocTecV2/dcSimulerE.png[]
+
+===== Classes impliquées dans chaque package
+
+* application
+** control
+*** EmpruntEditorPane
+** tool
+*** AlertUtilities
+** view
+*** EmpruntManagementController (utilise EmpruntManagement.fxml)
+
+===== Copies des écrans principaux de la fonctionnalité
+
+.Capture d’écran de la fenêtre de simulation d'une assurance d'emprunt
+image::../img/DocUtil/SimulationAssurance.png[]
+
