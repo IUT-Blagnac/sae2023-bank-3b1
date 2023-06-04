@@ -1,0 +1,180 @@
+@startgantt
+!define t(x) <b>(x)
+
+projectscale weekly zoom 3.6
+title
+GANTT V1 Prévu SAÉ 2.01 / 2.05
+|= Tache |= Description |= Durrée |= Ressource |= Prédécésseurs |
+| A | Création du Git |  1h30| Émilien | |
+| B | Création du CDCU |  3h| Vincent | A |
+| C | Création du GANTT |  3h| Émilien | A|
+| D | Rendu Gantt/CDCU V1 | |  | B,C|
+| E | Rédaction de la documentation V0 |  1h| Vincent | D|
+| F | Implémentation de la gestion des employés |  3h| Émilien | E|
+| G | Rédaction des tests de la gestion des employés |  1h30| Émilien | F|
+| H | Rédaction de la documentation technique de la gestion des employés |  1h30| Émilien | F|
+| I | Implémentation du crédit |  3h| Vincent | E|
+| J | Rédaction des tests du crédit |  45min| Vincent | I|
+| K | Rédaction de la documentation technique du crédit |  45min| Vincent | I|
+| L | Implémentation de la création de comptes |  3h| Tanguy | E|
+| M | Rédaction des tests de la création de comptes |  45min| Tanguy | L|
+| N | Rédaction de la documentation technique de la création de comptes |  45min| Tanguy | L|
+| O | Implémentation des virements |  3h| Vincent | E |
+| P | Rédaction des tests des virements |  45min| Vincent | O |
+| Q | Rédaction de la documentation technique des virements |  45min| Vincent | O|
+| R | Implémentation de la cloture des comptes |  3h| Tanguy | E|
+| S | Rédaction des tests de la cloture des comptes |  1h| Tanguy | R|
+| T | Rédaction de la documentation technique de la cloture des comptes |  1h| Tanguy | R|
+| U | Rendu V1 | |  | G,H,J,K,M,N,P,Q,S,T|
+|  |  |  |   | |
+| V | Implementation du débit exeptionnel | 3h | Émilien | U|
+| W | Rédaction des tests du débit exeptionnel | 1h | Émilien | V|
+| X | Rédaction de la documentation technique du débit exeptionnel | 1h | Émilien | V|
+| Y | Implementation de la simulation d’emprunts | 3h | Tanguy | U|
+| Z | Rédaction des tests de la simulation d’emprunts | 1h | Tanguy | Y|
+| AA | Rédaction de la documentation technique de la simulation d’emprunts | 1h | Tanguy | Y|
+| AB | Implementation de la simulation d’assurance | 3h | Tanguy | U|
+| AC | Rédaction des tests de la simulation d’assurance | 1h | Tanguy | AB|
+| AD | Rédaction de la documentation technique de la simulation d’assurance | 1h | Tanguy | AB|
+| AE | Implementation des relevé bancaires en pdf | 3h | Émilien | U|
+| AF | Rédaction des tests des relevé bancaires en pdf | 1h | Émilien | AE|
+| AG | Rédaction de la documentation technique des relevé bancaires en pdf | 1h | Émilien | AE|
+| AH | Implementation de la gestion des prélèvements | 3h | Vincent | U|
+| AI | Rédaction des tests de la gestion des prélèvements | 1h | Vincent | AH|
+| AJ | Rédaction de la documentation technique de la gestion des prélèvements | 1h | Vincent | AH|
+| AK | Rendu V2 | |  | W,X,Z,AA,AC,AE,AF,AG,AI,AJ|
+
+end title
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''',
+'Taches
+[Émilien] as [CreaGit] lasts 7 day
+[Vincent] as [CDCU] lasts 14 day
+[Émilien ] as [GANTT] lasts 14 day
+
+[ ] as [RenduGCV1] happens 42 day after [CreaGit]'s start
+
+
+[Vincent ] as [DocV0] lasts 5 day
+
+
+[Émilien  ] as [ImpleGest] lasts 20 day
+[Émilien   ] as [TestGest] lasts 7 day
+[Émilien    ] as [DocGest] lasts 7 day
+
+[Vincent  ] as [ImpleCred] lasts 14 day
+[Vincent   ] as [TestCred] lasts 4 day
+[Vincent    ] as [DocCred] lasts 4 day
+
+[Tanguy] as [ImpleCrea] lasts 14 day
+[Tanguy ] as [TestCrea] lasts 4 day
+[Tanguy  ] as [DocCrea] lasts 4 day
+
+[Vincent     ] as [ImpleVir] lasts 14 day
+[Vincent      ] as [TestVir] lasts 4 day
+[Vincent       ] as [DocVir] lasts 4 day
+
+[Tanguy   ] as [ImpleClot] lasts 14 day
+[Tanguy    ] as [TestClot] lasts 4 day
+[Tanguy     ] as [DocClot] lasts 4 day
+
+[Rendu V1] as [Rendu V1] happens 63 day after [CreaGit]'s start
+--
+
+
+[Émilien      ] as [ImpleDebExc] lasts 14 day
+[Émilien       ] as [TestDebExc] lasts 4 day
+[Émilien        ] as [DocDebExc] lasts 4 day
+
+[Tanguy      ] as [ImpleSimEmp] lasts 14 day
+[Tanguy       ] as [TestSimEmp] lasts 4 day
+[Tanguy        ] as [DocSimEmp] lasts 4 day
+
+[Tanguy         ] as [ImpleSimAss] lasts 14 day
+[Tanguy          ] as [TestSimAss] lasts 4 day
+[Tanguy           ] as [DocSimAss] lasts 4 day
+
+[Émilien         ] as [ImpleRelBan] lasts 14 day
+[Émilien          ] as [TestRelBan] lasts 4 day
+[Émilien           ] as [DocRelBan] lasts 4 day
+
+[Vincent           ] as [ImpleGestPre] lasts 14 day
+[Vincent            ] as [TestGestPre] lasts 4 day
+[Vincent             ] as [DocGestPre] lasts 4 day
+
+[Rendu V2] as [Rendu V2] happens 80 day after [CreaGit]'s start
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'Mise en ordre
+[CDCU] starts at [CreaGit]'s end
+[GANTT] starts at [CreaGit]'s end
+
+[GANTT] -> [RenduGCV1]
+
+[DocV0] starts at [CDCU]'s end
+
+[ImpleGest] starts at [DocV0]'s end
+[TestGest] starts at [ImpleGest]'s end
+[DocGest] starts at [ImpleGest]'s end
+
+[ImpleCred] starts at [DocV0]'s end
+[TestCred] starts at [ImpleCred]'s end
+[DocCred] starts at [ImpleCred]'s end
+
+[ImpleCrea] starts at [DocV0]'s end
+[TestCrea] starts at [ImpleCrea]'s end
+[DocCrea] starts at [ImpleCrea]'s end
+
+
+[ImpleVir] starts 18 day after [DocV0]'s end
+[TestVir] starts at [ImpleVir]'s end
+[DocVir] starts at [ImpleVir]'s end
+
+[ImpleClot] starts 18 day after [DocV0]'s end
+[TestClot] starts at [ImpleClot]'s end
+[DocClot] starts at [ImpleClot]'s end
+
+[DocClot] -> [Rendu V1]
+[TestClot] -> [Rendu V1]
+[DocVir] -> [Rendu V1]
+[TestVir] -> [Rendu V1]
+[DocCrea] -> [Rendu V1]
+[TestCrea] -> [Rendu V1]
+[DocCred] -> [Rendu V1]
+[TestCred] -> [Rendu V1]
+[DocGest] -> [Rendu V1]
+[TestGest] -> [Rendu V1]
+
+[ImpleDebExc] starts at [Rendu V1]'s end
+[TestDebExc] starts at [ImpleDebExc]'s end
+[DocDebExc] starts at [ImpleDebExc]'s end
+
+[ImpleSimEmp] starts at [Rendu V1]'s end
+[TestSimEmp] starts at [ImpleSimEmp]'s end
+[DocSimEmp] starts at [ImpleSimEmp]'s end
+
+[ImpleSimAss] starts at [Rendu V1]'s end
+[TestSimAss] starts at [ImpleSimAss]'s end
+[DocSimAss] starts at [ImpleSimAss]'s end
+
+[ImpleRelBan] starts at [Rendu V1]'s end
+[TestRelBan] starts at [ImpleRelBan]'s end
+[DocRelBan] starts at [ImpleRelBan]'s end
+
+[ImpleGestPre] starts at [Rendu V1]'s end
+[TestGestPre] starts at [ImpleGestPre]'s end
+[DocGestPre] starts at [ImpleGestPre]'s end
+
+
+[DocGestPre] -> [Rendu V2]
+[TestGestPre] -> [Rendu V2]
+[DocRelBan] -> [Rendu V2]
+[TestRelBan] -> [Rendu V2]
+[DocSimAss] -> [Rendu V2]
+[TestSimAss] -> [Rendu V2]
+[DocSimEmp] -> [Rendu V2]
+[TestSimEmp] -> [Rendu V2]
+[DocDebExc] -> [Rendu V2]
+
+@endgantt

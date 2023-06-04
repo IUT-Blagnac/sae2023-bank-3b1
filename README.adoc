@@ -1,0 +1,65 @@
+= Repository de la SAÉ 2.01/2.05
+
+== Présentation de l'équipe et rôles respectifs
+
+
+== Répartition des tâches et état d'avancement
+[options="header,footer"]
+|=======================
+|version|rôle             |use case                   |cas...                | Émilien  | Vincent   | Tanguy
+|1      |Chef d’Agence    |CRUD employé               |C                     | F        |           |
+|1      |Chef d’Agence    |CRUD employé               |R                     | F        |           |
+|1      |Chef d’Agence    |CRUD employé               |U                     | F        |           |
+|1      |Chef d’Agence    |CRUD employé               |D                     | F        |           |
+
+|1      |Guichetier       | Compte                    | Créer                |          |           | F
+|1      |Guichetier       | Compte                    | Créditer/Débiter     |          | F         |
+|1      |Guichetier       | Compte                    | Effectuer un virement|          | F         |
+|1      |Guichetier       | Compte                    | Clôturer             |          |           | F
+|2      |Chef d’Agence    | Compte                    | Débit exceptionnel   | F        |           |
+|2      |Chef d’Agence    | Emprunt                   | Simuler emprunt      |          |           | D
+|2      |Chef d’Agence    | Emprunt                   | Simuler assurance    |          |           | D
+|2      |Guichetier       | Compte                    | Relevé PDF           | F        |           |
+|2      |Guichetier       | CRUD Prélèvement          | C                    |          |  F        |
+|2      |Guichetier       | CRUD Prélèvement          | R                    |          |  F        |
+|2      |Guichetier       | CRUD Prélèvement          | U                    |          |  F        |
+|2      |Guichetier       | CRUD Prélèvement          | D                    |          |  F        |
+|2      |Batch            | Prélèvements automatiques |                      |          |           |
+|2      |Batch            | Reléves mensuels          |                      |          |           |
+
+|=======================
+
+/!\ Le travail peut être sur une branche différente.
+
+Chaque étudiant doit mettre son nom sur une des colonnes étudiant.
+Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a développé en indiquant
+
+*	*F* pour fonctionnel ou
+*	*D* pour encore en Développement
+
+== Livrables
+
+[cols="1,3,5",options=header]
+|===
+| Date      | Ressource         | Retour        
+| Sem.19    a| image::https://img.shields.io/badge/CDC-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V1.adoc] |Revoir mise en page de page de garde (taille logo)
+manque sommaire, contexte, objectif, analyse de l'existant (ce que vous reprenez en terme de livrables). l'analyse de l'existant que vous avez actuellement doit partir dans analse des besoins V0
+|           a| image::https://img.shields.io/badge/GANTT Prévu-V1-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv1.png]    |les éléments principaux sont là, essayez de retrvailler les mise en page pour meilleure lisibilité (tache / durée / ressource sur la gauche, GANTT à droite) attention au format, PDF attendu
+| 16/05     a| image::https://img.shields.io/badge/CDC-V2-g.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/CDC-V2.adoc] |15/20. manque problematique. Analyse de l'existant V1 doit partir dans analyse du besoin puisque V1 ne fait pas partie de l'existant. Raffiner l'analyse du besoin V2 et commentez. Ajoutez contraintes juridiques
+|           a| image::https://img.shields.io/badge/GANTT Réalisé-V1-g.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv1R%C3%A9alis%C3%A9.pdf]    |bon découpage des taches, enchainement clair, ressor=urces affectées. Essayez d'agrandir le document pour meilleure lisibilité
+|           a| image::https://img.shields.io/badge/GANTT Prévu-V2-blue.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2.pdf]  |bon découpage des taches, enchainement clair, ressor=urces affectées. Essayez d'agrandir le document pour meilleure lisibilité
+|           a| image::https://img.shields.io/badge/DocTech-V1-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V1.adoc]      |Vous avez rajouté des opérations comme emprunt et assurance d'emprunt qui doivent être dans la version V2, vous mettez le diagramme de cas d'utilisation V1 et pas V0,  Le titre 3.1.4 est vide, vous avez écrit "extraits de code significatifs commentés si nécessaire pour des points particuliers et importants" mais vous n'avez mis aucun code, 
+|           a| image::https://img.shields.io/badge/DocUtil-V1-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V1.adoc]  |manque présentation des utilisateurs logiques de l'application. fournir credentials. manque initiales de la personne qui a developpé la fonction. bonne description de la procédure d'installation. Doc qui fournit une bonne base pour un utilsiateur
+|           a| image::https://img.shields.io/badge/Recettes-V1-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V1.adoc]        |Vous rajoutez les fonctionalités de créditer un compte et virement de compte à compte et vous faîtes des tests sur ces dernières.
+|           a| image::https://img.shields.io/badge/Code-V1-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V1]        |
+|           a| image::https://img.shields.io/badge/JAR-V1-red.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V1]        | Vous complétez les opérations "Enregistrer Crédit et virement de compte à compte".
+|           a| image::https://img.shields.io/badge/JavaDoc-V1-red.svg[]        |je n'ai pas pu génerer la javadoc, cela fait planter intellij, je retenterai demain 
+|           | Suivi projet V1   |Issues semblent pas à jour ( todo / in progress / done), mauvais suivi de l'avencement. attention aux labels manquants sur les issues. Bon commentaires des commits. readme OK, icones appreciables (sauf quand on doit editer le fichier en raw ;), arborescence OK. respectez convention nommage du repo
+| 26/05     a| image::https://img.shields.io/badge/GANTT Réalisé-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/plantUML/ganttv2R%C3%A9alis%C3%A9.pdf] |Gestion de projet: GANTT illisible, arbo GIT dfficilement compréhensible, board pas maitenu à jour (plusieurs issues en todo). commits commentés OK, retours clients pas pris en compte, globalement insuffisant. 7/20
+|           a| image::https://img.shields.io/badge/DocUtil-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocUtil-V2.adoc]     |globalement meme remarques que précédente livraison, avec manque du nom du developpeur à chaque fois. Dommage. 12/20
+|           a| image::https://img.shields.io/badge/DocTech-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/DocTech-V2.adoc]      |
+|           a| image::https://img.shields.io/badge/Code-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
+|           a| image::https://img.shields.io/badge/Recettes-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/blob/main/asciiDoc/Recettes-V2.adoc]        |
+|           a| image::https://img.shields.io/badge/Jar-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
+|           a| image::https://img.shields.io/badge/Javadoc-V2-green.svg[link=https://github.com/IUT-Blagnac/sae2023-bank-3b1/releases/tag/V2]     |
+|===

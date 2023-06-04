@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+
+:Guichetier: as guichetier
+:Chef d’agence: as chef
+
+(Créditer un compte) as crediter
+(Débiter un compte) as debiter
+(Créér un compte) as creer
+(Effectuer un virement\n du compte à compte) as virement
+(Cloturer un compte) as cloturer
+(Générer un relevé de\ncompte) as releve
+(Simuler un emprunt) as emprunt
+(Simuler une assurance) as assurance
+(Gérer les prélèvements) as prelevement
+(Créér un nouveau client) as creerClient
+(Modifier infos client) as modifClient
+
+(Gérérer les employés) as gerer
+(Effectuer des débits\nexeptionnels) as debitEx
+(Rendre un client Inactif) as inactif
+
+
+guichetier -up-> crediter
+guichetier -up-> debiter
+guichetier -up-> creer
+guichetier -up-> virement
+guichetier -up-> cloturer
+guichetier -left-> releve
+guichetier --> emprunt
+guichetier --> assurance
+guichetier --> prelevement
+guichetier --> creerClient
+guichetier --> modifClient
+
+gerer <-left- chef
+debitEx <-up- chef
+inactif <-down- chef
+
+chef -left-|> guichetier
+
+
+@enduml

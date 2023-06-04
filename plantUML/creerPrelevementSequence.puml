@@ -1,0 +1,30 @@
+@startuml PrelevementSequence
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+PrelevementManagementController ->  PrelevementManagement : creerPrelevement()
+
+    activate PrelevementManagement
+            PrelevementManagement -> PrelevementEditorPane : doPrelevementEditorDialog(...)
+            activate PrelevementEditorPane
+            PrelevementEditorPane -> PrelevementEditorPaneController : displayDialog(...)
+            activate PrelevementEditorPaneController
+            PrelevementEditorPaneController ->PrelevementEditorPane : Prelevement
+            deactivate PrelevementEditorPaneController
+
+            PrelevementEditorPane -> PrelevementManagement : Prelevement
+            deactivate PrelevementEditorPane
+
+        PrelevementManagement -> Acces_BD_Prelevement : insertPrelevement(...)
+        activate Acces_BD_Prelevement
+        Acces_BD_Prelevement -> PrelevementManagement : void
+        deactivate Acces_BD_Prelevement
+
+    deactivate PrelevementManagement
+PrelevementManagement -> PrelevementManagementController :void
+
+
+
+
+@enduml

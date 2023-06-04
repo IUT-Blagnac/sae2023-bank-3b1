@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+EmployeManagementController ->  EmployeManagement : creerEmploye()
+
+    activate EmployeManagement
+            EmployeManagement -> EmployeEditorPane : doEmployeEditorDialog(...)
+            activate EmployeEditorPane
+            EmployeEditorPane -> EmployeEditorPaneController : disyloyDialog(...)
+            activate EmployeEditorPaneController
+            EmployeEditorPaneController ->EmployeEditorPane : Employe
+            deactivate EmployeEditorPaneController
+
+            EmployeEditorPane -> EmployeManagement : Employe
+            deactivate EmployeEditorPane
+
+        EmployeManagement -> Acces_BD_Employe : insertEmploye(...)
+        activate Acces_BD_Employe
+        Acces_BD_Employe -> EmployeManagement : void
+        deactivate Acces_BD_Employe
+
+    deactivate EmployeManagement
+EmployeManagement -> EmployeManagementController :void
+
+
+
+
+@enduml
